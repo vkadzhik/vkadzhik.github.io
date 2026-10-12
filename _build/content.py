@@ -51,6 +51,7 @@ IMG = {
  "vesta-flow": ("1aae9b71-1426-4c8b-b943-71e803b548a5", 2000, 1057),
  "vesta-hand": ("23f5b7af-4619-4caa-a48a-ef69f697be83", 880, 1168),
  "vesta-more": ("fa1b1d26-86c4-48b7-b4db-6a5c593ea30c", 1740, 1808),
+ "mirra-poster": ("f932e230-fcb6-4569-8f0f-10610bb6747f", 720, 1280),
 }
 
 MIRRA_VIDEO = CDN + "fd3609c2-e729-4c12-b42a-c69fd3d07c31.mp4"
@@ -489,7 +490,7 @@ CASES.append({
  "links": [],
  "sections": [
   (("Ролик", "The ad"), [
-    ("video", MIRRA_VIDEO, "mirra-cover", ("Со звуком лучше, но субтитры рассказывают историю и без него", "Better with sound, but the captions carry the story without it")),
+    ("video", MIRRA_VIDEO, "mirra-poster", ("Со звуком лучше, но субтитры рассказывают историю и без него", "Better with sound, but the captions carry the story without it")),
   ]),
   (("Идея", "Insight"), [
     ("p", ("Аудитория — 18–28 лет, делятся смешным в групповых чатах. Самый вирусный момент с AI-аватаром — когда человек не узнаёт себя: «подожди… это не я». Поэтому ролик начинается с реакции, а приложение появляется, когда зритель уже заинтересован.",

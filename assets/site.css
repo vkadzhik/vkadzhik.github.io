@@ -138,8 +138,8 @@ html[data-lang="ru"] .l-en,html[data-lang="en"] .l-ru{display:none !important}
 .cs__h::before{content:"";display:block;width:24px;height:3px;border-radius:2px;background:var(--c);margin-bottom:16px}
 .cs__body{min-width:0}
 .cs__body>p{max-width:68ch;font-size:18px}
-.cs__body>*+*{margin-top:28px}
-.cs__body>p+p{margin-top:0}
+.cs .cs__body>*+*{margin-top:32px}
+.cs .cs__body>p+p{margin-top:0}
 .list{margin:0;padding-left:0;list-style:none;max-width:68ch;display:grid;gap:14px}
 .list li{padding-left:24px;position:relative}
 ul.list li::before{content:"";position:absolute;left:2px;top:.68em;width:8px;height:8px;border-radius:2px;background:var(--c)}
