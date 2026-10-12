@@ -154,7 +154,7 @@ def build_home():
         href = f"cases/{c['slug']}.html"
         rows.append(f"""
     <li class="case" style="--c:{c['color']}">
-      <a class="case__img" href="{href}" tabindex="-1" aria-hidden="true">{img(c['cover'], c['name'], sizes='(min-width: 900px) 60vw, 100vw', zoom=False)}</a>
+      <a class="case__img{' case__img--contain' if c.get('fit')=='contain' else ''}" href="{href}" tabindex="-1" aria-hidden="true">{img(c['cover'], c['name'], sizes='(min-width: 900px) 60vw, 100vw', zoom=False)}</a>
       <div class="case__txt">
         <p class="case__kind"><span class="swatch" aria-hidden="true"></span>{T(c['kind'])}</p>
         <h3 class="case__name"><a href="{href}">{T(c['name'])}</a></h3>

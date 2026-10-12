@@ -433,6 +433,7 @@ CASES.append({
    "10 креативов для пяти кампаний казино ORBIT в шести каналах: сайт, лобби, соцсети, сторис, пуши и email. Тот же визуальный язык, что и в продукте, плюс анимированные баннеры.",
    "10 creatives for five ORBIT casino campaigns across six channels: website, lobby, social, stories, push and email. The same visual language as the product, plus animated banners."),
  "cover": "promo-hero",
+ "fit": "contain",
  "facts": [
    (("Роль", "Role"), ("Дизайнер: концепции, тексты, макеты, арт-дирекшн", "Designer: concepts, copy, layout, art direction")),
    (("Кампании", "Campaigns"), ("Приветственный бонус, турнир, кэшбэк, фриспины, джекпот", "Welcome bonus, tournament, cashback, free spins, jackpot")),

@@ -53,17 +53,16 @@ html[data-lang="ru"] .l-en,html[data-lang="en"] .l-ru{display:none !important}
 .ico{width:16px;height:16px;flex:none}
 
 /* hero */
-.hero{padding:clamp(48px,9vw,120px) 0 0}
+.hero{padding:clamp(40px,7vw,96px) 0 0}
 .hero__status{display:inline-flex;align-items:center;gap:10px;color:var(--mute);font-size:15px;margin-bottom:28px}
 .pulse{width:8px;height:8px;border-radius:50%;background:#5BE49B;box-shadow:0 0 0 0 rgba(91,228,155,.5);animation:pulse 2.4s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(91,228,155,0)}100%{box-shadow:0 0 0 0 rgba(91,228,155,0)}}
-.hero__h{font-size:clamp(38px,6.4vw,88px);font-weight:700;letter-spacing:-.04em;line-height:1.02;max-width:15ch}
-html[data-lang="en"] .hero__h{max-width:17ch}
-.hero__lead{font-size:clamp(18px,1.6vw,21px);color:var(--mute);max-width:56ch;margin:28px 0 36px}
+.hero__h{font-size:clamp(36px,5.3vw,76px);font-weight:700;letter-spacing:-.04em;line-height:1.03;max-width:19ch}
+.hero__lead{font-size:clamp(18px,1.6vw,21px);color:var(--mute);max-width:56ch;margin:24px 0 32px}
 .hero__cta{display:flex;flex-wrap:wrap;gap:12px}
 
 /* wall of real screens */
-.wall{margin-top:clamp(56px,8vw,96px);padding-left:max(var(--pad),calc((100vw - 1280px)/2 + var(--pad)));overflow:hidden}
+.wall{margin-top:clamp(48px,6vw,80px);padding-left:max(var(--pad),calc((100vw - 1280px)/2 + var(--pad)));overflow:hidden}
 .wall__track{display:flex;gap:16px;height:clamp(240px,30vw,420px);animation:wall-in 1.1s cubic-bezier(.2,.7,.2,1) both .15s}
 .wall__tile{flex:none;height:100%;border-radius:10px;overflow:hidden;border:1px solid var(--rule);background:var(--panel)}
 .wall__tile img{width:100%;height:100%;object-fit:cover;object-position:top left}
@@ -87,6 +86,8 @@ html[data-lang="en"] .hero__h{max-width:17ch}
 .case__img{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--rule);aspect-ratio:16/10;background:var(--panel)}
 .case__img img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
 .case:hover .case__img img{transform:scale(1.025)}
+.case__img--contain{background:#0B0E22}
+.case__img--contain img{object-fit:contain;object-position:center}
 .case__kind{display:flex;align-items:center;gap:10px;color:var(--mute);font-size:15px;margin:0 0 14px}
 .swatch{width:10px;height:10px;border-radius:3px;background:var(--c);flex:none}
 .case__name{font-size:clamp(34px,4vw,56px);letter-spacing:-.035em;margin-bottom:18px}
