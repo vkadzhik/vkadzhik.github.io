@@ -36,7 +36,7 @@ ARROW_OUT = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M5
 
 def head(title, desc, path, image=None, depth=0):
     pre = "../" * depth
-    og = image or (SITE + "/og.png")
+    og = image or (CDN + "debfb55d-a26d-4d68-a0da-c565573b01d1.png")
     return f"""<!doctype html>
 <html lang="ru" data-lang="ru">
 <head>
