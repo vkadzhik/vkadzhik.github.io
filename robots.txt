@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://vkadzhik.github.io/sitemap.xml
+Sitemap: https://vkadzhik.ru/sitemap.xml
