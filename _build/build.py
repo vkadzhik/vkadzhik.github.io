@@ -23,10 +23,11 @@ def src(name):
     return CDN + IMG[name][0] + ".png"
 
 
-def img(name, alt, cls="", eager=False, sizes="100vw", zoom=True):
+def img(name, alt, cls="", eager=False, sizes="100vw", zoom=True, vt=None):
     _, w, h = IMG[name]
     load = 'fetchpriority="high"' if eager else 'loading="lazy"'
     z = ' data-zoom' if zoom else ''
+    if vt: z += f' style="view-transition-name:{vt}"'
     return (f'<img class="{cls}" src="{src(name)}" width="{w}" height="{h}" {load} decoding="async" '
             f'alt="{e(alt[0])}" data-alt-ru="{e(alt[0])}" data-alt-en="{e(alt[1])}" sizes="{sizes}"{z}>')
 
@@ -63,6 +64,7 @@ def head(title, desc, path, image=None, depth=0):
 <meta name="x-title-ru" content="{e(title[0])}"><meta name="x-title-en" content="{e(title[1])}">
 </head>
 <body>
+<script>document.documentElement.classList.add("js")</script>
 <a class="skip" href="#main">{T(("Перейти к содержанию", "Skip to content"))}</a>
 """
 
@@ -93,10 +95,11 @@ def footer(depth=0):
     pre = "../" * depth
     return f"""<footer class="foot">
   <div class="wrap foot__in">
-    <p>{T(("Каджик Варданян, 2026. Все проекты — самостоятельные концепты.", "Kadzhik Vardanyan, 2026. All projects are self-initiated concepts."))}</p>
+    <p>{T(("Каджик Варданян, 2026. В файлах Figma открыты отдельные фрагменты, полные версии покажу по запросу.", "Kadzhik Vardanyan, 2026. The Figma files show selected parts; full versions are available on request."))}</p>
     <p class="foot__links"><a href="{CONTACT['telegram']}">Telegram</a><a href="mailto:{CONTACT['email']}">{CONTACT['email']}</a><a href="{CONTACT['github']}">GitHub</a></p>
   </div>
 </footer>
+<div class="pill" aria-hidden="true">{T(("Открыть кейс", "Open the case"))}</div>
 <dialog class="zoom" aria-label="Image">
   <button type="button" class="zoom__close" data-close>{T(("Закрыть", "Close"))}</button>
   <img alt="">
@@ -138,7 +141,6 @@ def build_home():
     out.append(f"""
 <section class="hero">
   <div class="wrap">
-    <p class="hero__status"><span class="pulse" aria-hidden="true"></span>{T(HOME['status'])}</p>
     <h1 class="hero__h">{T(HOME['hero'])}</h1>
     <p class="hero__lead">{T(HOME['lead'])}</p>
     <div class="hero__cta">
@@ -153,8 +155,8 @@ def build_home():
     for i, c in enumerate(CASES):
         href = f"cases/{c['slug']}.html"
         rows.append(f"""
-    <li class="case" style="--c:{c['color']}">
-      <a class="case__img{' case__img--contain' if c.get('fit')=='contain' else ''}" href="{href}" tabindex="-1" aria-hidden="true">{img(c['cover'], c['name'], sizes='(min-width: 900px) 60vw, 100vw', zoom=False)}</a>
+    <li class="case reveal" style="--c:{c['color']}">
+      <a class="case__img{' case__img--contain' if c.get('fit')=='contain' else ''}" href="{href}" tabindex="-1" aria-hidden="true">{img(c['cover'], c['name'], sizes='(min-width: 900px) 60vw, 100vw', zoom=False, vt='cover-'+c['slug'])}</a>
       <div class="case__txt">
         <p class="case__kind"><span class="swatch" aria-hidden="true"></span>{T(c['kind'])}</p>
         <h3 class="case__name"><a href="{href}">{T(c['name'])}</a></h3>
@@ -174,7 +176,7 @@ def build_home():
   </div>
 </section>
 """)
-    caps = "".join(f'<li class="cap"><h3 class="cap__h">{T(h)}</h3><p>{T(p)}</p></li>' for h, p in CAPABILITIES)
+    caps = "".join(f'<li class="cap reveal"><h3 class="cap__h">{T(h)}</h3><p>{T(p)}</p></li>' for h, p in CAPABILITIES)
     how = "".join(f'<li>{T(p)}</li>' for p in HOW)
     out.append(f"""
 <section class="about" id="about" aria-labelledby="about-h">
@@ -210,10 +212,10 @@ def block(b):
         return '<dl class="defs">' + "".join(f'<div><dt>{T(t)}</dt><dd>{T(d)}</dd></div>' for t, d in b[1]) + "</dl>"
     if k == "img":
         _, name, cap, size = b
-        return f'<figure class="fig fig--{size}">{img(name, cap)}<figcaption>{T(cap)}</figcaption></figure>'
+        return f'<figure class="fig fig--{size} reveal">{img(name, cap)}<figcaption>{T(cap)}</figcaption></figure>'
     if k == "grid":
         _, items, cols = b
-        figs = "".join(f'<figure class="fig">{img(n, cap, sizes="50vw")}<figcaption>{T(cap)}</figcaption></figure>' for n, cap in items)
+        figs = "".join(f'<figure class="fig reveal">{img(n, cap, sizes="50vw")}<figcaption>{T(cap)}</figcaption></figure>' for n, cap in items)
         return f'<div class="figs figs--{cols}">{figs}</div>'
     if k == "video":
         _, vsrc, poster, cap = b
@@ -231,7 +233,7 @@ def build_case(i, c):
     secs = []
     for j, (h, blocks) in enumerate(c["sections"]):
         sid = f"s{j+1}"
-        secs.append(f'<section class="cs" aria-labelledby="{sid}"><h2 class="cs__h" id="{sid}">{T(h)}</h2><div class="cs__body">'
+        secs.append(f'<section class="cs reveal" aria-labelledby="{sid}"><h2 class="cs__h" id="{sid}">{T(h)}</h2><div class="cs__body">'
                     + "".join(block(b) for b in blocks) + "</div></section>")
     out.append(f"""<main id="main" class="case-page" style="--c:{c['color']}">
 <article>
@@ -243,9 +245,10 @@ def build_case(i, c):
       <p class="ch__lead">{T(c['summary'])}</p>
       <dl class="facts">{facts}</dl>
       {f'<div class="ch__links">{links}</div>' if links else ''}
+      {'<p class="ch__note">' + T(("В Figma открыты отдельные фрагменты проекта. Полную версию покажу по запросу.", "The Figma file shows selected parts of the project. The full version is available on request.")) + '</p>' if any('figma.com' in u for _, u in c['links']) else ''}
     </header>
   </div>
-  <div class="wrap wrap--wide"><figure class="cover">{img(c['cover'], c['name'], eager=True)}</figure></div>
+  <div class="wrap wrap--wide"><figure class="cover">{img(c['cover'], c['name'], eager=True, vt='cover-'+c['slug'])}</figure></div>
   <div class="wrap">{''.join(secs)}</div>
 </article>
 <nav class="next wrap" aria-label="Next case" style="--c:{nxt['color']}">
