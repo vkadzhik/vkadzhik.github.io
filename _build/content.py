@@ -112,8 +112,6 @@ HOW = [
      "I build the system first: variables, styles, components. Screens are then assembled from instances, not redrawn."),
     ("Пользуюсь AI-инструментами: для сводки по конкурентам, генерации иллюстраций и видео. Каждое решение и каждый кадр проверяю и отбираю сам.",
      "I use AI tools for competitor summaries, illustration and video generation. I review and select every decision and every frame myself."),
-    ("Все проекты здесь — самостоятельные концепты: без заказчика, но сделаны как продукт, с исследованием, состояниями и планом проверки.",
-     "Every project here is a self-initiated concept: no client, but built as a product, with research, states and a validation plan."),
 ]
 
 # ---------------------------------------------------------------- cases
