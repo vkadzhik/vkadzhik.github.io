@@ -336,6 +336,7 @@ function renderSlip() {
   const total = items.reduce((p, i) => p * i.odd, 1);
   const el = $("#slip");
   el.classList.toggle("is-open", S.slipOpen);
+  $("#scrim").classList.toggle("is-on", S.slipOpen);
   const head = `<div class="slip__h"><h2>Купон ${n ? `<span class="pill">${n}</span>` : ""}</h2>
     ${n ? '<button class="link" data-act="clear">Очистить</button>' : ""}<button class="iconbtn slip__close" data-act="slip-close" aria-label="Свернуть купон">${icon("x", 18)}</button></div>`;
   if (!n) {

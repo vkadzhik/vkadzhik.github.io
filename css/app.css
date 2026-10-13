@@ -184,12 +184,15 @@ button.odd.is-on:hover{background:var(--accent-hover);border-color:var(--accent-
 .slip__note{margin:0;text-align:center;font:var(--type-caption);color:var(--text-tertiary)}
 
 .slipbar{display:none}
+.scrim{display:none}
 .toast{position:fixed;left:50%;bottom:var(--space-24);transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--bg-inverse);color:var(--bg-canvas);padding:var(--space-12) var(--space-16);border-radius:var(--radius-lg);font:var(--type-body-m-medium);transition:.25s;z-index:50}
 .toast.is-on{opacity:1;transform:translate(-50%,0)}
 
 @keyframes shimmer{to{background-position:-200% 0}}
 @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--status-danger) 55%,transparent)}100%{box-shadow:0 0 0 7px transparent}}
 @keyframes blink{50%{opacity:.3}}
+@keyframes sheetIn{from{transform:translateY(24px);opacity:0}}
+@keyframes fadeIn{from{opacity:0}}
 @keyframes flashUp{0%{background:var(--status-success-soft);border-color:var(--status-success)}}
 @keyframes flashDown{0%{background:var(--status-danger-soft);border-color:var(--status-danger)}}
 
@@ -197,7 +200,8 @@ button.odd.is-on:hover{background:var(--accent-hover);border-color:var(--accent-
 @media (max-width:1180px){
   .layout{grid-template-columns:200px minmax(0,1fr)}
   .slip{display:none;position:fixed;inset:auto 0 0 0;top:auto;max-height:82vh;border-radius:var(--radius-xl) var(--radius-xl) 0 0;z-index:40;box-shadow:0 -12px 40px rgb(0 0 0 / .3)}
-  .slip.is-open{display:flex}
+  .slip.is-open{display:flex;animation:sheetIn .22s ease-out}
+  .scrim.is-on{display:block;position:fixed;inset:0;z-index:35;background:rgb(0 0 0 / .45);animation:fadeIn .2s}
   .slip__close{display:grid}
   .slipbar{position:fixed;left:var(--space-16);right:var(--space-16);bottom:var(--space-16);z-index:30;display:flex;align-items:center;gap:var(--space-8);height:52px;padding:0 var(--space-16);border-radius:var(--radius-lg);background:var(--accent-default);color:var(--text-on-accent);font:var(--type-body-m-medium);box-shadow:0 8px 24px rgb(0 0 0 / .25)}
   .slipbar[hidden]{display:none}
@@ -219,8 +223,9 @@ button.odd.is-on:hover{background:var(--accent-hover);border-color:var(--accent-
   .toolbar{gap:var(--space-8)}
   .days{width:100%}
   .days button{flex:1;min-width:0}
-  .seg--status{width:100%;flex-wrap:nowrap}
-  .seg--status button{flex:1;justify-content:center;padding:0 var(--space-6)}
+  .seg--status{width:100%;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .seg--status::-webkit-scrollbar{display:none}
+  .seg--status button{flex:1 0 auto;justify-content:center;padding:0 var(--space-8)}
   .search{margin:0 0 var(--space-12)}
   .lg__cols{display:none}
   .lg__r{display:none}
