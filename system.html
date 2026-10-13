@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Арена · Дизайн-система</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b9ee3a'/%3E%3Cpath d='M9 22 16 9l7 13' fill='none' stroke='%230b0e13' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/system.css">
+<script>try{var t=localStorage.getItem("arena-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="./" aria-label="Арена Live">
+    <span class="brand__mark" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 32 32"><path d="M9 22 16 9l7 13" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <span>Арена <b>Система</b></span>
+  </a>
+  <div class="top__actions">
+    <a class="btn btn--ghost" href="./">← Виджет</a>
+    <button class="iconbtn" id="theme" aria-label="Сменить тему"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></button>
+  </div>
+</header>
+
+<div class="doc">
+  <nav class="toc" aria-label="Разделы">
+    <a href="#pipeline">Из Figma в код</a>
+    <a href="#color">Цвет</a>
+    <a href="#type">Типографика</a>
+    <a href="#size">Отступы и скругления</a>
+    <a href="#odds">Кнопка коэффициента</a>
+    <a href="#row">Строка события</a>
+    <a href="#feedback">Обратная связь</a>
+    <a href="#rules">Правила</a>
+  </nav>
+
+  <main class="doc__main">
+    <section class="hero">
+      <div class="overline">Дизайн-система Арены</div>
+      <h1>Одни токены для макета и для кода</h1>
+      <p>Переменные из Figma-файла Арены выгружаются в JSON и превращаются в CSS-переменные. На них собран виджет «Арена Live»: в его стилях нет ни одного «голого» цвета или размера. Светлая и тёмная тема — это два режима одной коллекции, как и в Figma.</p>
+    </section>
+
+    <section id="pipeline" class="sec">
+      <h2>Из Figma в код</h2>
+      <ol class="flow">
+        <li><b>Figma Variables</b><span>Primitives · 43<br>Theme · 27 × 2 режима<br>Size · 18<br>Текстовые стили · 12</span></li>
+        <li><b>figma-export.json</b><span>Выгрузка через Plugin API: имена, режимы, алиасы</span></li>
+        <li><b>tokens/build.mjs</b><span>Разворачивает алиасы, собирает темы</span></li>
+        <li><b>tokens.css + design-tokens.json</b><span>CSS-переменные и формат W3C DTCG для разработки</span></li>
+      </ol>
+      <pre class="code"><code>/* Theme → Light */            /* Theme → Dark */
+--bg-surface: var(--neutral-0);   --bg-surface: var(--neutral-900);
+--accent-default: var(--blue-600); --accent-default: var(--blue-500);</code></pre>
+      <p class="note">Семантические токены ссылаются на примитивы, а не на HEX. Поменяли оттенок синего в Figma — обновился и макет, и виджет, без поиска по стилям.</p>
+    </section>
+
+    <section id="color" class="sec">
+      <h2>Цвет</h2>
+      <p class="lead">Семантические токены темы. Левая половина плашки — светлый режим, правая — тёмный.</p>
+      <div class="sw-grid" id="theme-tokens"></div>
+      <h3>Примитивы</h3>
+      <div id="primitives"></div>
+    </section>
+
+    <section id="type" class="sec">
+      <h2>Типографика</h2>
+      <p class="lead">Onest, 12 стилей. В коде — шорткат <code>font: var(--type-body-m)</code>, трекинг отдельной переменной.</p>
+      <div class="type" id="type-list"></div>
+    </section>
+
+    <section id="size" class="sec">
+      <h2>Отступы и скругления</h2>
+      <div class="sizes" id="space-list"></div>
+      <div class="radii" id="radius-list"></div>
+    </section>
+
+    <section id="odds" class="sec">
+      <h2>Кнопка коэффициента</h2>
+      <p class="lead">Главный элемент виджета. Высота 44 px — удобная цель для пальца, значение всегда с двумя знаками после запятой, чтобы цифры не прыгали.</p>
+      <div class="specimen">
+        <figure><div class="ev__odds" style="grid-template-columns:68px"><button class="odd" tabindex="-1"><small>П1</small><b>2.15</b></button></div><figcaption>По умолчанию</figcaption></figure>
+        <figure><div class="ev__odds" style="grid-template-columns:68px"><button class="odd is-hover" tabindex="-1"><small>П1</small><b>2.15</b></button></div><figcaption>Наведение</figcaption></figure>
+        <figure><div class="ev__odds" style="grid-template-columns:68px"><button class="odd is-on" tabindex="-1"><small>П1</small><b>2.15</b></button></div><figcaption>В купоне</figcaption></figure>
+        <figure><div class="ev__odds" style="grid-template-columns:68px"><button class="odd is-up still" tabindex="-1"><small>П1</small><b>2.30</b><i class="mv"><svg width="12" height="12" viewBox="0 0 16 16"><path d="m4 9 4-4 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></div><figcaption>Вырос</figcaption></figure>
+        <figure><div class="ev__odds" style="grid-template-columns:68px"><button class="odd is-down still" tabindex="-1"><small>П1</small><b>1.95</b><i class="mv"><svg width="12" height="12" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></div><figcaption>Снизился</figcaption></figure>
+        <figure><div class="ev__odds" style="grid-template-columns:68px"><span class="odd odd--lock"><small>П1</small><svg width="14" height="14" viewBox="0 0 24 24"><rect x="6" y="11" width="12" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 11V8a3 3 0 0 1 6 0v3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></div><figcaption>Приём приостановлен</figcaption></figure>
+        <figure><div class="ev__odds" style="grid-template-columns:68px"><span class="odd odd--off"><small>П1</small>—</span></div><figcaption>Матч завершён</figcaption></figure>
+      </div>
+      <dl class="rules">
+        <dt>Движение линии</dt><dd>Стрелка показывает изменение относительно того, что пользователь уже видел в этой сессии, и держится 15 секунд. Сравнение с линией открытия из API отброшено: она бывает многодневной давности, и стрелки стояли почти на каждой кнопке.</dd>
+        <dt>Цвет стрелки</dt><dd><code>status/success</code> — рост, <code>status/danger</code> — снижение. В выбранной кнопке стрелка берёт <code>text/on-accent</code>, чтобы не спорить с фоном.</dd>
+        <dt>Заблокировано</dt><dd>Пунктирная рамка без фона: кнопка не выглядит нажимаемой, но место в сетке сохраняется — строки не «прыгают», когда приём ставок возобновится.</dd>
+      </dl>
+    </section>
+
+    <section id="row" class="sec">
+      <h2>Строка события</h2>
+      <div class="lg demo-lg" id="row-demo"></div>
+      <dl class="rules">
+        <dt>Статус слева</dt><dd>Время начала, минута матча или «Перерыв». Live всегда <code>status/danger</code> и плашка LIVE — дублируем цвет формой, чтобы статус читался и без цвета.</dd>
+        <dt>Длинные названия</dt><dd>Обрезаются многоточием, полное имя — в подсказке. Счёт и коэффициенты не сдвигаются.</dd>
+        <dt>Нет логотипа</dt><dd>Кружок с аббревиатурой, тонированный цветом клуба из API. Если картинка не загрузилась — подменяется тем же кружком.</dd>
+        <dt>Завершён</dt><dd>Победитель — полужирным, проигравший — <code>text/tertiary</code>. Коэффициенты гаснут.</dd>
+        <dt>Мобильная версия</dt><dd>Строка складывается в карточку: статус сверху, команды, затем три кнопки на всю ширину.</dd>
+      </dl>
+    </section>
+
+    <section id="feedback" class="sec">
+      <h2>Обратная связь</h2>
+      <div class="fb">
+        <div class="banner banner--warn"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a4.5 4.5 0 0 1-.5-9A6 6 0 0 1 18 9.5a4.3 4.3 0 0 1-.5 8.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m4 4 16 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><div><b>Не все лиги загрузились: НХЛ.</b> Остальные события показаны.</div><button class="btn btn--sm" tabindex="-1">Повторить</button></div>
+        <div class="banner banner--info"><div><b>Это сохранённые данные.</b> Счёт и коэффициенты не обновляются.</div><button class="btn btn--sm" tabindex="-1">Подключиться снова</button></div>
+        <div class="it has-w demo-it"><div class="it__ev">Arsenal — Lille</div><div class="it__out"><span>П1 · Arsenal</span><b>1.08</b></div><div class="it__w">Коэффициент изменился: 1.21 → <b>1.08</b></div></div>
+        <div class="srcs">
+          <span class="top__src"><span class="dot dot--ok"></span>ESPN · обновлено в 20:31:05</span>
+          <span class="top__src"><span class="dot dot--warn"></span>Не удалось обновить · данные от 20:31</span>
+          <span class="top__src"><span class="dot dot--bad"></span>Нет связи с источником</span>
+        </div>
+      </div>
+      <dl class="rules">
+        <dt>Ошибка частичная и полная</dt><dd>Если упала одна лига, остальные показываем и говорим, какой нет. Если не ответил весь источник — экран ошибки с повтором и сохранёнными данными.</dd>
+        <dt>Не удалось обновить</dt><dd>Данные уже на экране не стираем: меняем индикатор источника на жёлтый и пишем время последнего успешного обновления.</dd>
+        <dt>Коэффициент в купоне изменился</dt><dd>Кнопка «Сделать ставку» превращается в «Принять изменения». Ставка по старому коэффициенту без согласия пользователя невозможна.</dd>
+      </dl>
+    </section>
+
+    <section id="rules" class="sec">
+      <h2>Правила</h2>
+      <dl class="rules">
+        <dt>Только токены</dt><dd>В CSS виджета нет HEX-значений и «магических» отступов — всё через переменные из <code>tokens.css</code>. Исключение — тени и затемнение фона под нижней панелью.</dd>
+        <dt>Лайм — только бренд</dt><dd><code>highlight/default</code> используется для знака Арены. Для статусов и действий у него нет смысла, иначе пользователь начнёт искать в нём значение.</dd>
+        <dt>Синий — действие и выбор</dt><dd><code>accent/default</code> — основные кнопки и выбранный коэффициент. Выбранная строка подсвечивается <code>bg/row-selected</code>.</dd>
+        <dt>Цифры не прыгают</dt><dd>Табличные цифры (<code>tnum</code>) во всём интерфейсе, фиксированная ширина колонок коэффициентов.</dd>
+        <dt>Время — местное</dt><dd>API отдаёт дни по времени Нью-Йорка. Виджет запрашивает два соседних дня и сам раскладывает события по дням в часовом поясе пользователя.</dd>
+      </dl>
+    </section>
+  </main>
+</div>
+<script type="module" src="js/system.js"></script>
+</body>
+</html>
