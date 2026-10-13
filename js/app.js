@@ -218,6 +218,10 @@ function renderSports() {
 }
 
 function renderDays() {
+  if (S.source === "snapshot") {
+    $("#days").innerHTML = `<button role="tab" aria-selected="true"><span>Снимок</span><small>${fmtDay(S.snapshotAt)}</small></button>`;
+    return;
+  }
   const names = { "-1": "Вчера", "0": "Сегодня", "1": "Завтра" };
   $("#days").innerHTML = [-1, 0, 1].map(o => `<button role="tab" aria-selected="${S.day === o}" data-day="${o}"${S.source === "snapshot" && o !== 0 ? " disabled" : ""}>
     <span>${names[o]}</span><small>${fmtDay(dayStart(o))}</small></button>`).join("");
