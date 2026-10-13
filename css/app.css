@@ -116,6 +116,10 @@ h2{margin:0}
 .ev__teams{display:flex;flex-direction:column;gap:var(--space-6);min-width:0}
 .team{display:flex;align-items:center;gap:var(--space-8);min-width:0;height:22px}
 .team img,.logo{width:20px;height:20px;flex:none;object-fit:contain}
+.lgo-d{display:none!important}
+[data-theme="dark"] .lgo-d{display:block!important}
+[data-theme="dark"] .lgo-l:not(.lgo-any){display:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lgo-d{display:block!important}:root:not([data-theme="light"]) .lgo-l:not(.lgo-any){display:none}}
 .logo--ini{border-radius:50%;background:color-mix(in srgb,var(--tc,var(--text-tertiary)) 22%,var(--bg-surface-2));color:var(--text-secondary);font-size:8px;font-weight:700;display:grid;place-items:center;letter-spacing:-.02em}
 .team__n{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:var(--type-body-m)}
 .team__s{font:var(--type-body-m-medium);min-width:24px;text-align:right}

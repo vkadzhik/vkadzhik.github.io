@@ -248,8 +248,12 @@ function renderBanner() {
 function teamLine(t, e, side) {
   const won = e.state === "post" && t.winner, lost = e.state === "post" && !t.winner && (e.home.winner || e.away.winner);
   const ini = (t.abbr || t.name).slice(0, 3);
-  const logo = t.logo ? `<img src="${esc(t.logo)}" alt="" width="20" height="20" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo logo--ini',textContent:'${esc(ini)}'}))">`
-                      : `<span class="logo logo--ini"${t.color ? ` style="--tc:${esc(t.color)}"` : ""}>${esc(ini)}</span>`;
+  // ESPN ships a separate dark-background version of most logos; without it dark crests vanish in the dark theme
+  const dark = t.logo.includes("/500/") ? t.logo.replace("/500/", "/500-dark/") : "";
+  const fallback = `this.replaceWith(Object.assign(document.createElement('span'),{className:'logo logo--ini',textContent:'${esc(ini)}'}))`;
+  const logo = t.logo ? `<img class="lgo-l" src="${esc(t.logo)}" alt="" width="20" height="20" loading="lazy" onerror="${fallback}">` +
+      (dark ? `<img class="lgo-d" src="${esc(dark)}" alt="" width="20" height="20" loading="lazy" onerror="this.previousElementSibling&&this.previousElementSibling.classList.add('lgo-any');this.remove()">` : "")
+    : `<span class="logo logo--ini"${t.color ? ` style="--tc:${esc(t.color)}"` : ""}>${esc(ini)}</span>`;
   const score = e.state === "pre" ? "" : esc(t.score);
   return `<div class="team${won ? " is-won" : ""}${lost ? " is-lost" : ""}">${logo}<span class="team__n" title="${esc(t.name)}">${esc(t.name)}</span><span class="team__s">${score}</span></div>`;
 }
