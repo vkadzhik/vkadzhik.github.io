@@ -169,7 +169,7 @@ def build_home():
   <div class="wrap">
     <div class="sec-head">
       <h2 id="work-h" class="sec-h">{T(("Работы", "Work"))}</h2>
-      <p class="sec-sub">{T(("Шесть кейсов: от B2B-кабинета с таблицами до видеорекламы. В каждом — задача, решения и экраны.", "Six cases, from a B2B app with complex tables to a video ad. Each shows the problem, the decisions and the screens."))}</p>
+      <p class="sec-sub">{T(("Семь кейсов: от B2B-кабинета с таблицами до виджета на живых данных и видеорекламы. В каждом — задача, решения и экраны.", "Seven cases, from a B2B app with complex tables to a widget on live data and a video ad. Each shows the problem, the decisions and the screens."))}</p>
     </div>
     <ol class="cases">{''.join(rows)}
     </ol>

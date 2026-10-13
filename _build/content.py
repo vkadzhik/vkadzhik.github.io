@@ -52,6 +52,14 @@ IMG = {
  "vesta-hand": ("23f5b7af-4619-4caa-a48a-ef69f697be83", 880, 1168),
  "vesta-more": ("fa1b1d26-86c4-48b7-b4db-6a5c593ea30c", 1740, 1808),
  "mirra-poster": ("f932e230-fcb6-4569-8f0f-10610bb6747f", 720, 1280),
+ "live-cover": ("f76a7f82-3a1f-401a-aa1e-22a0c9785b9d", 1920, 1080),
+ "live-desk-dark": ("e4183bd9-0d36-4df1-b0f6-c1c94763da1f", 2000, 1250),
+ "live-desk-light": ("d5ff7c22-8652-4a99-8d28-f5e0ac204627", 2000, 1250),
+ "live-mobile": ("db51bf80-bae8-4e5d-a4bb-22d6347a601f", 2000, 1400),
+ "live-states": ("1af34cff-86a7-49d3-bf24-2f8b24417ba1", 2000, 1014),
+ "live-moving": ("fa55793b-4e70-44e1-8b2c-718ae0abb9e8", 2000, 872),
+ "live-odds": ("b59c6be6-fffe-4df7-bb52-f57719c3b757", 1808, 960),
+ "live-pipeline": ("89af4d7b-fb4b-439a-8499-8d90899e9b9e", 1808, 856),
 }
 
 MIRRA_VIDEO = CDN + "fd3609c2-e729-4c12-b42a-c69fd3d07c31.mp4"
@@ -225,6 +233,82 @@ CASES.append({
       ("После запуска: доля заявок, возвращённых федерацией; время от открытия приёма до подачи; число спортсменов, не допущенных из-за медосмотра.",
        "After launch: the share of entries sent back by the federation, time from opening to submission, athletes not admitted because of a medical."),
     ]),
+  ]),
+ ],
+})
+
+CASES.append({
+ "slug": "arena-live",
+ "color": "#B9EE3A",
+ "name": ("Арена Live", "Arena Live"),
+ "kind": ("Виджет спортивных событий на живых данных", "Live sports widget on real data"),
+ "summary": (
+   "Беттинг-виджет на реальных матчах: live-счёт, коэффициенты, фильтры и купон. Собран в коде на токенах дизайн-системы Арены, выгруженных из Figma, и проверен на том, где интерфейс ломается от настоящих данных.",
+   "A betting widget on real matches: live scores, odds, filters and a bet slip. Built in code on the Arena design tokens exported from Figma, and tested against where real data breaks the interface."),
+ "cover": "live-cover",
+ "facts": [
+   (("Роль", "Role"), ("Дизайнер: сценарии, состояния, интерфейс, проверка на данных", "Designer: flows, states, UI, testing on real data")),
+   (("Тип", "Type"), ("Работающий концепт на публичном API", "Working concept on a public API")),
+   (("Платформа", "Platform"), ("Веб 1440, планшет, мобильный 390, светлая и тёмная тема", "Web 1440, tablet, mobile 390, light and dark")),
+   (("Данные", "Data"), ("ESPN: 12 лиг, футбол, хоккей, баскетбол, американский футбол, бейсбол", "ESPN: 12 leagues across football, hockey, basketball, American football, baseball")),
+   (("Инструменты", "Tools"), ("Figma Variables, HTML/CSS/JS с AI-ассистентом", "Figma Variables, HTML/CSS/JS, AI-assisted")),
+ ],
+ "links": [
+   (("Открыть виджет", "Open the widget"), "/arena-live/"),
+   (("Дизайн-система в коде", "Design system in code"), "/arena-live/system.html"),
+ ],
+ "sections": [
+  (("Задача", "The problem"), [
+    ("p", ("Арену я проектировал как кабинет спортивной школы. Хотел проверить две вещи: выдержит ли её дизайн-система совсем другой продукт и как макет переживёт настоящие данные. Беттинг-виджет — самый требовательный вариант: счёт меняется каждую минуту, коэффициенты двигаются, лиги отваливаются, а названия команд бывают любой длины.",
+           "I designed Arena as a web app for a sports school. I wanted to test two things: whether its design system holds up in a very different product, and how a layout survives real data. A betting widget is the hardest case: scores change every minute, odds move, leagues drop out and team names come in any length.")),
+  ]),
+  (("Из Figma в код", "From Figma to code"), [
+    ("p", ("Переменные Арены выгружены из Figma: 43 примитива, 27 семантических токенов в двух режимах, 18 размеров и 12 текстовых стилей. Скрипт превращает их в CSS-переменные и JSON в формате W3C. В стилях виджета нет ни одного цвета или отступа вне токенов, а тёмная тема — это второй режим той же коллекции, как и в Figma.",
+           "Arena's variables are exported from Figma: 43 primitives, 27 semantic tokens in two modes, 18 sizes and 12 text styles. A script turns them into CSS variables and W3C-format JSON. The widget's styles contain no colour or spacing outside the tokens, and the dark theme is the second mode of the same collection, exactly as in Figma.")),
+    ("img", "live-pipeline", ("Путь токена: Figma Variables → выгрузка → сборка → CSS", "A token's path: Figma Variables → export → build → CSS"), "wide"),
+  ]),
+  (("Виджет", "The widget"), [
+    ("img", "live-desk-dark", ("Live-матчи НХЛ, предстоящие игры и купон-экспресс", "Live NHL games, upcoming matches and an accumulator slip"), "full"),
+    ("ul", [
+      ("Виды спорта, три дня, фильтр Live / Скоро / Завершены и поиск по командам и лигам.", "Sports, three days, a Live / Upcoming / Finished filter and search by team or league."),
+      ("Лиги с live-матчами поднимаются наверх, внутри — сначала идущие игры.", "Leagues with live games move to the top, and live games lead inside each league."),
+      ("Купон: ординар или экспресс, сумма, возможный выигрыш. Ставки ненастоящие, это демо.", "Bet slip: single or accumulator, stake, potential return. No real bets, it's a demo."),
+      ("Автообновление каждые 30 секунд, пока идут матчи, и пауза, когда вкладка скрыта.", "Auto-refresh every 30 seconds while games are live, paused when the tab is hidden."),
+    ]),
+  ]),
+  (("Что сломалось на реальных данных", "What broke on real data"), [
+    ("p", ("Ради этого всё и делалось. Каждый пункт — то, чего не было видно в статичном макете.",
+           "This is why I built it. Each item is something a static mockup didn't show.")),
+    ("defs", [
+      (("Стрелки на каждой кнопке", "Arrows on every button"), ("API отдаёт линию открытия многодневной давности, и почти все коэффициенты «двигались». Теперь движение считается от того, что пользователь уже видел, и гаснет через 15 секунд.", "The API's opening line is days old, so almost every price looked like it was moving. Movement is now measured against what the user has already seen, and fades after 15 seconds.")),
+      (("Сегодняшний матч во вчера", "Today's game listed as yesterday"), ("API делит дни по времени Нью-Йорка: игра НХЛ в 00:00 по Калининграду числилась за прошлую дату. Виджет запрашивает две даты и раскладывает матчи по местному дню.", "The API splits days by New York time: an NHL game at 00:00 in Kaliningrad belonged to the previous date. The widget requests two dates and sorts games by the local day.")),
+      (("Коэффициенты исчезают в игре", "Odds vanish in play"), ("У всех live-матчей НХЛ коэффициенты пропали разом. Появилось состояние «приём приостановлен»: замок в той же ячейке, строки не прыгают.", "Every live NHL game lost its odds at once. I added a suspended state: a lock in the same cell, so rows don't jump.")),
+      (("Тёмные логотипы", "Dark logos"), ("Эмблемы Washington Capitals и Tampa Bay Lightning пропадали на тёмном фоне. Для тёмной темы подгружается отдельная версия логотипа, а без логотипа — кружок с аббревиатурой цвета клуба.", "Washington Capitals and Tampa Bay Lightning crests disappeared on the dark background. The dark theme loads a dark-background version, and a missing logo becomes a circle with the abbreviation in the club colour.")),
+      (("Американские коэффициенты", "American odds"), ("+150 и −115 переводятся в привычные 2.50 и 1.87.", "+150 and −115 are converted to the familiar 2.50 and 1.87.")),
+      (("Пустые виды спорта", "Empty sports"), ("В международную паузу футбольных лиг нет. Пустые разделы приглушаются, а не исчезают, чтобы навигация не менялась от дня к дню.", "During the international break football leagues are empty. Empty sections are dimmed rather than hidden, so navigation doesn't change from day to day.")),
+    ]),
+  ]),
+  (("Состояния", "States"), [
+    ("p", ("Кнопка «Состояния» подменяет ответы API, чтобы показать нештатные ситуации на живом виджете: загрузка, медленная сеть, падение части лиг, нет связи, пустой день, длинные названия, нет логотипов, движение линии.",
+           "The States switch replaces API responses to show the edge cases on the live widget: loading, slow network, some leagues down, no connection, an empty day, long names, missing logos and a moving line.")),
+    ("img", "live-states", ("Часть лиг не ответила · нет связи · пустой день · коэффициенты в купоне изменились", "Some leagues down · no connection · empty day · odds in the slip changed"), "full"),
+    ("defs", [
+      (("Не стирать то, что видно", "Don't wipe what's on screen"), ("Если обновление не удалось, данные остаются, а индикатор источника становится жёлтым и показывает время последнего успешного обновления.", "If a refresh fails, the data stays and the source indicator turns amber with the time of the last good update.")),
+      (("Частичная ошибка", "Partial failure"), ("Упала одна лига — показываем остальные и называем ту, которой нет. Полная ошибка — экран с повтором и сохранёнными данными.", "One league down: show the rest and name the missing one. Full failure: a screen with retry and saved data.")),
+      (("Коэффициент изменился", "Odds changed"), ("Кнопка «Сделать ставку» превращается в «Принять изменения». Ставка по старому коэффициенту без согласия пользователя невозможна.", "Place bet turns into Accept changes. A bet at the old price can't go through without the user's consent.")),
+    ]),
+    ("img", "live-moving", ("Линия двигается: вспышка и стрелка на кнопке, предупреждение в купоне", "A moving line: a flash and an arrow on the button, a warning in the slip"), "wide"),
+  ]),
+  (("Кнопка коэффициента", "The odds button"), [
+    ("img", "live-odds", ("Семь состояний главного компонента и правила к ним", "Seven states of the key component and the rules behind them"), "wide"),
+  ]),
+  (("Мобильная версия", "Mobile"), [
+    ("img", "live-mobile", ("Строка складывается в карточку, купон уходит в нижнюю панель", "Rows fold into cards, the slip moves into a bottom sheet"), "wide"),
+    ("img", "live-desk-light", ("Светлая тема — тот же код, другой режим токенов", "Light theme: the same code, the other token mode"), "full"),
+  ]),
+  (("Как это сделано", "How it was made"), [
+    ("p", ("Сценарии, состояния, интерфейс и правила — мои. Код собран с AI-ассистентом: я ставил задачи, проверял каждый экран в браузере на живых данных и возвращал на доработку то, что ломалось.",
+           "The flows, states, UI and rules are mine. The code is AI-assisted: I set the tasks, checked every screen in the browser on live data and sent back whatever broke.")),
   ]),
  ],
 })
