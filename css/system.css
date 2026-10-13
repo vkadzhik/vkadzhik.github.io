@@ -61,7 +61,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;colo
 .srcs{display:flex;flex-direction:column;gap:var(--space-8);padding:var(--space-16);background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);align-items:flex-start}
 @media (max-width:860px){
   .doc{grid-template-columns:1fr;padding:var(--space-24) var(--space-16) var(--space-48);gap:0}
-  .toc{position:static;flex-direction:row;overflow-x:auto;margin:0 calc(-1 * var(--space-16));padding:0 var(--space-16) var(--space-8);scrollbar-width:none}
+  .toc{position:static;flex-direction:row;overflow-x:auto;margin:0 calc(-1 * var(--space-16));padding:0 var(--space-16) var(--space-8);margin-bottom:var(--space-24);scrollbar-width:none}
   .toc a{white-space:nowrap;border:1px solid var(--border-subtle);border-radius:var(--radius-full)}
   .flow{grid-template-columns:1fr 1fr}
   .flow li::after{display:none}

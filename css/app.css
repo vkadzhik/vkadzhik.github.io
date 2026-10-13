@@ -208,6 +208,10 @@ button.odd.is-on:hover{background:var(--accent-hover);border-color:var(--accent-
   .slipbar .pill{background:color-mix(in srgb,var(--neutral-0) 22%,transparent);color:inherit}
   .slipbar b{margin-left:auto;font-weight:600}
 }
+@media (max-width:1180px) and (min-width:861px){
+  .slip{left:auto;right:var(--space-16);bottom:var(--space-16);width:400px;border-radius:var(--radius-xl)}
+  .slipbar{left:auto;width:400px}
+}
 @media (max-width:860px){
   .top{gap:var(--space-12);padding:0 var(--space-16)}
   .top__src{display:none}
