@@ -75,7 +75,7 @@ h2{margin:0}
 .days button:hover:not(:disabled){border-color:var(--border-strong)}
 .days button[aria-selected="true"]{border-color:var(--accent-default);box-shadow:inset 0 0 0 1px var(--accent-default)}
 .days button:disabled{opacity:.45}
-.search{margin-left:auto;display:flex;align-items:center;gap:var(--space-8);height:36px;padding:0 var(--space-12);border-radius:var(--radius-md);border:1px solid var(--border-default);background:var(--bg-surface);color:var(--text-tertiary);min-width:220px}
+.search{display:flex;align-items:center;gap:var(--space-8);height:36px;padding:0 var(--space-12);border-radius:var(--radius-md);border:1px solid var(--border-default);background:var(--bg-surface);color:var(--text-tertiary);margin-bottom:var(--space-24)}
 .search:focus-within{border-color:var(--accent-default);box-shadow:0 0 0 3px var(--accent-soft)}
 .search input{border:0;outline:0;background:none;flex:1;min-width:0;color:var(--text-primary)}
 .search input::placeholder{color:var(--text-tertiary)}
@@ -132,6 +132,7 @@ button.odd:active{transform:scale(.97)}
 .odd.is-on{background:var(--accent-default);border-color:var(--accent-default);color:var(--text-on-accent)}
 .odd.is-on small{color:color-mix(in srgb,var(--text-on-accent) 75%,transparent)}
 .odd .mv{position:absolute;top:5px;right:5px;display:grid}
+.odd.is-up{animation:flashUp 1.2s ease-out}.odd.is-down{animation:flashDown 1.2s ease-out}
 .odd.is-up .mv{color:var(--status-success)}
 .odd.is-down .mv{color:var(--status-danger)}
 .odd.is-on .mv{color:var(--text-on-accent)}
@@ -188,6 +189,8 @@ button.odd:active{transform:scale(.97)}
 @keyframes shimmer{to{background-position:-200% 0}}
 @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--status-danger) 55%,transparent)}100%{box-shadow:0 0 0 7px transparent}}
 @keyframes blink{50%{opacity:.3}}
+@keyframes flashUp{0%{background:var(--status-success-soft);border-color:var(--status-success)}}
+@keyframes flashDown{0%{background:var(--status-danger-soft);border-color:var(--status-danger)}}
 
 /* ---------- responsive ---------- */
 @media (max-width:1180px){
@@ -217,7 +220,7 @@ button.odd:active{transform:scale(.97)}
   .days button{flex:1;min-width:0}
   .seg--status{width:100%;flex-wrap:nowrap}
   .seg--status button{flex:1;justify-content:center;padding:0 var(--space-6)}
-  .search{width:100%;margin:0}
+  .search{margin:0 0 var(--space-12)}
   .lg__cols{display:none}
   .lg__r{display:none}
   .ev{grid-template-columns:minmax(0,1fr);gap:var(--space-8);padding:var(--space-12)}

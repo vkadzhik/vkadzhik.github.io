@@ -40,6 +40,10 @@
 
 <div class="layout">
   <nav class="side" aria-label="Виды спорта">
+    <label class="search" aria-label="Поиск">
+      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="q" type="search" placeholder="Команда или лига" autocomplete="off">
+    </label>
     <div class="overline side__h">Спорт</div>
     <ul class="sports" id="sports"></ul>
   </nav>
@@ -48,10 +52,6 @@
     <div class="toolbar">
       <div class="days" role="tablist" aria-label="День" id="days"></div>
       <div class="seg seg--status" role="radiogroup" aria-label="Статус" id="status"></div>
-      <label class="search">
-        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <input id="q" type="search" placeholder="Команда или лига" autocomplete="off">
-      </label>
     </div>
     <div id="banner"></div>
     <div id="list" class="list" aria-busy="true"></div>

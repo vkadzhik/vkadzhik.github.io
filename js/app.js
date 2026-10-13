@@ -25,7 +25,7 @@ const icon = (n, s = 18) => `<svg width="${s}" height="${s}" viewBox="0 0 ${n ==
 // ---------- state ----------
 const SIMS = [
   ["normal", "Норма"], ["loading", "Загрузка"], ["slow", "Медленная сеть"], ["partial", "Часть лиг упала"],
-  ["error", "Нет связи"], ["empty", "Пустой день"], ["long", "Длинные названия"], ["nologo", "Без логотипов"],
+  ["error", "Нет связи"], ["moving", "Линия двигается"], ["empty", "Пустой день"], ["long", "Длинные названия"], ["nologo", "Без логотипов"],
 ];
 const S = {
   day: 0, sport: "all", status: "all", q: "",
@@ -34,7 +34,19 @@ const S = {
   source: "live", updatedAt: null, snapshotAt: null,
   collapsed: new Set(), slip: new Map(), stake: 500, slipOpen: false,
 };
-let reqId = 0, timer = null;
+let reqId = 0, timer = null, moveTimer = null;
+// Odds movement is measured against what the user has already seen in this session,
+// not against the API's opening line (which can be days old and made every button "move").
+const seenOdds = new Map(), moves = new Map();
+function trackMoves(events) {
+  const now = Date.now();
+  for (const e of events) for (const out of ["home", "draw", "away"]) {
+    const v = e.odds?.[out]?.cur; if (v == null) continue;
+    const k = e.id + "|" + out, prev = seenOdds.get(k);
+    if (prev != null && prev !== v) moves.set(k, { dir: v > prev ? "up" : "down", at: now });
+    seenOdds.set(k, v);
+  }
+}
 
 const dayStart = off => { const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() + off); return d; };
 const fmtTime = iso => new Date(iso).toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit" });
@@ -55,6 +67,7 @@ function applySim(events) {
 // ---------- loading ----------
 async function load({ force = false, quiet = false } = {}) {
   const id = ++reqId;
+  clearInterval(moveTimer);
   if (!quiet) { S.loading = true; S.error = false; render(); }
   if (S.sim === "loading") return; // stays in skeleton on purpose
   const sim = {};
@@ -68,13 +81,32 @@ async function load({ force = false, quiet = false } = {}) {
     if (quiet && S.events.length) { S.stale = true; }
     else { S.error = true; S.events = []; }
   } else {
-    trackOddsChanges(res.events);
+    trackOddsChanges(res.events); trackMoves(res.events);
     S.events = res.events; S.failed = res.failed; S.error = false; S.stale = false;
     S.source = "live"; S.updatedAt = new Date();
   }
   S.loading = false;
   render();
   schedule();
+  startMoving();
+}
+
+// QA: simulate a live line — a few odds change every 4 s, so movement arrows and slip warnings can be shown on demand
+function startMoving() {
+  clearInterval(moveTimer);
+  if (S.sim !== "moving") return;
+  moveTimer = setInterval(() => {
+    const pool = S.events.filter(e => e.odds && e.state !== "post");
+    const picked = new Set(S.slip.keys());
+    for (let n = 0; n < 5 && pool.length; n++) {
+      const e = n < 2 && picked.size ? pool.find(x => picked.has(x.id)) || pool[(Math.random() * pool.length) | 0] : pool[(Math.random() * pool.length) | 0];
+      const out = ["home", "away", "draw"][(Math.random() * 3) | 0];
+      const o = e.odds[out]; if (!o) continue;
+      const f = 1 + (Math.random() < .5 ? -1 : 1) * (0.04 + Math.random() * 0.1);
+      e.odds = { ...e.odds, [out]: { ...o, cur: Math.max(1.01, Math.round(o.cur * f * 100) / 100) } };
+    }
+    trackOddsChanges(S.events); trackMoves(S.events); renderList(); renderSlip();
+  }, 4000);
 }
 
 function schedule() {
@@ -227,9 +259,10 @@ function oddBtn(e, out) {
     return `<span class="odd odd--lock" title="Приём ставок приостановлен"><small>${lbl}</small>${icon("lock", 14)}</span>`;
   }
   const on = S.slip.get(e.id)?.out === out;
-  const mv = o.cur - o.open >= 0.02 ? "up" : o.open - o.cur >= 0.02 ? "down" : "";
+  const m = moves.get(e.id + "|" + out);
+  const mv = m && Date.now() - m.at < 15000 ? m.dir : "";
   return `<button class="odd${on ? " is-on" : ""}${mv ? " is-" + mv : ""}" aria-pressed="${on}" data-odd="${e.id}|${out}"
-    aria-label="${lbl}: ${fmtOdd(o.cur)}${mv === "up" ? ", вырос с " + fmtOdd(o.open) : mv === "down" ? ", снизился с " + fmtOdd(o.open) : ""}">
+    aria-label="${lbl}: ${fmtOdd(o.cur)}${mv === "up" ? ", коэффициент вырос" : mv === "down" ? ", коэффициент снизился" : ""}">
     <small>${lbl}</small><b>${fmtOdd(o.cur)}</b>${mv ? `<i class="mv">${icon(mv, 12)}</i>` : ""}</button>`;
 }
 
