@@ -129,7 +129,8 @@ h2{margin:0}
 .odd b{font:var(--type-body-m-medium);font-weight:600}
 button.odd:hover{border-color:var(--border-strong);background:var(--bg-elevated)}
 button.odd:active{transform:scale(.97)}
-.odd.is-on{background:var(--accent-default);border-color:var(--accent-default);color:var(--text-on-accent)}
+.odd.is-on,button.odd.is-on:hover{background:var(--accent-default);border-color:var(--accent-default);color:var(--text-on-accent)}
+button.odd.is-on:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
 .odd.is-on small{color:color-mix(in srgb,var(--text-on-accent) 75%,transparent)}
 .odd .mv{position:absolute;top:5px;right:5px;display:grid}
 .odd.is-up{animation:flashUp 1.2s ease-out}.odd.is-down{animation:flashDown 1.2s ease-out}
