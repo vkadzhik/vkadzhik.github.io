@@ -36,7 +36,7 @@ body{font-family:I,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden
 .s3 .card{border-radius:44px;padding:36px;color:#1C1B19;display:flex;flex-direction:column;gap:14px}
 .s3 .old{background:#FFF7D6;font-family:"Comic Sans MS","Marker Felt",I,sans-serif}
 .s3 .old b{font-family:I;font-size:28px;color:#8E8466;letter-spacing:.08em}
-.s3 .old p{font-size:36px;font-weight:600;line-height:1.25;color:#57503E}
+.s3 .old p{font-size:var(--op,36px);font-weight:600;line-height:1.25;color:#57503E}
 .s3 .old s{color:#B3A98C}
 .s3 .new{background:#fff}
 .s3 .new b{font-size:28px;color:#7A766E;letter-spacing:.08em}
@@ -52,10 +52,10 @@ body{font-family:I,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden
 const P=new URLSearchParams(location.search), W=+P.get('w'), H=+P.get('h'), C=P.get('c');
 const ad=document.getElementById('ad'); ad.style.setProperty('--w',W+'px'); ad.style.setProperty('--h',H+'px');
 const tall=H/W>1.5, sq=H===W;
-const mark=(dark)=>`<div class="mark" style="color:${dark?'#1C1B19':'#fff'}"><i><svg width="40" height="40" viewBox="0 0 100 100"><circle cx="50" cy="54" r="32" fill="none" stroke="#fff" stroke-width="10"/><circle cx="50" cy="54" r="15" fill="#fff"/><path d="M50 6v14" stroke="#fff" stroke-width="10" stroke-linecap="round"/></svg></i>plato</div>`;
+const mark=(dark,inv)=>`<div class="mark" style="color:${dark?'#1C1B19':'#fff'}"><i style="${inv?'background:#fff':''}"><svg width="40" height="40" viewBox="0 0 100 100"><circle cx="50" cy="54" r="32" fill="none" stroke="${inv?'#FF5A36':'#fff'}" stroke-width="10"/><circle cx="50" cy="54" r="15" fill="${inv?'#FF5A36':'#fff'}"/><path d="M50 6v14" stroke="${inv?'#FF5A36':'#fff'}" stroke-width="10" stroke-linecap="round"/></svg></i>plato</div>`;
 if(C==='1'){
   ad.className='ad s1';
-  const top=sq?250:tall?470:330, ph=sq?640:tall?1000:820;
+  const top=sq?250:tall?470:330, ph=sq?640:tall?1180:820;
   ad.innerHTML=`<div style="position:absolute;left:60px;top:${sq?56:tall?140:70}px;right:60px;display:flex;justify-content:space-between;align-items:flex-start">
      <h1>Snap it.<br><em>Know it.</em></h1>${sq?mark(true):''}</div>
    <div class="photo" style="top:${top}px;height:${ph}px"><img src="img/pasta.png">
@@ -77,12 +77,13 @@ if(C==='2'){
 }
 if(C==='3'){
   ad.className='ad s3';
-  const t=sq?230:tall?520:300;
+  const t=sq?290:tall?560:330;
   ad.innerHTML=`<div style="position:absolute;left:60px;right:60px;top:${sq?56:tall?170:70}px"><h1>Stop guessing.<br>Start snapping.</h1></div>
    <div class="cols" style="left:60px;right:60px;top:${t}px">
     <div class="card old"><b>BEFORE</b><p>lunch: chicken??<br><s>300</s> 450 kcal?<br>sauce — idk<br>rice 1 cup maybe<br><s>bread</s></p></div>
-    <div class="card new"><b>WITH PLATO</b><img src="img/salad.png"><div class="k">410 <span>kcal</span></div><div class="m"><i>P 34g</i><i>C 38g</i><i>F 14g</i></div></div></div>
+    <div class="card new"><b>WITH PLATO</b><img src="img/salad.png" style="${sq?'aspect-ratio:1.7':''}"><div class="k">410 <span>kcal</span></div><div class="m"><i>P 34g</i><i>C 38g</i><i>F 14g</i></div></div></div>
    <div style="position:absolute;left:60px;right:60px;bottom:${sq?44:tall?170:60}px;display:flex;justify-content:space-between;align-items:center">
-     ${mark(false)}<div class="cta" style="background:#fff;color:#1C1B19">Try free for 7 days</div></div>`;
+     ${mark(false,true)}<div class="cta" style="background:#fff;color:#1C1B19">Try free for 7 days</div></div>
+   ${tall?`<div style="position:absolute;left:60px;right:60px;bottom:330px;font-size:44px;font-weight:700;line-height:1.25">Calories, protein and carbs<br>from one photo of your plate.</div>`:''}`;
 }
 </script></body></html>
