@@ -1,0 +1,88 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:I;src:url(package/files/inter-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:I;src:url(package/files/inter-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:I;src:url(package/files/inter-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:I;src:url(package/files/inter-latin-800-normal.woff2);font-weight:800}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:I,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;font-feature-settings:"tnum" 1}
+.ad{position:relative;overflow:hidden;width:var(--w);height:var(--h)}
+.mark{display:flex;align-items:center;gap:18px;font-weight:800;font-size:54px;letter-spacing:-.04em}
+.mark i{width:64px;height:64px;border-radius:18px;background:#FF5A36;display:grid;place-items:center}
+.cta{display:inline-flex;align-items:center;height:104px;padding:0 54px;border-radius:60px;font-weight:800;font-size:40px}
+.pill{position:absolute;background:#fff;border-radius:40px;padding:16px 26px;font-weight:700;font-size:32px;display:flex;align-items:center;gap:12px;box-shadow:0 10px 30px rgb(0 0 0/.22);white-space:nowrap;color:#1C1B19}
+.pill i{width:16px;height:16px;border-radius:50%;background:#FF5A36;display:block}
+.pill span{color:#7A766E;font-weight:600}
+/* S1 */
+.s1{background:#F6F3EC;color:#1C1B19}
+.s1 .photo{position:absolute;left:60px;right:60px;border-radius:52px;overflow:hidden;box-shadow:0 30px 70px rgb(0 0 0/.14)}
+.s1 .photo img{width:100%;height:100%;object-fit:cover}
+.s1 h1{font-size:96px;line-height:.98;font-weight:800;letter-spacing:-.045em}
+.s1 h1 em{font-style:normal;color:#FF5A36}
+.s1 .tot{position:absolute;right:40px;bottom:40px;background:#1C1B19;color:#fff;border-radius:36px;padding:22px 32px;display:flex;align-items:baseline;gap:10px}
+.s1 .tot b{font-size:72px;font-weight:800;letter-spacing:-.03em}.s1 .tot span{font-size:32px;color:#C9C4B8;font-weight:600}
+/* S2 */
+.s2{background:#121212;color:#fff}
+.s2 img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.s2 .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgb(0 0 0/.75) 0%,rgb(0 0 0/0) 38%,rgb(0 0 0/0) 58%,rgb(0 0 0/.8) 100%)}
+.s2 h1{font-size:104px;line-height:.95;font-weight:800;letter-spacing:-.045em}
+.s2 .opts{display:flex;gap:22px}
+.s2 .o{background:#fff;color:#1C1B19;border-radius:44px;padding:20px 38px;font-size:56px;font-weight:800}
+.s2 .o.q{background:#FF5A36;color:#fff}
+/* S3 */
+.s3{background:#FF5A36;color:#fff}
+.s3 h1{font-size:98px;line-height:.96;font-weight:800;letter-spacing:-.045em}
+.s3 .cols{position:absolute;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.s3 .card{border-radius:44px;padding:36px;color:#1C1B19;display:flex;flex-direction:column;gap:14px}
+.s3 .old{background:#FFF7D6;font-family:"Comic Sans MS","Marker Felt",I,sans-serif}
+.s3 .old b{font-family:I;font-size:28px;color:#8E8466;letter-spacing:.08em}
+.s3 .old p{font-size:36px;font-weight:600;line-height:1.25;color:#57503E}
+.s3 .old s{color:#B3A98C}
+.s3 .new{background:#fff}
+.s3 .new b{font-size:28px;color:#7A766E;letter-spacing:.08em}
+.s3 .new img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:28px}
+.s3 .new .k{font-size:76px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.s3 .new .k span{font-size:30px;color:#7A766E;font-weight:700}
+.s3 .new .m{display:flex;gap:10px;font-size:26px;font-weight:700}
+.s3 .new .m i{font-style:normal;padding:8px 14px;border-radius:20px;background:#F1EDE5}
+.fine{font-size:24px;opacity:.7;font-weight:500}
+</style></head><body>
+<div class="ad" id="ad"></div>
+<script>
+const P=new URLSearchParams(location.search), W=+P.get('w'), H=+P.get('h'), C=P.get('c');
+const ad=document.getElementById('ad'); ad.style.setProperty('--w',W+'px'); ad.style.setProperty('--h',H+'px');
+const tall=H/W>1.5, sq=H===W;
+const mark=(dark)=>`<div class="mark" style="color:${dark?'#1C1B19':'#fff'}"><i><svg width="40" height="40" viewBox="0 0 100 100"><circle cx="50" cy="54" r="32" fill="none" stroke="#fff" stroke-width="10"/><circle cx="50" cy="54" r="15" fill="#fff"/><path d="M50 6v14" stroke="#fff" stroke-width="10" stroke-linecap="round"/></svg></i>plato</div>`;
+if(C==='1'){
+  ad.className='ad s1';
+  const top=sq?250:tall?470:330, ph=sq?640:tall?1000:820;
+  ad.innerHTML=`<div style="position:absolute;left:60px;top:${sq?56:tall?140:70}px;right:60px;display:flex;justify-content:space-between;align-items:flex-start">
+     <h1>Snap it.<br><em>Know it.</em></h1>${sq?mark(true):''}</div>
+   <div class="photo" style="top:${top}px;height:${ph}px"><img src="img/pasta.png">
+     <div class="pill" style="left:${sq?60:90}px;top:${sq?50:90}px"><i></i>Pasta <span>410 kcal</span></div>
+     <div class="pill" style="left:${sq?380:440}px;top:${sq?220:330}px"><i></i>Parmesan <span>90 kcal</span></div>
+     <div class="pill" style="left:${sq?50:70}px;top:${sq?390:560}px"><i></i>Olive oil <span>120 kcal</span></div>
+     <div class="tot"><b>620</b><span>kcal</span></div></div>
+   <div style="position:absolute;left:60px;right:60px;bottom:${sq?44:tall?170:60}px;display:flex;justify-content:space-between;align-items:center">
+     ${sq?`<div style="font-size:36px;font-weight:700;color:#57534B">Calories from one photo</div>`:mark(true)}
+     <div class="cta" style="background:#FF5A36;color:#fff">${sq?'Try free':'Try free for 7 days'}</div></div>`;
+}
+if(C==='2'){
+  ad.className='ad s2';
+  ad.innerHTML=`<img class="bg" src="img/burger.png"><div class="shade"></div>
+   <div style="position:absolute;left:60px;right:60px;top:${sq?60:tall?160:80}px"><h1>Guess the<br>calories.</h1></div>
+   <div style="position:absolute;left:60px;right:60px;bottom:${sq?200:tall?420:240}px" class="opts"><div class="o">450</div><div class="o">700</div><div class="o">980</div></div>
+   <div style="position:absolute;left:60px;right:60px;bottom:${sq?56:tall?190:70}px;display:flex;justify-content:space-between;align-items:center">
+     ${mark(false)}<div class="cta" style="background:#FF5A36;color:#fff">Check in the app</div></div>`;
+}
+if(C==='3'){
+  ad.className='ad s3';
+  const t=sq?230:tall?520:300;
+  ad.innerHTML=`<div style="position:absolute;left:60px;right:60px;top:${sq?56:tall?170:70}px"><h1>Stop guessing.<br>Start snapping.</h1></div>
+   <div class="cols" style="left:60px;right:60px;top:${t}px">
+    <div class="card old"><b>BEFORE</b><p>lunch: chicken??<br><s>300</s> 450 kcal?<br>sauce — idk<br>rice 1 cup maybe<br><s>bread</s></p></div>
+    <div class="card new"><b>WITH PLATO</b><img src="img/salad.png"><div class="k">410 <span>kcal</span></div><div class="m"><i>P 34g</i><i>C 38g</i><i>F 14g</i></div></div></div>
+   <div style="position:absolute;left:60px;right:60px;bottom:${sq?44:tall?170:60}px;display:flex;justify-content:space-between;align-items:center">
+     ${mark(false)}<div class="cta" style="background:#fff;color:#1C1B19">Try free for 7 days</div></div>`;
+}
+</script></body></html>
