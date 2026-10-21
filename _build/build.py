@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Static site generator for the portfolio. Run: python3 _build/build.py"""
-import html, os, sys
+import html, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from content import CDN, IMG, CONTACT, HOME, CAPABILITIES, HOW, CASES
 
@@ -59,7 +59,6 @@ def head(title, desc, path, image=None, depth=0):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://d2ol7oe51mr4n9.cloudfront.net">
 <link rel="stylesheet" href="{pre}assets/site.css">
 <meta name="x-title-ru" content="{e(title[0])}"><meta name="x-title-en" content="{e(title[1])}">
 </head>
@@ -268,7 +267,17 @@ def build_case(i, c):
     write(f"cases/{c['slug']}.html", "".join(out))
 
 
+def localize(s):
+    # serve media from /media on our own domain instead of the CDN
+    s = s.replace(CDN, "/media/")
+    s = re.sub(r'/media/([0-9a-f-]{36})\.png', r'/media/\1.webp', s)
+    s = re.sub(r'(<meta property="og:image" content=")/media/', r'\1' + SITE + '/media/', s)
+    s = re.sub(r'(<meta name="twitter:image" content=")/media/', r'\1' + SITE + '/media/', s)
+    return s
+
+
 def write(rel, s):
+    s = localize(s)
     p = os.path.join(ROOT, rel)
     os.makedirs(os.path.dirname(p), exist_ok=True)
     with open(p, "w", encoding="utf-8") as f:
