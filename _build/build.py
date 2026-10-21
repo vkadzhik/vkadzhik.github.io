@@ -169,7 +169,7 @@ def build_home():
   <div class="wrap">
     <div class="sec-head">
       <h2 id="work-h" class="sec-h">{T(("Работы", "Work"))}</h2>
-      <p class="sec-sub">{T(("Семь кейсов: от B2B-кабинета с таблицами до виджета на живых данных и видеорекламы. В каждом — задача, решения и экраны.", "Seven cases, from a B2B app with complex tables to a widget on live data and a video ad. Each shows the problem, the decisions and the screens."))}</p>
+      <p class="sec-sub">{T(("Восемь кейсов: от B2B-кабинета с таблицами до виджета на живых данных и рекламных кампаний. В каждом — задача, решения и экраны.", "Eight cases, from a B2B app with complex tables to a widget on live data and ad campaigns. Each shows the problem, the decisions and the screens."))}</p>
     </div>
     <ol class="cases">{''.join(rows)}
     </ol>
@@ -221,6 +221,10 @@ def block(b):
         _, vsrc, poster, cap = b
         return (f'<figure class="fig fig--video"><video controls playsinline preload="none" poster="{src(poster)}" width="1080" height="1920">'
                 f'<source src="{vsrc}" type="video/mp4"></video><figcaption>{T(cap)}</figcaption></figure>')
+    if k == "videos":
+        figs = "".join(f'<figure class="fig fig--video"><video controls playsinline preload="none" poster="{src(p)}" width="1080" height="1920">'
+                       f'<source src="{v}" type="video/mp4"></video><figcaption>{T(cap)}</figcaption></figure>' for v, p, cap in b[1])
+        return f'<div class="vids">{figs}</div>'
     raise ValueError(k)
 
 

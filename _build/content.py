@@ -60,9 +60,23 @@ IMG = {
  "live-moving": ("fa55793b-4e70-44e1-8b2c-718ae0abb9e8", 2000, 872),
  "live-odds": ("b59c6be6-fffe-4df7-bb52-f57719c3b757", 1808, 960),
  "live-pipeline": ("89af4d7b-fb4b-439a-8499-8d90899e9b9e", 1808, 856),
+ "plato-cover": ("4f00d88c-0299-48fc-96e1-aedac8d124ce", 1920, 1080),
+ "plato-poster-a": ("37179944-73e7-49b4-baff-12458ab61176", 720, 1280),
+ "plato-poster-b": ("34eea237-eccd-47a7-83f7-8d80522b3a2a", 720, 1280),
+ "plato-poster-c": ("36a80157-6930-4fc5-a2f6-3abfa1b2664b", 720, 1280),
+ "plato-storyboard": ("287fbbcf-523c-47f6-a3c8-01a25447f436", 2056, 619),
+ "plato-shots": ("34b79883-470a-4fb8-8161-d2cc9be3d68b", 1936, 1152),
+ "plato-food": ("bf340b2e-b9bf-45e6-83a3-003d1084b7bb", 1936, 680),
+ "plato-hooks": ("9a452a51-f206-40f0-b3ff-94af61977325", 1696, 1004),
+ "plato-ui": ("4f42893b-5d5d-45ba-8fb7-d542990cecfc", 1696, 1004),
+ "plato-statics": ("b58e9bc5-8c58-45d2-899f-df62022ef123", 1920, 1440),
+ "plato-formats": ("3b8821cc-8720-4a42-b23c-50a5cd0bc937", 2295, 1000),
 }
 
 MIRRA_VIDEO = CDN + "fd3609c2-e729-4c12-b42a-c69fd3d07c31.mp4"
+PLATO_A = CDN + "0b8d9c42-f677-4203-b940-b88f0b11ae5d.mp4"
+PLATO_B = CDN + "9cecc721-c3fe-410d-9506-56e020f79926.mp4"
+PLATO_C = CDN + "4f974ff2-ec06-4eb2-8f86-fe99a3b96e60.mp4"
 
 CONTACT = {
     "telegram": "https://t.me/jema_tati",
@@ -132,6 +146,7 @@ HOW = [
 #   ("grid", [(name, caption), ...], cols)
 #   ("quote", (ru,en))
 #   ("video", src, poster, (ru,en))
+#   ("videos", [(src, poster, (ru,en)), ...])   several 9:16 videos in a row
 
 CASES = []
 
@@ -606,6 +621,82 @@ CASES.append({
       ("Три хука: реакция (этот ролик), абсурдный первый кадр с ведущей новостей, сразу экран приложения.", "Three hooks: the reaction (this cut), an absurd news-anchor opening, the app scan first."),
       ("Две кнопки: «Download free» и «Try it on your selfie».", "Two CTAs: ‘Download free’ vs ‘Try it on your selfie’."),
       ("Метрики: досмотр первых 3 секунд, удержание до 75%, CTR и цена установки.", "Metrics: 3-second thumb-stop rate, hold to 75%, CTR and cost per install."),
+    ]),
+  ]),
+ ],
+})
+
+CASES.append({
+ "slug": "plato",
+ "color": "#FF5A36",
+ "name": ("plato", "plato"),
+ "kind": ("Перформанс-кампания для подписочного приложения", "Performance campaign for a subscription app"),
+ "summary": (
+   "Рекламная кампания для приложения, которое считает калории по фото тарелки: три видео с разными хуками для A/B-теста и 9 баннеров в трёх форматах. AI-съёмка, озвучка, анимация интерфейса, монтаж и субтитры.",
+   "An ad campaign for an app that counts calories from a photo of your plate: three videos with different hooks for an A/B test and 9 banners in three formats. AI footage, voiceover, UI animation, edit and captions."),
+ "cover": "plato-cover",
+ "facts": [
+   (("Роль", "Role"), ("AI-креатор и моушн-дизайнер, один на проекте", "AI creative and motion designer, solo")),
+   (("Тип", "Type"), ("Концепт-кампания вымышленного приложения", "Concept campaign for a fictional app")),
+   (("Состав", "Deliverables"), ("3 видео 9:16 по 19 секунд, 9 баннеров: 1:1, 4:5, 9:16", "3 videos, 9:16, 19 s each; 9 banners: 1:1, 4:5, 9:16")),
+   (("Инструменты", "Tools"), ("Higgsfield AI: GPT Image, Seedance, ElevenLabs; HTML/CSS и Playwright для интерфейса; faster-whisper; ffmpeg", "Higgsfield AI: GPT Image, Seedance, ElevenLabs; HTML/CSS and Playwright for the UI; faster-whisper; ffmpeg")),
+ ],
+ "links": [],
+ "sections": [
+  (("Ролики", "The ads"), [
+    ("videos", [
+      (PLATO_A, "plato-poster-a", ("A. «Я перестал считать калории вручную»", "A. ‘I stopped counting calories by hand’")),
+      (PLATO_B, "plato-poster-b", ("B. Квиз: угадай калории бургера", "B. Quiz: guess the burger's calories")),
+      (PLATO_C, "plato-poster-c", ("C. Реакция: «Подожди… это всё по одному фото?»", "C. Reaction: ‘Wait… from one photo?’")),
+    ]),
+  ]),
+  (("Задача", "Brief"), [
+    ("p", ("Подписочному приложению нужны креативы для запуска в TikTok и Reels. Главное сообщение: калории, белки и углеводы по одному фото, без весов и ручного ввода. Аудитория — 20–35 лет, пробовали трекеры питания и бросили, потому что вбивать каждый продукт долго.",
+           "A subscription app needs launch creatives for TikTok and Reels. The core message: calories, protein and carbs from one photo, no scales and no typing. The audience is 20–35, has tried food trackers and quit because logging every item takes too long.")),
+    ("p", ("Креативы быстро выгорают, поэтому я сделал не один ролик, а систему: общая середина и финал, три разных хука. Так тест показывает, какой первый кадр работает, а новые версии собираются за час.",
+           "Creatives burn out fast, so instead of one video I built a system: a shared middle and end card with three different hooks. The test shows which opening works, and new versions take an hour to assemble.")),
+  ]),
+  (("Три хука", "Three hooks"), [
+    ("img", "plato-hooks", ("Первые секунды трёх версий: боль, вовлечение, удивление", "The first seconds of the three versions: pain, participation, surprise"), "full"),
+    ("defs", [
+      (("A. Боль", "A. Pain"), ("«I stopped counting calories by hand». Узнаваемая проблема и сразу действие: рука фотографирует тарелку.", "‘I stopped counting calories by hand’. A familiar problem and an instant action: a hand photographs the plate.")),
+      (("B. Квиз", "B. Quiz"), ("Зрителю предлагают угадать калорийность бургера из трёх вариантов. Пока он думает, он досматривает. Ответ — 980 ккал — даёт само приложение.", "The viewer is asked to guess the burger's calories from three options. While they think, they keep watching. The answer, 980 kcal, comes from the app.")),
+      (("C. Реакция", "C. Reaction"), ("Удивлённая героиня в UGC-стиле: «Wait… it counted my whole dinner from one photo?» Реакция живого человека вызывает больше доверия, чем демонстрация функций.", "A surprised UGC-style creator: ‘Wait… it counted my whole dinner from one photo?’ A real reaction earns more trust than a feature demo.")),
+    ]),
+  ]),
+  (("Структура", "Structure"), [
+    ("ol", [
+      ("0–3 с. Хук: одна из трёх версий.", "0–3 s. Hook: one of three versions."),
+      ("3–10 с. Сканирование: фото блюда, приложение раскладывает тарелку на продукты с калориями.", "3–10 s. Scan: a photo of the dish, the app breaks the plate down into items with calories."),
+      ("10–13 с. Героиня ест салат: продукт встроен в обычную жизнь.", "10–13 s. She eats a salad: the product fits into everyday life."),
+      ("13–16 с. Итог дня: калории, белки, жиры и углеводы.", "13–16 s. Daily summary: calories, protein, fat and carbs."),
+      ("16–19 с. Финальный экран с кнопкой «Try free for 7 days».", "16–19 s. End card with a ‘Try free for 7 days’ button."),
+    ]),
+    ("img", "plato-storyboard", ("Раскадровка версии A: новый кадр каждые 2–3 секунды", "Version A storyboard: a new shot every 2–3 seconds"), "full"),
+  ]),
+  (("Производство", "Production"), [
+    ("img", "plato-shots", ("AI-съёмка: рука с телефоном, героиня за обедом, реакция", "AI footage: a hand with a phone, lunch, the reaction"), "full"),
+    ("ul", [
+      ("Кадры с людьми сгенерировал в GPT Image и оживил в Seedance: дрожание телефона, естественный свет, без глянца, чтобы ролик выглядел как снятый на телефон.", "I generated the people shots in GPT Image and animated them in Seedance: handheld shake, natural light, no gloss, so the video looks shot on a phone."),
+      ("Еду генерировал отдельно, сверху и при дневном свете, чтобы интерфейс сканирования ложился поверх.", "Food was generated separately, top-down in daylight, so the scanning UI could sit on top."),
+      ("Озвучка в ElevenLabs, тайминги слов — через faster-whisper. Субтитры появляются по словам, произносимое слово подсвечивается.", "Voiceover in ElevenLabs, word timings via faster-whisper. Captions appear word by word with the spoken word highlighted."),
+      ("Интерфейс приложения сверстал в HTML/CSS и отрендерил покадрово: AI плохо пишет цифры и текст, а здесь они главный аргумент.", "I built the app UI in HTML/CSS and rendered it frame by frame: AI is bad at numbers and text, and here they are the main argument."),
+      ("Положение субтитров меняется по сцене, чтобы не перекрывать цифры и кнопки TikTok.", "Caption position changes per scene so it never covers the numbers or TikTok's buttons."),
+    ]),
+    ("img", "plato-ui", ("Сканирование бургера, разбор пасты, итог дня", "Burger scan, pasta breakdown, daily summary"), "full"),
+    ("img", "plato-food", ("Сгенерированные блюда для сканирования и баннеров", "Generated dishes for the scans and banners"), "full"),
+    ("p", ("Весь пакет обошёлся примерно в 20 кредитов Higgsfield. Нейросеть делала только то, что сложно снять: людей и еду. Интерфейс, субтитры и монтаж собраны кодом, поэтому новые версии почти ничего не стоят.",
+           "The whole package cost about 20 Higgsfield credits. AI only made what is hard to shoot: people and food. The UI, captions and edit are assembled in code, so new versions cost almost nothing.")),
+  ]),
+  (("Баннеры", "Banners"), [
+    ("img", "plato-statics", ("Три концепта: результат, квиз, «до и после»", "Three concepts: the result, the quiz, before and after"), "full"),
+    ("img", "plato-formats", ("Один концепт в 1:1, 4:5 и 9:16: композиция перестраивается, а не обрезается", "One concept in 1:1, 4:5 and 9:16: the layout is rebuilt, not cropped"), "full"),
+  ]),
+  (("Что бы я тестировал", "What I would test"), [
+    ("ul", [
+      ("Три хука между собой при одинаковой середине и финале.", "The three hooks against each other with the same middle and end."),
+      ("Два оффера: «Try free for 7 days» и «Snap your first plate».", "Two offers: ‘Try free for 7 days’ vs ‘Snap your first plate’."),
+      ("Метрики: досмотр первых 3 секунд, удержание до 75%, CTR, цена установки и конверсия в пробную подписку.", "Metrics: 3-second thumb-stop rate, hold to 75%, CTR, cost per install and trial-start rate."),
     ]),
   ]),
  ],
