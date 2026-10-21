@@ -1,0 +1,149 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:I;src:url(package/files/inter-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:I;src:url(package/files/inter-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:I;src:url(package/files/inter-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:I;src:url(package/files/inter-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:I;src:url(package/files/inter-latin-800-normal.woff2);font-weight:800}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:I,sans-serif;background:#F6F3EC;color:#1C1B19;-webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+.scene{position:absolute;inset:0;display:none}
+.status{position:absolute;top:0;left:0;right:0;height:120px;display:flex;justify-content:space-between;align-items:center;padding:34px 74px 0;font-weight:600;font-size:40px}
+.status .ic{display:flex;gap:14px;align-items:center}
+.hdr{position:absolute;top:130px;left:0;right:0;height:110px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:44px}
+.hdr .back{position:absolute;left:60px;width:80px;height:80px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 4px 14px rgb(0 0 0/.06)}
+.hdr .ai{position:absolute;right:60px;height:64px;padding:0 26px;border-radius:40px;background:#1C1B19;color:#fff;font-size:30px;font-weight:700;display:flex;align-items:center;gap:10px}
+.hdr .ai i{width:14px;height:14px;border-radius:50%;background:#FF5A36;display:block}
+/* scan */
+.photo{position:absolute;left:60px;top:270px;width:960px;height:960px;border-radius:56px;overflow:hidden;box-shadow:0 30px 60px rgb(0 0 0/.12)}
+.photo img{width:100%;height:100%;object-fit:cover;transform-origin:center}
+.photo .dim{position:absolute;inset:0;background:rgb(0 0 0/.18)}
+.corner{position:absolute;width:110px;height:110px;border:10px solid #fff;border-radius:28px}
+.c1{left:50px;top:50px;border-right:0;border-bottom:0;border-radius:28px 0 0 0}.c2{right:50px;top:50px;border-left:0;border-bottom:0;border-radius:0 28px 0 0}
+.c3{left:50px;bottom:50px;border-right:0;border-top:0;border-radius:0 0 0 28px}.c4{right:50px;bottom:50px;border-left:0;border-top:0;border-radius:0 0 28px 0}
+.line{position:absolute;left:0;right:0;height:180px;background:linear-gradient(180deg,rgb(255 90 54/0),rgb(255 90 54/.35) 85%,#FF5A36 100%)}
+.chip{position:absolute;background:#fff;border-radius:40px;padding:16px 26px;font-weight:700;font-size:32px;display:flex;align-items:center;gap:12px;box-shadow:0 10px 30px rgb(0 0 0/.18);white-space:nowrap;transform-origin:left center}
+.chip i{width:16px;height:16px;border-radius:50%;background:#FF5A36;display:block}
+.chip span{color:#7A766E;font-weight:600}
+.sheet{position:absolute;left:0;right:0;top:0;height:900px;background:#fff;border-radius:64px 64px 0 0;box-shadow:0 -20px 60px rgb(0 0 0/.1);padding:56px 70px}
+.grab{width:120px;height:12px;border-radius:8px;background:#E6E1D7;margin:0 auto 40px}
+.lbl{font-size:32px;color:#7A766E;font-weight:600}
+.kcal{display:flex;align-items:baseline;gap:18px;margin-top:6px}
+.kcal b{font-size:150px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.kcal span{font-size:48px;font-weight:700;color:#7A766E}
+.mac{margin-top:38px;display:flex;flex-direction:column;gap:30px}
+.row{display:grid;grid-template-columns:200px 1fr 130px;align-items:center;gap:26px;font-size:36px;font-weight:600}
+.bar{height:22px;border-radius:12px;background:#F1EDE5;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:12px}
+.row b{text-align:right;font-weight:700}
+.btn{position:absolute;left:70px;right:70px;bottom:110px;height:130px;border-radius:70px;background:#FF5A36;color:#fff;font-size:44px;font-weight:700;display:grid;place-items:center}
+/* summary */
+.ttl{position:absolute;top:150px;left:74px}
+.ttl b{display:block;font-size:84px;font-weight:800;letter-spacing:-.03em}
+.ttl span{font-size:36px;color:#7A766E;font-weight:600}
+.ring{position:absolute;left:50%;top:400px;width:560px;height:560px;margin-left:-280px}
+.ring .ctr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .ctr b{font-size:116px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.ring .ctr span{font-size:34px;color:#7A766E;font-weight:600;margin-top:12px}
+.minis{position:absolute;top:1010px;left:74px;right:74px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.mini{background:#fff;border-radius:36px;padding:26px 30px}
+.mini span{font-size:28px;color:#7A766E;font-weight:600}
+.mini b{display:block;font-size:48px;font-weight:800;margin-top:4px}
+.meals{position:absolute;top:1230px;left:74px;right:74px;display:flex;flex-direction:column;gap:22px}
+.meal{background:#fff;border-radius:40px;padding:22px;display:flex;align-items:center;gap:28px}
+.meal img{width:130px;height:130px;border-radius:28px;object-fit:cover}
+.meal div{flex:1}
+.meal div b{display:block;font-size:38px;font-weight:700}
+.meal div span{font-size:30px;color:#7A766E;font-weight:500}
+.meal em{font-style:normal;font-size:40px;font-weight:800}
+/* end */
+#end{background:#1C1B19;color:#fff}
+.glow{position:absolute;width:1300px;height:1300px;left:-110px;top:120px;background:radial-gradient(circle,rgb(255 90 54/.45),transparent 62%)}
+.icon{position:absolute;left:50%;top:430px;width:300px;height:300px;margin-left:-150px;border-radius:76px;background:#FF5A36;display:grid;place-items:center;box-shadow:0 40px 80px rgb(255 90 54/.35)}
+.word{position:absolute;top:790px;left:0;right:0;text-align:center;font-size:150px;font-weight:800;letter-spacing:-.05em}
+.tag{position:absolute;top:1000px;left:0;right:0;text-align:center;font-size:58px;font-weight:700;line-height:1.25;color:#EDE8DE}
+.tag em{font-style:normal;color:#FF7B5C}
+.cta{position:absolute;left:150px;right:150px;top:1260px;height:150px;border-radius:80px;background:#fff;color:#1C1B19;font-size:50px;font-weight:800;display:grid;place-items:center}
+.stores{position:absolute;top:1460px;left:0;right:0;text-align:center;font-size:34px;color:#A8A397;font-weight:600}
+/* quiz */
+#quiz{background:#111}
+#quiz img{position:absolute;left:50%;top:50%;width:1920px;height:1920px;margin:-960px 0 0 -960px;object-fit:cover}
+.opts{position:absolute;left:0;right:0;top:1180px;display:flex;justify-content:center;gap:30px}
+.opt{position:relative;background:#fff;border-radius:50px;padding:26px 46px;font-size:64px;font-weight:800;box-shadow:0 20px 50px rgb(0 0 0/.35)}
+.opt .x{position:absolute;left:-10px;right:-10px;top:50%;height:12px;background:#FF5A36;border-radius:6px;transform-origin:left center}
+</style></head><body>
+<div class="scene" id="scan">
+  <div class="status"><span>9:41</span><span class="ic"><svg width="44" height="30" viewBox="0 0 44 30"><rect x="0" y="18" width="7" height="12" rx="2" fill="#1C1B19"/><rect x="11" y="12" width="7" height="18" rx="2" fill="#1C1B19"/><rect x="22" y="6" width="7" height="24" rx="2" fill="#1C1B19"/><rect x="33" y="0" width="7" height="30" rx="2" fill="#1C1B19"/></svg><svg width="70" height="34" viewBox="0 0 70 34"><rect x="1" y="1" width="60" height="32" rx="9" fill="none" stroke="#1C1B19" stroke-width="2.5" opacity=".5"/><rect x="5" y="5" width="44" height="24" rx="6" fill="#1C1B19"/><rect x="64" y="11" width="5" height="12" rx="2" fill="#1C1B19" opacity=".5"/></svg></span></div>
+  <div class="hdr"><div class="back"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="#1C1B19" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Scan meal<div class="ai"><i></i>AI</div></div>
+  <div class="photo"><img id="food"><div class="dim" id="dim"></div><div class="line" id="line"></div>
+    <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+    <div id="chips"></div></div>
+  <div class="sheet" id="sheet"><div class="grab"></div>
+    <div class="lbl" id="lbl">Lunch · recognized in 1.8 s</div>
+    <div class="kcal"><b id="kc">0</b><span>kcal</span></div>
+    <div class="mac" id="mac"></div>
+    <div class="btn" id="btn">Add to today</div></div>
+</div>
+<div class="scene" id="summary">
+  <div class="ttl"><b>Today</b><span>Tuesday, October 21</span></div>
+  <div class="ring"><svg width="560" height="560" viewBox="0 0 560 560"><circle cx="280" cy="280" r="240" fill="none" stroke="#E9E4DA" stroke-width="44"/><circle id="arc" cx="280" cy="280" r="240" fill="none" stroke="#FF5A36" stroke-width="44" stroke-linecap="round" transform="rotate(-90 280 280)" stroke-dasharray="1508" stroke-dashoffset="1508"/></svg>
+    <div class="ctr"><b id="rk">0</b><span>of 2,000 kcal</span></div></div>
+  <div class="minis"><div class="mini"><span>Protein</span><b id="m1">0 g</b></div><div class="mini"><span>Carbs</span><b id="m2">0 g</b></div><div class="mini"><span>Fat</span><b id="m3">0 g</b></div></div>
+  <div class="meals" id="meals"></div>
+</div>
+<div class="scene" id="end"><div class="glow"></div>
+  <div class="icon" id="icon"><svg width="190" height="190" viewBox="0 0 100 100"><circle cx="50" cy="52" r="34" fill="none" stroke="#fff" stroke-width="8"/><circle cx="50" cy="52" r="18" fill="#fff"/><path d="M50 4v14" stroke="#fff" stroke-width="8" stroke-linecap="round"/></svg></div>
+  <div class="word" id="word">plato</div>
+  <div class="tag" id="tag">Snap your plate.<br><em>Know what you eat.</em></div>
+  <div class="cta" id="cta">Try free for 7 days</div>
+  <div class="stores" id="stores">App Store · Google Play</div>
+</div>
+<div class="scene" id="quiz"><img id="qimg" src="img/burger.png">
+  <div class="opts"><div class="opt" id="o1">450?<div class="x" id="x1"></div></div><div class="opt" id="o2">700?<div class="x" id="x2"></div></div><div class="opt" id="o3">980?</div></div>
+</div>
+<script>
+const P=new URLSearchParams(location.search), S=P.get('scene'), F=P.get('food')||'pasta';
+const FOOD={pasta:{img:'img/pasta.png',kcal:620,p:22,c:78,f:24,lbl:'Dinner · recognized in 1.8 s',chips:[['Pasta','410 kcal',190,330],['Parmesan','90 kcal',470,560],['Olive oil','120 kcal',150,740]]},
+ burger:{img:'img/burger.png',kcal:980,p:38,c:96,f:49,lbl:'Lunch · recognized in 1.6 s',chips:[['Beef patty','290 kcal',130,300],['Cheese','110 kcal',520,470],['Bun','230 kcal',160,620],['Fries','350 kcal',560,760]]}}[F];
+document.getElementById(S).style.display='block';
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)), e=t=>1-Math.pow(1-cl(t),3), back=t=>{t=cl(t);const c=1.7;return 1+(c+1)*Math.pow(t-1,3)+c*Math.pow(t-1,2)};
+const $=id=>document.getElementById(id);
+if(S==='scan'){
+  $('food').src=FOOD.img; $('lbl').textContent=FOOD.lbl;
+  $('chips').innerHTML=FOOD.chips.map((c,i)=>`<div class="chip" id="ch${i}" style="left:${c[2]}px;top:${c[3]}px"><i></i>${c[0]} <span>${c[1]}</span></div>`).join('');
+  $('mac').innerHTML=[['Protein',FOOD.p,'#2BB673',60],['Carbs',FOOD.c,'#F5B331',140],['Fat',FOOD.f,'#FF5A36',80]].map((m,i)=>`<div class="row" id="r${i}"><span>${m[0]}</span><div class="bar"><i id="b${i}" style="background:${m[2]};width:0"></i></div><b id="g${i}">0 g</b></div>`).join('');
+}
+if(S==='summary'){
+  $('meals').innerHTML=[['img/toast.png','Breakfast','Avocado toast · 8:40',390],['img/salad.png','Lunch','Chicken salad bowl · 13:15',410],['img/pasta.png','Dinner','Creamy pasta · 19:30',620]].map((m,i)=>`<div class="meal" id="ml${i}"><img src="${m[0]}"><div><b>${m[1]}</b><span>${m[2]}</span></div><em>${m[3]}</em></div>`).join('');
+}
+window.setT=function(t){
+ if(S==='scan'){
+  $('food').style.transform=`scale(${1.06-0.04*e(t/6)})`;
+  const ln=cl(t/1.5); $('line').style.top=(-180+1140*e(ln))+'px'; $('line').style.opacity= t<1.5?1:1-cl((t-1.5)/0.3);
+  $('dim').style.opacity= t<1.6?1:1-cl((t-1.6)/0.4)*0.6;
+  FOOD.chips.forEach((c,i)=>{const s=back((t-1.8-i*0.22)/0.35); const el=$('ch'+i); el.style.transform=`scale(${s})`; el.style.opacity=cl((t-1.8-i*0.22)/0.15);});
+  const sy=1920-(1920-1130)*e((t-3.1)/0.5); $('sheet').style.top=sy+'px';
+  $('kc').textContent=Math.round(FOOD.kcal*e((t-3.6)/0.7)).toLocaleString('en-US');
+  [[4.2,FOOD.p,60],[5.0,FOOD.c,140],[5.4,FOOD.f,80]].forEach((m,i)=>{const k=e((t-m[0])/0.5); $('b'+i).style.width=(Math.min(m[1]/m[2],1)*100*k)+'%'; $('g'+i).textContent=Math.round(m[1]*k)+' g'; $('r'+i).style.opacity=0.35+0.65*cl((t-m[0])/0.2);});
+  const pu=t>6.1?1+0.05*Math.sin(cl((t-6.1)/0.5)*Math.PI):1; $('btn').style.transform=`scale(${pu})`;
+ }
+ if(S==='summary'){
+  const k=e((t-0.15)/1.1); $('arc').setAttribute('stroke-dashoffset',1508*(1-0.71*k)); $('rk').textContent=Math.round(1420*k).toLocaleString('en-US');
+  $('m1').textContent=Math.round(84*k)+' g'; $('m2').textContent=Math.round(172*k)+' g'; $('m3').textContent=Math.round(61*k)+' g';
+  [0,1,2].forEach(i=>{const q=e((t-0.5-i*0.2)/0.45); const el=$('ml'+i); el.style.opacity=q; el.style.transform=`translateY(${(1-q)*80}px)`;});
+ }
+ if(S==='end'){
+  const s=back(t/0.45); $('icon').style.transform=`scale(${s})`;
+  [['word',0.25],['tag',0.45],['cta',0.7],['stores',0.85]].forEach(([id,d])=>{const q=e((t-d)/0.4); $(id).style.opacity=q; $(id).style.transform=`translateY(${(1-q)*50}px)`;});
+  const pu=t>1.4?1+0.04*Math.sin((t-1.4)*Math.PI*2/1.1):1; $('cta').style.transform+=` scale(${pu})`;
+ }
+ if(S==='quiz'){
+  $('qimg').style.transform=`scale(${1.0+0.08*cl(t/3.3)})`;
+  ['o1','o2','o3'].forEach((id,i)=>{const s=back((t-0.5-i*0.25)/0.35); $(id).style.transform=`scale(${s})`; $(id).style.opacity=cl((t-0.5-i*0.25)/0.15);});
+  ['x1','x2'].forEach((id,i)=>{$(id).style.transform=`scaleX(${e((t-2.5-i*0.12)/0.25)})`;});
+  $('o1').style.filter=$('o2').style.filter= t>2.6?`opacity(${1-0.5*cl((t-2.6)/0.3)})`:'none';
+ }
+};
+setT(+(P.get('t')||0));
+</script></body></html>
