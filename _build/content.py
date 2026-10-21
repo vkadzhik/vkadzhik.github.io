@@ -637,7 +637,7 @@ CASES.append({
  "cover": "plato-cover",
  "facts": [
    (("Роль", "Role"), ("AI-креатор и моушн-дизайнер, один на проекте", "AI creative and motion designer, solo")),
-   (("Тип", "Type"), ("Концепт-кампания вымышленного приложения", "Concept campaign for a fictional app")),
+   (("Объём", "Scope"), ("Полный цикл: бриф, хуки, сценарий, продакшн, монтаж, ресайзы", "End to end: brief, hooks, script, production, edit, resizes")),
    (("Состав", "Deliverables"), ("3 видео 9:16 по 19 секунд, 9 баннеров: 1:1, 4:5, 9:16", "3 videos, 9:16, 19 s each; 9 banners: 1:1, 4:5, 9:16")),
    (("Инструменты", "Tools"), ("Higgsfield AI: GPT Image, Seedance, ElevenLabs; HTML/CSS и Playwright для интерфейса; faster-whisper; ffmpeg", "Higgsfield AI: GPT Image, Seedance, ElevenLabs; HTML/CSS and Playwright for the UI; faster-whisper; ffmpeg")),
  ],
