@@ -168,7 +168,7 @@ def build_home():
   <div class="wrap">
     <div class="sec-head">
       <h2 id="work-h" class="sec-h">{T(("Работы", "Work"))}</h2>
-      <p class="sec-sub">{T(("Восемь кейсов: от B2B-кабинета с таблицами до виджета на живых данных и рекламных кампаний. В каждом — задача, решения и экраны.", "Eight cases, from a B2B app with complex tables to a widget on live data and ad campaigns. Each shows the problem, the decisions and the screens."))}</p>
+      <p class="sec-sub">{T(("Девять кейсов: от B2B-кабинета с таблицами до виджета на живых данных, рекламных кампаний и карточек для маркетплейса. В каждом — задача, решения и экраны.", "Nine cases, from a B2B app with complex tables to a widget on live data, ad campaigns and marketplace cards. Each shows the problem, the decisions and the screens."))}</p>
     </div>
     <ol class="cases">{''.join(rows)}
     </ol>
@@ -216,6 +216,9 @@ def block(b):
         _, items, cols = b
         figs = "".join(f'<figure class="fig reveal">{img(n, cap, sizes="50vw")}<figcaption>{T(cap)}</figcaption></figure>' for n, cap in items)
         return f'<div class="figs figs--{cols}">{figs}</div>'
+    if k == "grid3":
+        figs = "".join(f'<figure class="fig reveal">{img(n, cap, sizes="33vw")}<figcaption>{T(cap)}</figcaption></figure>' for n, cap in b[1])
+        return f'<div class="figs figs--3">{figs}</div>'
     if k == "video":
         _, vsrc, poster, cap = b
         return (f'<figure class="fig fig--video"><video controls playsinline preload="none" poster="{src(poster)}" width="1080" height="1920">'

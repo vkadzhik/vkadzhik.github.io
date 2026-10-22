@@ -71,6 +71,21 @@ IMG = {
  "plato-ui": ("4f42893b-5d5d-45ba-8fb7-d542990cecfc", 1696, 1004),
  "plato-statics": ("b58e9bc5-8c58-45d2-899f-df62022ef123", 1920, 1440),
  "plato-formats": ("3b8821cc-8720-4a42-b23c-50a5cd0bc937", 2295, 1000),
+ "ozon-cover": ("ac2d97eb-ba8d-4acd-8d42-5fe3bbbab037", 1920, 1080),
+ "ozon-pulse-a": ("4b0eae02-04ad-4846-9749-3f50bf341508", 1200, 1600),
+ "ozon-pulse-b": ("1f6ea336-f708-44a7-b4c6-f04d00fd6147", 1200, 1600),
+ "ozon-pulse-c": ("92119454-ceb8-4692-99b1-95858e4a9f36", 1200, 1600),
+ "ozon-pulse-2": ("7ccd92c0-438b-4b0e-a7a4-19554a919086", 1200, 1600),
+ "ozon-pulse-3": ("d5b01814-25ba-46d2-9365-f20443c8b007", 1200, 1600),
+ "ozon-sono-1": ("ef7121a0-4265-4c80-a2ec-780c27ad92ca", 1200, 1600),
+ "ozon-sono-2": ("4b71e89d-800a-4d31-b4fd-d2ba79c6b87d", 1200, 1600),
+ "ozon-sono-3": ("293c7c3b-d89c-430f-859a-9cd0b7a8cbb9", 1200, 1600),
+ "ozon-halden-1": ("39b614b7-a3b4-4805-bba7-02098c0921b2", 1200, 1600),
+ "ozon-halden-2": ("1f50602f-d937-4489-81dd-af32663aabf0", 1200, 1600),
+ "ozon-halden-3": ("0855f5c0-ff68-4d32-a6cb-b0ddb80a763f", 1200, 1600),
+ "ozon-luma-1": ("c0ef8edb-e38f-4698-a75c-9404ee8b801b", 1200, 1600),
+ "ozon-luma-2": ("ee590faa-2f88-4d67-9371-f00865f17c84", 1200, 1600),
+ "ozon-luma-3": ("cb1b4013-34de-4c77-bfe9-3611b5902c11", 1200, 1600),
 }
 
 MIRRA_VIDEO = CDN + "fd3609c2-e729-4c12-b42a-c69fd3d07c31.mp4"
@@ -697,6 +712,58 @@ CASES.append({
       ("Три хука между собой при одинаковой середине и финале.", "The three hooks against each other with the same middle and end."),
       ("Два оффера: «Try free for 7 days» и «Snap your first plate».", "Two offers: ‘Try free for 7 days’ vs ‘Snap your first plate’."),
       ("Метрики: досмотр первых 3 секунд, удержание до 75%, CTR, цена установки и конверсия в пробную подписку.", "Metrics: 3-second thumb-stop rate, hold to 75%, CTR, cost per install and trial-start rate."),
+    ]),
+  ]),
+ ],
+})
+
+CASES.append({
+ "slug": "ozon-cards",
+ "color": "#005BFF",
+ "name": ("Инфографика для Ozon", "Ozon product cards"),
+ "kind": ("Карточки товаров для маркетплейса", "Marketplace product card infographics"),
+ "summary": (
+   "14 слайдов для четырёх товаров: шейкер, TWS-наушники, электробритва и швабра с распылителем. Главный слайд, слайды с преимуществами, устройством и размерами, три варианта главного для A/B-теста.",
+   "14 slides for four products: a shaker, TWS earbuds, an electric shaver and a spray mop. Main slide, benefit, anatomy and size slides, plus three main-slide variants for an A/B test."),
+ "cover": "ozon-cover",
+ "facts": [
+   (("Роль", "Role"), ("Дизайнер: структура карточки, тексты, фото, вёрстка", "Designer: card structure, copy, photos, layout")),
+   (("Объём", "Scope"), ("4 товара, 14 слайдов, 3 варианта главного для A/B", "4 products, 14 slides, 3 main-slide variants for A/B")),
+   (("Формат", "Format"), ("3:4, 900×1200, экспорт 1200×1600", "3:4, 900×1200, exported at 1200×1600")),
+   (("Инструменты", "Tools"), ("Higgsfield (GPT Image), Figma AI, Figma, HTML/CSS", "Higgsfield (GPT Image), Figma AI, Figma, HTML/CSS")),
+ ],
+ "links": [
+   (("Все карточки в PDF", "All cards as PDF"), "/ozon-cards.pdf"),
+ ],
+ "sections": [
+  (("Подход", "Approach"), [
+    ("defs", [
+      (("Товар крупно", "Product first"), ("Товар занимает основную часть кадра и виден целиком, как требует Ozon. В выдаче на телефоне карточка шириной около 170 пикселей, поэтому мелочи убраны.", "The product fills most of the frame and is shown whole, as Ozon requires. In mobile search the card is about 170 px wide, so small details are cut.")),
+      (("Одна мысль на слайд", "One idea per slide"), ("Главный слайд — название и три цифры, которые отличают товар. Остальные слайды отвечают на вопросы покупателя: как устроен, сколько работает, какого размера, что в комплекте.", "The main slide carries the name and three numbers that set the product apart. The other slides answer buyer questions: how it works, how long it lasts, how big it is, what is in the box.")),
+      (("Свободные углы", "Clear corners")  , ("Ozon кладёт поверх фото кнопки избранного и плашки акций, поэтому в углах нет важного текста.", "Ozon overlays favourite buttons and promo badges, so the corners carry nothing important.")),
+      (("Свой стиль у товара", "A style per product"), ("У каждого товара своя палитра и шрифтовая пара, одинаковые на всех его слайдах.", "Each product has its own palette and type pair, consistent across all of its slides.")),
+    ]),
+  ]),
+  (("Шейкер: три главных для A/B", "Shaker: three main slides for A/B"), [
+    ("grid3", [("ozon-pulse-a", ("A — цифры", "A — numbers")), ("ozon-pulse-b", ("B — в деле", "B — in use")), ("ozon-pulse-c", ("C — «3 в 1»", "C — ‘3 in 1’"))]),
+    ("grid", [("ozon-pulse-2", ("Устройство по деталям", "Anatomy, part by part")), ("ozon-pulse-3", ("Характеристики", "Specs"))], 2),
+    ("p", ("Три главных слайда проверяют разные мотивы покупки: рациональный (цифры), эмоциональный (результат в зале) и «всё в одном». На тесте по CTR видно, какой работает лучше.", "The three main slides test different buying motives: rational (numbers), emotional (the result in the gym) and all-in-one. A CTR test shows which one wins.")),
+  ]),
+  (("Наушники", "Earbuds"), [
+    ("grid3", [("ozon-sono-1", ("Главный", "Main")), ("ozon-sono-2", ("Шумоподавление", "Noise cancelling")), ("ozon-sono-3", ("Автономность — фон из Figma AI", "Battery — background from Figma AI"))]),
+  ]),
+  (("Электробритва", "Electric shaver"), [
+    ("grid3", [("ozon-halden-1", ("Главный", "Main")), ("ozon-halden-2", ("Защита IPX7", "IPX7 protection")), ("ozon-halden-3", ("Контур и комплектация", "Contour and what is in the box"))]),
+  ]),
+  (("Швабра", "Spray mop"), [
+    ("grid3", [("ozon-luma-1", ("Главный", "Main")), ("ozon-luma-2", ("Как пользоваться", "How to use")), ("ozon-luma-3", ("Размеры", "Dimensions"))]),
+  ]),
+  (("Производство", "Production"), [
+    ("ul", [
+      ("Фото товаров и сцен сгенерированы в Higgsfield (GPT Image). Первый кадр товара использовал как референс для остальных, чтобы товар не менялся от слайда к слайду.", "Product and scene photos were generated in Higgsfield (GPT Image). The first product shot served as the reference for the rest, so the product stays the same across slides."),
+      ("Фон слайда про автономность сгенерирован в Figma AI.", "The battery slide background was generated with Figma AI."),
+      ("Тексты, цифры, иконки и вёрстка сделаны вручную: нейросети ошибаются в тексте, а на карточке цифры — главный аргумент.", "Copy, numbers, icons and layout are done by hand: AI gets text wrong, and on a card the numbers are the main argument."),
+      ("Каждый слайд проверен в уменьшенном виде, как в выдаче на телефоне.", "Every slide was checked at thumbnail size, as it appears in mobile search."),
     ]),
   ]),
  ],

@@ -161,6 +161,7 @@ ol.list li::before{content:counter(n);position:absolute;left:0;top:.05em;font-si
 .vids{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:1000px}
 .vids .fig--video{max-width:none}
 .figs--2{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+.figs--3{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
 
 .next{display:block;margin-top:clamp(96px,12vw,160px)}
 .next__a{display:grid;gap:6px;text-decoration:none;border-top:1px solid var(--rule);padding-top:28px}
@@ -203,6 +204,7 @@ ol.list li::before{content:counter(n);position:absolute;left:0;top:.05em;font-si
   body{font-size:16px}
   .caps{grid-template-columns:1fr}
   .figs--2{grid-template-columns:1fr}
+  .figs--3{grid-template-columns:repeat(2,minmax(0,1fr))}
   .hero__cta .btn,.contact__ways .btn{width:100%;justify-content:center}
   .fig--video{max-width:100%}
   .vids{grid-template-columns:repeat(3,78%);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
