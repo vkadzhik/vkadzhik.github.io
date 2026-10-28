@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=2">
+<link rel="stylesheet" href="/assets/site.css?v=3">
 <meta name="x-title-ru" content="Страница не найдена"><meta name="x-title-en" content="Page not found">
 </head>
 <body>
@@ -28,32 +28,34 @@
 <header class="top">
   <div class="wrap top__in">
     <a class="brand" href="/index.html"><span class="brand__mark" aria-hidden="true">KV</span><span class="brand__name"><span class="l-ru" lang="ru">Каджик Варданян</span><span class="l-en" lang="en">Kadzhik Vardanyan</span></span></a>
-    <nav class="top__nav" aria-label="Main">
-      <a href="/index.html#work"><span class="l-ru" lang="ru">Работы</span><span class="l-en" lang="en">Work</span></a>
-      <a href="/index.html#experience"><span class="l-ru" lang="ru">Опыт</span><span class="l-en" lang="en">Experience</span></a>
-      <a href="/index.html#about"><span class="l-ru" lang="ru">Обо мне</span><span class="l-en" lang="en">About</span></a>
-      <a href="/index.html#contact"><span class="l-ru" lang="ru">Контакты</span><span class="l-en" lang="en">Contact</span></a>
-    </nav>
+    <nav class="top__nav" aria-label="Main"><a href="#work"><span class="l-ru" lang="ru">Проекты</span><span class="l-en" lang="en">Projects</span></a><a href="#experience"><span class="l-ru" lang="ru">Опыт</span><span class="l-en" lang="en">Experience</span></a><a href="#about"><span class="l-ru" lang="ru">Обо мне</span><span class="l-en" lang="en">About</span></a><a href="#contact"><span class="l-ru" lang="ru">Контакты</span><span class="l-en" lang="en">Contact</span></a></nav>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" data-set-lang="en">EN</button><button type="button" data-set-lang="ru">RU</button>
     </div>
+    <button type="button" class="burger" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span class="sr">Menu</span></button>
   </div>
+  <nav class="mnav" id="mnav" aria-label="Mobile" hidden><div class="wrap mnav__in"><a href="#work"><span class="l-ru" lang="ru">Проекты</span><span class="l-en" lang="en">Projects</span></a><a href="#experience"><span class="l-ru" lang="ru">Опыт</span><span class="l-en" lang="en">Experience</span></a><a href="#about"><span class="l-ru" lang="ru">Обо мне</span><span class="l-en" lang="en">About</span></a><a href="#contact"><span class="l-ru" lang="ru">Контакты</span><span class="l-en" lang="en">Contact</span></a></div></nav>
 </header>
 <main id="main" class="nf"><div class="wrap">
 <h1 class="ch__h">404</h1>
 <p class="ch__lead"><span class="l-ru" lang="ru">Такой страницы нет. Возможно, ссылка устарела.</span><span class="l-en" lang="en">This page doesn't exist. The link may be out of date.</span></p>
 <a class="btn btn--solid" href="/"><span class="l-ru" lang="ru">На главную</span><span class="l-en" lang="en">Go to the homepage</span></a>
 </div></main><footer class="foot">
-  <div class="wrap foot__in">
-    <p>© 2026 <span class="l-ru" lang="ru">Каджик Варданян</span><span class="l-en" lang="en">Kadzhik Vardanyan</span></p>
-    <p class="foot__links"><a href="https://t.me/jema_tati">Telegram</a><a href="mailto:vkadzhik@mail.ru">vkadzhik@mail.ru</a><a href="https://github.com/vkadzhik">GitHub</a></p>
+  <div class="wrap">
+    <div class="foot__top">
+      <p class="foot__links"><a href="https://t.me/jema_tati">Telegram</a><a href="mailto:vkadzhik@mail.ru">vkadzhik@mail.ru</a><a href="https://github.com/vkadzhik">GitHub</a></p>
+      <a class="totop" href="#main"><span class="l-ru" lang="ru">Наверх</span><span class="l-en" lang="en">Back to top</span> ↑</a>
+    </div>
+    <p class="foot__word" aria-hidden="true">Kadzhik Vardanyan</p>
+    <p class="foot__copy">© 2026 <span class="l-ru" lang="ru">Каджик Варданян</span><span class="l-en" lang="en">Kadzhik Vardanyan</span> · <span class="l-ru" lang="ru">UX/UI и продуктовый дизайн</span><span class="l-en" lang="en">UX/UI & product design</span></p>
   </div>
 </footer>
 <div class="pill" aria-hidden="true"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">View case</span></div>
+<div class="peek" aria-hidden="true"><img alt=""></div>
 <dialog class="zoom" aria-label="Image">
   <button type="button" class="zoom__close" data-close><span class="l-ru" lang="ru">Закрыть</span><span class="l-en" lang="en">Close</span></button>
   <img alt="">
 </dialog>
-<script src="/assets/site.js?v=2" defer></script>
+<script src="/assets/site.js?v=3" defer></script>
 </body>
 </html>

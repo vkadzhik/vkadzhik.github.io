@@ -3,7 +3,7 @@
 import html, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from content import (CDN, IMG, CONTACT, HOME, CASES, SHOW, HERO, EXPERIENCE, EXPERIENCE_INTRO,
-                     PROCESS, TOOLKIT)
+                     TOOLKIT, STATS, ABOUT_STATEMENT, SERVICES, PRINCIPLES, PROCESS2)
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SITE = "https://vkadzhik.ru"
@@ -67,7 +67,7 @@ def head(title, desc, path, image=None, depth=0):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{pre}assets/site.css?v=2">
+<link rel="stylesheet" href="{pre}assets/site.css?v=3">
 <meta name="x-title-ru" content="{e(title[0])}"><meta name="x-title-en" content="{e(title[1])}">
 </head>
 <body>
@@ -78,23 +78,22 @@ def head(title, desc, path, image=None, depth=0):
 
 def header(depth=0, current=""):
     pre = "../" * depth
-    home = pre + "index.html"
+    home = "" if depth == 0 else pre + "index.html"
     def nav(href, pair, key):
         cur = ' aria-current="page"' if key == current else ""
         return f'<a href="{href}"{cur}>{T(pair)}</a>'
+    links = (nav(home + '#work', ('Проекты', 'Projects'), 'work') + nav(home + '#experience', ('Опыт', 'Experience'), 'exp')
+             + nav(home + '#about', ('Обо мне', 'About'), 'about') + nav(home + '#contact', ('Контакты', 'Contact'), 'contact'))
     return f"""<header class="top">
   <div class="wrap top__in">
-    <a class="brand" href="{home}"><span class="brand__mark" aria-hidden="true">KV</span><span class="brand__name">{T(NAME)}</span></a>
-    <nav class="top__nav" aria-label="Main">
-      {nav(home + '#work', ('Работы', 'Work'), 'work')}
-      {nav(home + '#experience', ('Опыт', 'Experience'), 'exp')}
-      {nav(home + '#about', ('Обо мне', 'About'), 'about')}
-      {nav(home + '#contact', ('Контакты', 'Contact'), 'contact')}
-    </nav>
+    <a class="brand" href="{pre}index.html"><span class="brand__mark" aria-hidden="true">KV</span><span class="brand__name">{T(NAME)}</span></a>
+    <nav class="top__nav" aria-label="Main">{links}</nav>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" data-set-lang="en">EN</button><button type="button" data-set-lang="ru">RU</button>
     </div>
+    <button type="button" class="burger" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span class="sr">Menu</span></button>
   </div>
+  <nav class="mnav" id="mnav" aria-label="Mobile" hidden><div class="wrap mnav__in">{links}</div></nav>
 </header>
 """
 
@@ -102,17 +101,22 @@ def header(depth=0, current=""):
 def footer(depth=0):
     pre = "../" * depth
     return f"""<footer class="foot">
-  <div class="wrap foot__in">
-    <p>© 2026 {T(NAME)}</p>
-    <p class="foot__links"><a href="{CONTACT['telegram']}">Telegram</a><a href="mailto:{CONTACT['email']}">{CONTACT['email']}</a><a href="{CONTACT['github']}">GitHub</a></p>
+  <div class="wrap">
+    <div class="foot__top">
+      <p class="foot__links"><a href="{CONTACT['telegram']}">Telegram</a><a href="mailto:{CONTACT['email']}">{CONTACT['email']}</a><a href="{CONTACT['github']}">GitHub</a></p>
+      <a class="totop" href="#main">{T(("Наверх", "Back to top"))} ↑</a>
+    </div>
+    <p class="foot__word" aria-hidden="true">Kadzhik Vardanyan</p>
+    <p class="foot__copy">© 2026 {T(NAME)} · {T(("UX/UI и продуктовый дизайн", "UX/UI & product design"))}</p>
   </div>
 </footer>
 <div class="pill" aria-hidden="true">{T(("Открыть кейс", "View case"))}</div>
+<div class="peek" aria-hidden="true"><img alt=""></div>
 <dialog class="zoom" aria-label="Image">
   <button type="button" class="zoom__close" data-close>{T(("Закрыть", "Close"))}</button>
   <img alt="">
 </dialog>
-<script src="{pre}assets/site.js?v=2" defer></script>
+<script src="{pre}assets/site.js?v=3" defer></script>
 </body>
 </html>
 """
@@ -121,9 +125,9 @@ def footer(depth=0):
 def contact_block():
     return f"""<section class="contact" id="contact" aria-labelledby="contact-h">
   <div class="wrap contact__in">
-    <p class="eyebrow">{T(("Контакты", "Contact"))}</p>
+    <p class="eyebrow"><span class="mono">(04)</span> {T(("Контакты", "Contact"))}</p>
     <h2 id="contact-h" class="contact__h">{T(("Давайте сделаем ваш продукт понятным.", "Let's make your product easy to use."))}</h2>
-    <p class="contact__lead">{T(("Быстрее всего отвечаю в Telegram. Открыт к удалённой работе и тестовому заданию.", "Telegram is the fastest way to reach me. Open to remote roles and happy to do a test task."))}</p>
+    <p class="contact__lead">{T(("Быстрее всего отвечаю в Telegram. Открыт к новым проектам и готов выполнить тестовое задание.", "Telegram is the fastest way to reach me. Open to new projects and happy to do a test task."))}</p>
     <div class="contact__ways">
       <a class="btn btn--solid" href="{CONTACT['telegram']}">{T(("Написать в Telegram", "Message on Telegram"))}{ARROW_R}</a>
       <a class="btn" href="mailto:{CONTACT['email']}">{CONTACT['email']}</a>
@@ -137,7 +141,7 @@ def contact_block():
 def build_home():
     out = [head(HOME["title"], HOME["description"], "/"), header(0)]
     out.append('<main id="main">')
-    # hero
+    stats = "".join(f'<li><b>{n}</b><span>{T(l)}</span></li>' for n, l in STATS)
     out.append(f"""
 <section class="hero">
   <div class="wrap hero__in">
@@ -155,52 +159,50 @@ def build_home():
     </div>
   </div>
   <div class="wrap">
+    <ul class="stats reveal">{stats}</ul>
     <ul class="hero__contacts">
       <li><a href="{CONTACT['telegram']}">{I_TG}<span>{CONTACT['telegram_label']}</span></a></li>
       <li><a href="mailto:{CONTACT['email']}">{I_MAIL}<span>{CONTACT['email']}</span></a></li>
       <li><a href="{CONTACT['github']}">{I_GH}<span>github.com/vkadzhik</span></a></li>
-      <li class="hero__where">{T(("Калининград · удалённо", "Kaliningrad · Remote"))}</li>
     </ul>
   </div>
 </section>
 """)
-    # work
     cards = []
     for i, c in enumerate(LISTED):
         href = f"cases/{c['slug']}.html"
+        tags = "".join(f"<span>{t}</span>" for t in c.get("tags", []))
         cards.append(f"""
       <li class="card reveal" style="--c:{c['color']}">
         <a class="card__a" href="{href}">
           <span class="card__img">{img(c['cover'], c['name'], sizes='(min-width: 900px) 46vw, 100vw', zoom=False, vt='cover-'+c['slug'])}</span>
-          <span class="card__meta"><span class="card__n">{i+1:02d}</span><span class="card__name">{T(c['name'])}</span><span class="card__kind">{T(c['kind'])}</span></span>
+          <span class="card__meta"><span class="card__n">{i+1:02d}</span><span class="card__name">{T(c['name'])}</span><span class="card__kind">{T(c['kind'])}</span><span class="card__go" aria-hidden="true">{ARROW_R}</span></span>
         </a>
       </li>""")
     out.append(f"""
 <section class="work" id="work" aria-labelledby="work-h">
-  <span class="ghost" aria-hidden="true">Work</span>
   <div class="wrap">
     <div class="sec-head reveal">
-      <h2 id="work-h" class="sec-h">{T(("Избранные работы", "Selected work"))}</h2>
-      <p class="sec-sub">{T(("Четыре продукта: казино, криптодашборд, мобильный банк и B2B-кабинет с виджетом на живых данных. В каждом кейсе — задача, решения и экраны.", "Four products: a casino, a crypto dashboard, a mobile bank and a B2B web app with a widget on live data. Each case shows the problem, the decisions and the screens."))}</p>
+      <div><p class="eyebrow"><span class="mono">(01)</span> {T(("Проекты", "Projects"))}</p><h2 id="work-h" class="sec-h">{T(("Мои кейсы", "My case studies"))}</h2></div>
+      <p class="sec-sub">{T(("Казино, криптодашборд, мобильный банк и B2B-кабинет с виджетом на живых данных. В каждом кейсе — задача, решения, экраны и цифры.", "A casino, a crypto dashboard, a mobile bank and a B2B web app with a widget on live data. Each case covers the problem, the decisions, the screens and the numbers."))}</p>
     </div>
     <ol class="cards">{''.join(cards)}
     </ol>
   </div>
 </section>
 """)
-    # experience
     rows = []
     for i, x in enumerate(EXPERIENCE):
         c = BY[x["slug"]]
         rows.append(f"""
-      <li class="xp reveal" style="--c:{c['color']}">
+      <li class="xp reveal" style="--c:{c['color']}" data-peek="{src(c['cover'])}">
         <details{' open' if i == 0 else ''}>
           <summary class="xp__row">
             <span class="xp__year mono">{x['year']}</span>
             <span class="xp__name">{x['name']}</span>
             <span class="xp__what">{T(x['what'])}</span>
             <span class="xp__role">{T(x['role'])}</span>
-            <span class="xp__n mono">[{i+1:02d}]</span>
+            <span class="xp__plus" aria-hidden="true"></span>
           </summary>
           <div class="xp__body">
             <div><p class="xp__k">{T(("Задача", "Task"))}</p><p>{T(x['task'])}</p></div>
@@ -214,7 +216,7 @@ def build_home():
 <section class="exp" id="experience" aria-labelledby="exp-h">
   <div class="wrap">
     <div class="sec-head reveal">
-      <h2 id="exp-h" class="sec-h">{T(("Опыт", "Experience"))}</h2>
+      <div><p class="eyebrow"><span class="mono">(02)</span> {T(("Опыт", "Experience"))}</p><h2 id="exp-h" class="sec-h">{T(("Опыт", "Experience"))}</h2></div>
       <p class="sec-sub">{T(EXPERIENCE_INTRO)}</p>
     </div>
     <div class="xp__cap mono" aria-hidden="true"><span>{T(("Год", "Year"))}</span><span>{T(("Проект", "Project"))}</span><span>{T(("Продукт", "Product"))}</span><span>{T(("Роль", "Role"))}</span><span></span></div>
@@ -223,28 +225,31 @@ def build_home():
   </div>
 </section>
 """)
-    # about + process (lime band)
-    proc = "".join(f'<li class="proc__row"><span class="mono">{i+1:02d}</span><span class="proc__h">{T(h)}</span><span class="proc__d">{T(d)}</span><span class="mono proc__n">[{i+1:02d}]</span></li>'
-                   for i, (h, d) in enumerate(PROCESS))
+    services = "".join(f'<li class="svc reveal"><span class="mono svc__n">{i+1:02d}</span><h3 class="svc__h">{T(h)}</h3><p>{T(d)}</p></li>' for i, (h, d) in enumerate(SERVICES))
+    principles = "".join(f'<li><h3>{T(h)}</h3><p>{T(d)}</p></li>' for h, d in PRINCIPLES)
+    steps = "".join(f'<li class="step reveal"><span class="mono step__n">{i+1:02d}</span><h3 class="step__h">{T(h)}</h3><p class="step__d">{T(d)}</p><p class="step__out"><span class="mono">{T(("Результат", "Output"))}</span>{T(o)}</p></li>' for i, (h, d, o) in enumerate(PROCESS2))
     tools = "".join(f"<li>{t}</li>" for t in TOOLKIT)
     out.append(f"""
-<section class="band" id="about" aria-labelledby="about-h">
-  <div class="wrap band__in">
-    <div class="band__grid reveal">
-      <h2 id="about-h" class="band__h">{T(("Обо мне", "About"))}</h2>
-      <div class="band__cols">
-        <p>{T(("Мне нравятся продукты, где много данных и легко ошибиться: таблицы, дашборды, деньги, ставки. Моя задача — чтобы человек сразу понимал, что происходит и что делать дальше.", "I like products with a lot of data and plenty of room for mistakes: tables, dashboards, money, bets. My job is to make it obvious what is going on and what to do next."))}</p>
-        <p>{T(("Сначала собираю систему — переменные, токены, компоненты, — а экраны потом собираются из неё. Поэтому макеты легко переносятся в код, и я проверяю их на настоящих данных, а не на идеальных примерах.", "I build the system first — variables, tokens, components — and assemble screens from it. That makes the layouts easy to move into code, and I test them on real data rather than perfect examples."))}</p>
+<section class="about" id="about" aria-labelledby="about-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><p class="eyebrow"><span class="mono">(03)</span> {T(("Обо мне", "About"))}</p><h2 id="about-h" class="sec-h">{T(("Обо мне", "About me"))}</h2></div>
+    </div>
+    <p class="statement reveal">{T(ABOUT_STATEMENT)}</p>
+    <h3 class="sub-h reveal">{T(("Чем я занимаюсь", "What I do"))}</h3>
+    <ul class="svcs">{services}</ul>
+    <div class="split">
+      <div class="reveal">
+        <h3 class="sub-h">{T(("Как я работаю", "How I work"))}</h3>
+        <ul class="principles">{principles}</ul>
+      </div>
+      <div class="reveal">
+        <h3 class="sub-h">{T(("Инструменты", "Toolkit"))}</h3>
+        <ul class="chips">{tools}</ul>
       </div>
     </div>
-    <div class="band__grid reveal">
-      <h2 class="band__h">{T(("Процесс", "Process"))}</h2>
-      <ol class="proc">{proc}</ol>
-    </div>
-    <div class="band__grid reveal">
-      <h2 class="band__h band__h--sm">{T(("Инструменты", "Toolkit"))}</h2>
-      <ul class="chips">{tools}</ul>
-    </div>
+    <h3 class="sub-h reveal">{T(("Процесс", "Process"))}</h3>
+    <ol class="steps">{steps}</ol>
   </div>
 </section>
 """)

@@ -53,6 +53,33 @@
     });
   }
 
+
+  // mobile menu
+  var burger = document.querySelector('.burger'), mnav = document.getElementById('mnav');
+  if (burger && mnav) {
+    burger.addEventListener('click', function () {
+      var open = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', open ? 'false' : 'true');
+      mnav.hidden = open;
+    });
+    mnav.addEventListener('click', function (ev) {
+      if (ev.target.closest('a')) { burger.setAttribute('aria-expanded', 'false'); mnav.hidden = true; }
+    });
+  }
+
+  // cover preview next to the cursor on experience rows
+  var peek = document.querySelector('.peek');
+  if (peek && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    var pim = peek.querySelector('img'), px = 0, py = 0, praf = 0;
+    function pmove() { peek.style.left = px + 'px'; peek.style.top = py + 'px'; praf = 0; }
+    document.querySelectorAll('.xp[data-peek]').forEach(function (li) {
+      var row = li.querySelector('.xp__row');
+      row.addEventListener('mouseenter', function () { pim.src = li.getAttribute('data-peek'); peek.classList.add('is-on'); });
+      row.addEventListener('mouseleave', function () { peek.classList.remove('is-on'); });
+      row.addEventListener('mousemove', function (ev) { px = ev.clientX; py = ev.clientY; if (!praf) praf = requestAnimationFrame(pmove); });
+    });
+  }
+
   var top = document.querySelector('.top');
   function onScroll() { if (top) top.classList.toggle('is-scrolled', window.scrollY > 8); }
   window.addEventListener('scroll', onScroll, { passive: true });

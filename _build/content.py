@@ -779,8 +779,8 @@ HERO = {
     "Проектирую интерфейсы для iGaming, финтеха и сервисов с большим количеством данных. Веду проект целиком: сценарии, дизайн-система, экраны для десктопа и мобильного, рабочий прототип. Каждый день использую AI-инструменты и проверяю макеты на настоящих данных.",
     "I design interfaces for iGaming, fintech and products with a lot of data. I run a project end to end: user flows, a design system, desktop and mobile screens and a working prototype. I use AI tools every day and test layouts against real data."),
   "expertise": ("Figma · дизайн-системы · сложные интерфейсы · прототипы в коде", "Figma · Design systems · Data-heavy UI · Coded prototypes"),
-  "cursor": ("Открыт к удалённой работе", "Open to remote work"),
-  "city": ("Калининград", "Kaliningrad"),
+  "cursor": ("Открыт к предложениям", "Open to new projects"),
+  "city": ("Product · UX/UI", "Product · UX/UI"),
 }
 
 EXPERIENCE_INTRO = (
@@ -853,3 +853,36 @@ for _c in CASES:
           ("img", "live-states", ("Состояния: загрузка, пусто, ошибка, частичные данные", "States: loading, empty, error, partial data"), "wide"),
           ("grid", [("live-desk-dark", ("Тёмная тема — второй режим токенов", "Dark theme is the second token mode")), ("live-mobile", ("Мобильная версия с купоном внизу", "Mobile with a bottom-sheet bet slip"))], 2),
         ]))
+
+STATS = [
+  ("4", ("продукта от идеи до экранов", "products, idea to screens")),
+  ("42", ("экрана на десктопе и мобильном", "desktop and mobile screens")),
+  ("4", ("дизайн-системы на переменных", "design systems on variables")),
+  ("1", ("виджет на живых данных", "widget running on live data")),
+]
+
+ABOUT_STATEMENT = (
+  "Я UX/UI и продуктовый дизайнер. Работаю там, где интерфейс легко сделать сложным: много данных, деньги, живые статусы, несколько ролей. Ищу самое простое решение, которое выдержит настоящие данные, краевые случаи и разработку, и продумываю каждое состояние экрана до того, как он уйдёт в код.",
+  "I'm a UX/UI and product designer. I work where interfaces easily get complicated: lots of data, money, live states, several roles. I look for the simplest solution that still holds up with real data, edge cases and a development team, and I think through every state of a screen before it goes to code.")
+
+SERVICES = [
+  (("Продуктовый UX", "Product & UX"), ("Задачи пользователя и JTBD, сценарии, информационная архитектура и каждое состояние экрана: пустое, загрузка, ошибка, длинный контент.", "User jobs and JTBD, flows, information architecture and every state of a screen: empty, loading, error, long content.")),
+  (("Дизайн-системы", "Design systems"), ("Переменные Figma со светлым и тёмным режимом, токены, которые выгружаются в код, компоненты с вариантами и понятными правилами.", "Figma variables with light and dark modes, tokens that export to code, components with variants and clear usage rules.")),
+  (("Интерфейсы с данными", "Data-heavy UI"), ("Дашборды, реестры и таблицы с фильтрами, сортировкой и массовыми действиями, многошаговые формы, в которых пользователь не теряется.", "Dashboards, registries and tables with filters, sorting and bulk actions, multi-step forms where nobody gets lost.")),
+  (("Прототипы и передача", "Prototypes & handoff"), ("Кликабельные прототипы в Figma и рабочие в HTML/CSS/JS, спецификации и токены, по которым разработчик собирает без догадок.", "Clickable prototypes in Figma and working ones in HTML/CSS/JS, specs and tokens a developer can build from without guessing.")),
+]
+
+PRINCIPLES = [
+  (("Задача, а не картинка", "The job, not the picture"), ("Начинаю с того, что человек пытается сделать, и с ограничений бизнеса и разработки.", "I start from what the person is trying to get done and from the business and engineering constraints.")),
+  (("Сначала система", "System first"), ("Экраны собираются из компонентов и токенов, поэтому продукт остаётся цельным и легко растёт.", "Screens are assembled from components and tokens, so the product stays consistent and grows easily.")),
+  (("Проверка настоящими данными", "Tested on real data"), ("Длинные имена, пустые списки, ошибки и медленная сеть — до передачи в разработку, а не после.", "Long names, empty lists, errors and a slow network are handled before handoff, not after.")),
+  (("AI как инструмент", "AI as a tool"), ("Ускоряю ресёрч, иллюстрации и прототипы с помощью AI, но каждое решение проверяю сам.", "I use AI to speed up research, illustration and prototyping, and check every decision myself.")),
+]
+
+PROCESS2 = [
+  (("Исследование", "Research"), ("Задачи пользователя, конкуренты, ограничения", "User jobs, competitors, constraints"), ("Бриф, JTBD, разбор конкурентов", "Brief, JTBD, competitor notes")),
+  (("Структура", "Structure"), ("Сценарии, роли, информационная архитектура", "Flows, roles, information architecture"), ("Сценарии в FigJam, карта экранов", "FigJam flows, screen map")),
+  (("Система", "System"), ("Токены, компоненты, правила", "Tokens, components, rules"), ("Переменные Figma, библиотека компонентов", "Figma variables, component library")),
+  (("Интерфейс", "Interface"), ("Экраны, все состояния, мобильная версия", "Screens, every state, mobile"), ("Десктоп и мобильный, светлая и тёмная тема", "Desktop and mobile, light and dark")),
+  (("Проверка", "Validate"), ("Прототип, настоящие данные, правки", "Prototype, real data, iteration"), ("Прототип, исправления, передача в разработку", "Prototype, fixes, developer handoff")),
+]
