@@ -886,3 +886,30 @@ PROCESS2 = [
   (("Интерфейс", "Interface"), ("Экраны, все состояния, мобильная версия", "Screens, every state, mobile"), ("Десктоп и мобильный, светлая и тёмная тема", "Desktop and mobile, light and dark")),
   (("Проверка", "Validate"), ("Прототип, настоящие данные, правки", "Prototype, real data, iteration"), ("Прототип, исправления, передача в разработку", "Prototype, fixes, developer handoff")),
 ]
+
+DECISIONS = {
+ "orbit": [
+  ("Сделал казино спокойным и «дорогим» вместо привычного шума: один главный оффер на экран, без мигающих счётчиков.", "Made the casino calm and premium instead of the usual noise: one main offer per screen, no blinking counters."),
+  ("Золотой цвет оставил только для денег и главной кнопки — игрок сразу видит баланс, выигрыш и действие.", "Kept gold only for money and the primary button, so the player instantly sees balance, winnings and the next action."),
+  ("Построил продукт вокруг пути игрока: регистрация → лобби → Orbit Crash → выигрыш → вывод.", "Built the product around the player journey: sign-up → lobby → Orbit Crash → win → withdrawal."),
+  ("Собрал систему до экранов: примитивы → семантические токены → компоненты, поэтому весь продукт перекрашивается в одном месте.", "Built the system before the screens: primitives → semantic tokens → components, so the whole product can be re-themed in one place."),
+ ],
+ "nyxa": [
+  ("Разобрал 8 финтех- и трейдинговых дашбордов и вывел правила: одна главная цифра на экран, понятная иерархия карточек, спокойные графики.", "Reviewed 8 fintech and trading dashboards and set rules: one key number per screen, a clear card hierarchy, calm charts."),
+  ("Ушёл от чистого чёрного к нейтралям с фиолетовым оттенком: экран не утомляет при вечернем использовании.", "Moved from pure black to violet-tinted neutrals, so the screen stays easy on the eyes in the evening."),
+  ("Заложил 29 примитивов и 22 семантических токена со скоупами и CSS-синтаксисом, чтобы разработчик брал значения прямо из Figma.", "Set up 29 primitives and 22 semantic tokens with scopes and CSS syntax, so a developer can take values straight from Figma."),
+  ("Собрал все экраны, включая мобильные, только из экземпляров компонентов.", "Assembled every screen, mobile included, from component instances only."),
+ ],
+ "vesta": [
+  ("Выбрал самый частый и нервный сценарий банка — перевод другу — и показал комиссию, срок и итоговую сумму до подтверждения.", "Picked the bank's most frequent and stressful flow, sending money to a friend, and showed fee, timing and total before confirmation."),
+  ("Продумал 7 краевых состояний: сбой Face ID, нет сети, отказ банка, лимит и другие.", "Designed 7 edge states: Face ID failure, no network, bank decline, limits and more."),
+  ("Описал JTBD, журнал решений с отвергнутыми вариантами, гипотезы и воронку с метриками.", "Wrote up JTBD, a decision log with rejected options, hypotheses and a funnel with metrics."),
+  ("Сверстал прототип в HTML: переключатели включают сбои, а лог показывает события аналитики на каждом шаге.", "Built an HTML prototype: toggles trigger failures and a log shows the analytics events at every step."),
+ ],
+ "arena": [
+  ("Сделал дашборд из задач, а не витрины: блок «Требует внимания» показывает, что нужно сделать сегодня.", "Made the dashboard about tasks, not a showcase: a ‘Needs attention’ block shows what to do today."),
+  ("Каждое состояние таблицы объясняет, что случилось, и подсказывает следующий шаг; пустой поиск говорит, какой фильтр мешает.", "Every table state explains what happened and suggests the next step; an empty search tells you which filter is in the way."),
+  ("На телефоне таблица превращается в карточки, фильтры — в нижнюю шторку, а форма заявки — в одну колонку с закреплёнными кнопками.", "On mobile the table becomes cards, filters move to a bottom sheet, and the entry form becomes one column with pinned buttons."),
+  ("Вынес токены из Figma в код и проверил систему на живых матчах: длинные названия, пропавшие логотипы, движение коэффициентов, пустые лиги.", "Moved the tokens from Figma to code and tested the system on live matches: long names, missing logos, moving odds, empty leagues."),
+ ],
+}

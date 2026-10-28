@@ -127,6 +127,11 @@ html[data-lang="ru"] .l-en,html[data-lang="en"] .l-ru{display:none!important}
 .xp__body{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px clamp(20px,3vw,44px);padding:26px 20px 30px 120px}
 .xp__k{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin-bottom:8px}
 .xp__body p:not(.xp__k){font-size:16px;line-height:1.55}
+.xp__dec{grid-column:1/-1;padding-top:6px;border-top:1px dashed var(--rule)}
+.xp__dec ol{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 40px;counter-reset:d}
+.xp__dec li{counter-increment:d;position:relative;padding-left:34px;font-size:15px;line-height:1.55}
+.xp__dec li::before{content:counter(d,decimal-leading-zero);position:absolute;left:0;top:.1em;font-family:var(--mono);font-size:12px;color:var(--mute)}
+@media (max-width:760px){.xp__dec ol{grid-template-columns:1fr}}
 .xp__link{grid-column:1/-1;justify-self:start;display:inline-flex;align-items:center;gap:8px;font-weight:500;text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px}
 
 /* contact */

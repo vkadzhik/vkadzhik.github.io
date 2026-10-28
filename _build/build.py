@@ -3,7 +3,7 @@
 import html, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from content import (CDN, IMG, CONTACT, HOME, CASES, SHOW, HERO, EXPERIENCE, EXPERIENCE_INTRO,
-                     TOOLKIT, STATS, ABOUT_STATEMENT, SERVICES, PRINCIPLES, PROCESS2)
+                     TOOLKIT, STATS, ABOUT_STATEMENT, SERVICES, PRINCIPLES, PROCESS2, DECISIONS)
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SITE = "https://vkadzhik.ru"
@@ -208,6 +208,7 @@ def build_home():
             <div><p class="xp__k">{T(("Задача", "Task"))}</p><p>{T(x['task'])}</p></div>
             <div><p class="xp__k">{T(("Что я сделал", "What I did"))}</p><p>{T(x['did'])}</p></div>
             <div><p class="xp__k">{T(("Результат", "Outcome"))}</p><p>{T(x['result'])}</p></div>
+            <div class="xp__dec"><p class="xp__k">{T(("Ключевые решения", "Key decisions"))}</p><ol>{''.join(f"<li>{T(d)}</li>" for d in DECISIONS[x['slug']])}</ol></div>
             <a class="xp__link" href="cases/{c['slug']}.html">{T(("Открыть кейс", "View case"))}{ARROW_R}</a>
           </div>
         </details>
