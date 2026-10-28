@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="ru" data-lang="ru">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(){var l;try{var q=new URLSearchParams(location.search).get('lang');if(q==='ru'||q==='en'){l=q;localStorage.setItem('lang',q)}else{l=localStorage.getItem('lang')}}catch(x){}if(!l){l=((navigator.language||'ru').toLowerCase().indexOf('ru')===0)?'ru':'en'}document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l;})();</script>
-<title>Каджик Варданян — продуктовый дизайнер</title>
-<meta name="description" content="Портфолио UX/UI-дизайнера: iGaming, финтех и сложные интерфейсы с данными. Кейсы, дизайн-системы, живой прототип.">
+<script>(function(){var l='en';try{var q=new URLSearchParams(location.search).get('lang');if(q==='ru'||q==='en'){l=q;localStorage.setItem('lang',q)}else{l=localStorage.getItem('lang')||'en'}}catch(x){}document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l;})();</script>
+<title>Kadzhik Vardanyan — product designer</title>
+<meta name="description" content="UX/UI designer portfolio: iGaming, fintech and data-heavy interfaces. Case studies, design systems, a live prototype.">
 <meta name="author" content="Kadzhik Vardanyan">
-<meta name="theme-color" content="#0E1117">
+<meta name="theme-color" content="#F6F7F4">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kadzhik Vardanyan — product designer">
 <meta property="og:description" content="UX/UI designer portfolio: iGaming, fintech and data-heavy interfaces. Case studies, design systems, a live prototype.">
@@ -18,8 +18,8 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=2">
 <meta name="x-title-ru" content="Каджик Варданян — продуктовый дизайнер"><meta name="x-title-en" content="Kadzhik Vardanyan — product designer">
 </head>
 <body>
@@ -27,156 +27,201 @@
 <a class="skip" href="#main"><span class="l-ru" lang="ru">Перейти к содержанию</span><span class="l-en" lang="en">Skip to content</span></a>
 <header class="top">
   <div class="wrap top__in">
-    <a class="brand" href="index.html"><span class="l-ru" lang="ru">Каджик Варданян</span><span class="l-en" lang="en">Kadzhik Vardanyan</span></a>
+    <a class="brand" href="index.html"><span class="brand__mark" aria-hidden="true">KV</span><span class="brand__name"><span class="l-ru" lang="ru">Каджик Варданян</span><span class="l-en" lang="en">Kadzhik Vardanyan</span></span></a>
     <nav class="top__nav" aria-label="Main">
       <a href="index.html#work"><span class="l-ru" lang="ru">Работы</span><span class="l-en" lang="en">Work</span></a>
-      <a href="index.html#about"><span class="l-ru" lang="ru">Подход</span><span class="l-en" lang="en">Approach</span></a>
+      <a href="index.html#experience"><span class="l-ru" lang="ru">Опыт</span><span class="l-en" lang="en">Experience</span></a>
+      <a href="index.html#about"><span class="l-ru" lang="ru">Обо мне</span><span class="l-en" lang="en">About</span></a>
       <a href="index.html#contact"><span class="l-ru" lang="ru">Контакты</span><span class="l-en" lang="en">Contact</span></a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
-      <button type="button" data-set-lang="ru">RU</button><button type="button" data-set-lang="en">EN</button>
+      <button type="button" data-set-lang="en">EN</button><button type="button" data-set-lang="ru">RU</button>
     </div>
   </div>
 </header>
 <main id="main">
 <section class="hero">
-  <div class="wrap">
-    <h1 class="hero__h"><span class="l-ru" lang="ru">Проектирую интерфейсы для iGaming, финтеха и сервисов, где много данных.</span><span class="l-en" lang="en">I design interfaces for iGaming, fintech and products with a lot of data.</span></h1>
-    <p class="hero__lead"><span class="l-ru" lang="ru">Продуктовый UX/UI-дизайнер. Сам веду проект от сценариев и дизайн-системы до готовых экранов, мобильной версии и прототипа.</span><span class="l-en" lang="en">Product UX/UI designer. I take a project from user flows and a design system to finished screens, the mobile version and a prototype.</span></p>
-    <div class="hero__cta">
-      <a class="btn btn--solid" href="#work"><span class="l-ru" lang="ru">Смотреть работы</span><span class="l-en" lang="en">See the work</span></a>
-      <a class="btn" href="https://t.me/jema_tati"><span class="l-ru" lang="ru">Написать в Telegram</span><span class="l-en" lang="en">Message on Telegram</span></a>
+  <div class="wrap hero__in">
+    <div class="hero__photo reveal">
+      <span class="hero__disc" aria-hidden="true"></span>
+      <img src="assets/me.jpg" width="600" height="750" alt="Kadzhik Vardanyan" fetchpriority="high">
+    </div>
+    <div class="hero__txt">
+      <p class="hero__hello"><span class="l-ru" lang="ru">Привет, я</span><span class="l-en" lang="en">Hello, I'm</span></p>
+      <h1 class="hero__name"><span class="hero__first"><span class="l-ru" lang="ru">Каджик</span><span class="l-en" lang="en">Kadzhik</span></span> <span class="hero__last"><span class="l-ru" lang="ru">Варданян</span><span class="l-en" lang="en">Vardanyan</span><span class="sel" aria-hidden="true"><i></i><i></i><i></i><i></i><b><span class="l-ru" lang="ru">Калининград</span><span class="l-en" lang="en">Kaliningrad</span></b></span></span></h1>
+      <p class="hero__role"><span class="l-ru" lang="ru">UX/UI и продуктовый дизайнер</span><span class="l-en" lang="en">UX/UI & Product Designer</span></p>
+      <p class="hero__about"><span class="l-ru" lang="ru">Проектирую интерфейсы для iGaming, финтеха и сервисов с большим количеством данных. Веду проект целиком: сценарии, дизайн-система, экраны для десктопа и мобильного, рабочий прототип. Каждый день использую AI-инструменты и проверяю макеты на настоящих данных.</span><span class="l-en" lang="en">I design interfaces for iGaming, fintech and products with a lot of data. I run a project end to end: user flows, a design system, desktop and mobile screens and a working prototype. I use AI tools every day and test layouts against real data.</span></p>
+      <p class="hero__exp"><span class="l-ru" lang="ru">Figma · дизайн-системы · сложные интерфейсы · прототипы в коде</span><span class="l-en" lang="en">Figma · Design systems · Data-heavy UI · Coded prototypes</span></p>
+      <div class="cursor" aria-hidden="true"><svg class="cursor__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2l7.5 19 2.6-7.9L21 10.5z" fill="currentColor"/></svg><span class="cursor__tag"><span class="dot"></span><span class="l-ru" lang="ru">Открыт к удалённой работе</span><span class="l-en" lang="en">Open to remote work</span></span></div>
     </div>
   </div>
-  <div class="wall" aria-hidden="true"><div class="wall__track"><div class="wall__tile wall__tile--orbit-lobby"><img class="" src="/media/3d3ed4a9-5f43-4e26-9a2f-52ae19dbb7f0.webp" width="1920" height="2922" fetchpriority="high" decoding="async" alt="Лобби казино ORBIT" data-alt-ru="Лобби казино ORBIT" data-alt-en="ORBIT casino lobby" sizes="40vw"></div><div class="wall__tile wall__tile--arena-dashboard"><img class="" src="/media/64f57670-90da-481e-8d26-2233f6ea1f57.webp" width="1440" height="1180" fetchpriority="high" decoding="async" alt="Дашборд Арены" data-alt-ru="Дашборд Арены" data-alt-en="Arena dashboard" sizes="40vw"></div><div class="wall__tile wall__tile--nyxa-overview"><img class="" src="/media/6a9a29d7-ff33-4f3a-9afd-5f94a8461c23.webp" width="1440" height="1449" loading="lazy" decoding="async" alt="Обзор в Nyxa" data-alt-ru="Обзор в Nyxa" data-alt-en="Nyxa overview" sizes="40vw"></div><div class="wall__tile wall__tile--vesta-flow"><img class="" src="/media/1aae9b71-1426-4c8b-b943-71e803b548a5.webp" width="2000" height="1057" loading="lazy" decoding="async" alt="Перевод в Vesta" data-alt-ru="Перевод в Vesta" data-alt-en="Vesta send money" sizes="40vw"></div><div class="wall__tile wall__tile--promo-story-welcome"><img class="" src="/media/f738d6f2-45bf-4d21-ad5d-21db52cf6cfb.webp" width="1080" height="1920" loading="lazy" decoding="async" alt="Сторис ORBIT Promo" data-alt-ru="Сторис ORBIT Promo" data-alt-en="ORBIT Promo story" sizes="40vw"></div></div></div>
+  <div class="wrap">
+    <ul class="hero__contacts">
+      <li><a href="https://t.me/jema_tati"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.2 2.9 11.4c-1 .4-1 1.6 0 1.9l4.6 1.5 1.8 5.6c.2.7 1.1.9 1.6.3l2.6-2.7 4.8 3.5c.6.4 1.4.1 1.6-.6l3-15c.2-1-.7-1.9-1.4-1.7Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m7.6 14.8 9.6-6.9" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>@jema_tati</span></a></li>
+      <li><a href="mailto:vkadzhik@mail.ru"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>vkadzhik@mail.ru</span></a></li>
+      <li><a href="https://github.com/vkadzhik"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>github.com/vkadzhik</span></a></li>
+      <li class="hero__where"><span class="l-ru" lang="ru">Калининград · удалённо</span><span class="l-en" lang="en">Kaliningrad · Remote</span></li>
+    </ul>
+  </div>
 </section>
 
 <section class="work" id="work" aria-labelledby="work-h">
+  <span class="ghost" aria-hidden="true">Work</span>
   <div class="wrap">
-    <div class="sec-head">
-      <h2 id="work-h" class="sec-h"><span class="l-ru" lang="ru">Работы</span><span class="l-en" lang="en">Work</span></h2>
-      <p class="sec-sub"><span class="l-ru" lang="ru">Девять кейсов: от B2B-кабинета с таблицами до виджета на живых данных, рекламных кампаний и карточек для маркетплейса. В каждом — задача, решения и экраны.</span><span class="l-en" lang="en">Nine cases, from a B2B app with complex tables to a widget on live data, ad campaigns and marketplace cards. Each shows the problem, the decisions and the screens.</span></p>
+    <div class="sec-head reveal">
+      <h2 id="work-h" class="sec-h"><span class="l-ru" lang="ru">Избранные работы</span><span class="l-en" lang="en">Selected work</span></h2>
+      <p class="sec-sub"><span class="l-ru" lang="ru">Четыре продукта: казино, криптодашборд, мобильный банк и B2B-кабинет с виджетом на живых данных. В каждом кейсе — задача, решения и экраны.</span><span class="l-en" lang="en">Four products: a casino, a crypto dashboard, a mobile bank and a B2B web app with a widget on live data. Each case shows the problem, the decisions and the screens.</span></p>
     </div>
-    <ol class="cases">
-    <li class="case reveal" style="--c:#C6EF4E">
-      <a class="case__img" href="cases/arena.html" tabindex="-1" aria-hidden="true"><img class="" src="/media/7956b9ec-ae70-4ecf-9c74-b8bb7617805e.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Арена" data-alt-ru="Арена" data-alt-en="Arena" sizes="(min-width: 900px) 60vw, 100vw" style="view-transition-name:cover-arena"></a>
-      <div class="case__txt">
-        <p class="case__kind"><span class="swatch" aria-hidden="true"></span><span class="l-ru" lang="ru">B2B-кабинет, дашборд и таблицы</span><span class="l-en" lang="en">B2B web app, dashboard and tables</span></p>
-        <h3 class="case__name"><a href="cases/arena.html"><span class="l-ru" lang="ru">Арена</span><span class="l-en" lang="en">Arena</span></a></h3>
-        <p class="case__sum"><span class="l-ru" lang="ru">Веб-кабинет спортивной школы: реестр спортсменов с фильтрами и массовыми действиями, заявка на соревнования в пять шагов, дашборд и дизайн-система на токенах со светлой и тёмной темой.</span><span class="l-en" lang="en">A web app for a sports school: an athlete registry with filters and bulk actions, a five-step competition entry form, a dashboard and a token-based design system with light and dark themes.</span></p>
-        <a class="case__more" href="cases/arena.html"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">Open the case</span></a>
-      </div>
-    </li>
-    <li class="case reveal" style="--c:#B9EE3A">
-      <a class="case__img" href="cases/arena-live.html" tabindex="-1" aria-hidden="true"><img class="" src="/media/f76a7f82-3a1f-401a-aa1e-22a0c9785b9d.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Арена Live" data-alt-ru="Арена Live" data-alt-en="Arena Live" sizes="(min-width: 900px) 60vw, 100vw" style="view-transition-name:cover-arena-live"></a>
-      <div class="case__txt">
-        <p class="case__kind"><span class="swatch" aria-hidden="true"></span><span class="l-ru" lang="ru">Виджет спортивных событий на живых данных</span><span class="l-en" lang="en">Live sports widget on real data</span></p>
-        <h3 class="case__name"><a href="cases/arena-live.html"><span class="l-ru" lang="ru">Арена Live</span><span class="l-en" lang="en">Arena Live</span></a></h3>
-        <p class="case__sum"><span class="l-ru" lang="ru">Беттинг-виджет на реальных матчах: live-счёт, коэффициенты, фильтры и купон. Собран в коде на токенах дизайн-системы Арены, выгруженных из Figma, и проверен на том, где интерфейс ломается от настоящих данных.</span><span class="l-en" lang="en">A betting widget on real matches: live scores, odds, filters and a bet slip. Built in code on the Arena design tokens exported from Figma, and tested against where real data breaks the interface.</span></p>
-        <a class="case__more" href="cases/arena-live.html"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">Open the case</span></a>
-      </div>
-    </li>
-    <li class="case reveal" style="--c:#7C5CFF">
-      <a class="case__img" href="cases/orbit.html" tabindex="-1" aria-hidden="true"><img class="" src="/media/9fa77ce7-6f09-40e5-bea1-5e463d8f3d40.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="ORBIT" data-alt-ru="ORBIT" data-alt-en="ORBIT" sizes="(min-width: 900px) 60vw, 100vw" style="view-transition-name:cover-orbit"></a>
-      <div class="case__txt">
-        <p class="case__kind"><span class="swatch" aria-hidden="true"></span><span class="l-ru" lang="ru">iGaming, казино и crash-игра</span><span class="l-en" lang="en">iGaming, casino and crash game</span></p>
-        <h3 class="case__name"><a href="cases/orbit.html"><span class="l-ru" lang="ru">ORBIT</span><span class="l-en" lang="en">ORBIT</span></a></h3>
-        <p class="case__sum"><span class="l-ru" lang="ru">Онлайн-казино с crash-игрой: бренд, дизайн-система на переменных и четыре сценария для десктопа и мобильного — лобби, игра, кошелёк и регистрация.</span><span class="l-en" lang="en">An online casino with a crash game: brand, a variable-based design system and four flows for desktop and mobile — lobby, game, wallet and sign-up.</span></p>
-        <a class="case__more" href="cases/orbit.html"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">Open the case</span></a>
-      </div>
-    </li>
-    <li class="case reveal" style="--c:#FF7A5C">
-      <a class="case__img" href="cases/vesta.html" tabindex="-1" aria-hidden="true"><img class="" src="/media/d484b7e5-3dd5-429a-8c57-d29eaee00fdd.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Vesta" data-alt-ru="Vesta" data-alt-en="Vesta" sizes="(min-width: 900px) 60vw, 100vw" style="view-transition-name:cover-vesta"></a>
-      <div class="case__txt">
-        <p class="case__kind"><span class="swatch" aria-hidden="true"></span><span class="l-ru" lang="ru">Финтех, мобильный банк</span><span class="l-en" lang="en">Fintech, mobile banking</span></p>
-        <h3 class="case__name"><a href="cases/vesta.html"><span class="l-ru" lang="ru">Vesta</span><span class="l-en" lang="en">Vesta</span></a></h3>
-        <p class="case__sum"><span class="l-ru" lang="ru">Мобильный банк с тёплым коралловым брендом. Главное — сценарий перевода другу со всеми краевыми состояниями, продуктовая часть с метриками и живой прототип, который можно потрогать.</span><span class="l-en" lang="en">A mobile bank with a warm coral brand. The core is a send-money flow with every edge state, a product layer with metrics and a live prototype you can try.</span></p>
-        <a class="case__more" href="cases/vesta.html"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">Open the case</span></a>
-      </div>
-    </li>
-    <li class="case reveal" style="--c:#E97BFA">
-      <a class="case__img" href="cases/nyxa.html" tabindex="-1" aria-hidden="true"><img class="" src="/media/f5d4000f-a74f-41c0-8b5e-9abec3c8aa71.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Nyxa" data-alt-ru="Nyxa" data-alt-en="Nyxa" sizes="(min-width: 900px) 60vw, 100vw" style="view-transition-name:cover-nyxa"></a>
-      <div class="case__txt">
-        <p class="case__kind"><span class="swatch" aria-hidden="true"></span><span class="l-ru" lang="ru">Криптодашборд, веб и мобильный</span><span class="l-en" lang="en">Crypto dashboard, web and mobile</span></p>
-        <h3 class="case__name"><a href="cases/nyxa.html"><span class="l-ru" lang="ru">Nyxa</span><span class="l-en" lang="en">Nyxa</span></a></h3>
-        <p class="case__sum"><span class="l-ru" lang="ru">Дашборд для крипто-инвестора, которым приятно пользоваться каждый вечер: бренд, дизайн-система на токенах, четыре экрана на десктопе и четыре на мобильном.</span><span class="l-en" lang="en">A crypto investor dashboard you are happy to open every evening: brand, a token-based design system, four desktop and four mobile screens.</span></p>
-        <a class="case__more" href="cases/nyxa.html"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">Open the case</span></a>
-      </div>
-    </li>
-    <li class="case reveal" style="--c:#FFC94D">
-      <a class="case__img case__img--contain" href="cases/orbit-promo.html" tabindex="-1" aria-hidden="true"><img class="" src="/media/b15663d5-1aab-4598-acb2-b085cb1eaba1.webp" width="1920" height="600" loading="lazy" decoding="async" alt="ORBIT Promo" data-alt-ru="ORBIT Promo" data-alt-en="ORBIT Promo" sizes="(min-width: 900px) 60vw, 100vw" style="view-transition-name:cover-orbit-promo"></a>
-      <div class="case__txt">
-        <p class="case__kind"><span class="swatch" aria-hidden="true"></span><span class="l-ru" lang="ru">Маркетинговые креативы iGaming</span><span class="l-en" lang="en">iGaming marketing creatives</span></p>
-        <h3 class="case__name"><a href="cases/orbit-promo.html"><span class="l-ru" lang="ru">ORBIT Promo</span><span class="l-en" lang="en">ORBIT Promo</span></a></h3>
-        <p class="case__sum"><span class="l-ru" lang="ru">10 креативов для пяти кампаний казино ORBIT в шести каналах: сайт, лобби, соцсети, сторис, пуши и email. Тот же визуальный язык, что и в продукте, плюс анимированные баннеры.</span><span class="l-en" lang="en">10 creatives for five ORBIT casino campaigns across six channels: website, lobby, social, stories, push and email. The same visual language as the product, plus animated banners.</span></p>
-        <a class="case__more" href="cases/orbit-promo.html"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">Open the case</span></a>
-      </div>
-    </li>
-    <li class="case reveal" style="--c:#B48CFF">
-      <a class="case__img" href="cases/mirra.html" tabindex="-1" aria-hidden="true"><img class="" src="/media/f4cdc9a1-2fd5-41eb-86cf-e9c5c892fb4e.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Mirra" data-alt-ru="Mirra" data-alt-en="Mirra" sizes="(min-width: 900px) 60vw, 100vw" style="view-transition-name:cover-mirra"></a>
-      <div class="case__txt">
-        <p class="case__kind"><span class="swatch" aria-hidden="true"></span><span class="l-ru" lang="ru">AI-видеореклама для TikTok и Reels</span><span class="l-en" lang="en">AI video ad for TikTok and Reels</span></p>
-        <h3 class="case__name"><a href="cases/mirra.html"><span class="l-ru" lang="ru">Mirra</span><span class="l-en" lang="en">Mirra</span></a></h3>
-        <p class="case__sum"><span class="l-ru" lang="ru">16-секундная UGC-реклама приложения, которое делает говорящего AI-двойника из одного селфи. Идея, сценарий, AI-съёмка, озвучка, анимация экрана, монтаж и субтитры.</span><span class="l-en" lang="en">A 16-second UGC-style ad for an app that turns one selfie into a talking AI twin. Concept, script, AI footage, voiceover, app-screen animation, edit and captions.</span></p>
-        <a class="case__more" href="cases/mirra.html"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">Open the case</span></a>
-      </div>
-    </li>
-    <li class="case reveal" style="--c:#FF5A36">
-      <a class="case__img" href="cases/plato.html" tabindex="-1" aria-hidden="true"><img class="" src="/media/4f00d88c-0299-48fc-96e1-aedac8d124ce.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="plato" data-alt-ru="plato" data-alt-en="plato" sizes="(min-width: 900px) 60vw, 100vw" style="view-transition-name:cover-plato"></a>
-      <div class="case__txt">
-        <p class="case__kind"><span class="swatch" aria-hidden="true"></span><span class="l-ru" lang="ru">Перформанс-кампания для подписочного приложения</span><span class="l-en" lang="en">Performance campaign for a subscription app</span></p>
-        <h3 class="case__name"><a href="cases/plato.html"><span class="l-ru" lang="ru">plato</span><span class="l-en" lang="en">plato</span></a></h3>
-        <p class="case__sum"><span class="l-ru" lang="ru">Рекламная кампания для приложения, которое считает калории по фото тарелки: три видео с разными хуками для A/B-теста и 9 баннеров в трёх форматах. AI-съёмка, озвучка, анимация интерфейса, монтаж и субтитры.</span><span class="l-en" lang="en">An ad campaign for an app that counts calories from a photo of your plate: three videos with different hooks for an A/B test and 9 banners in three formats. AI footage, voiceover, UI animation, edit and captions.</span></p>
-        <a class="case__more" href="cases/plato.html"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">Open the case</span></a>
-      </div>
-    </li>
-    <li class="case reveal" style="--c:#005BFF">
-      <a class="case__img" href="cases/ozon-cards.html" tabindex="-1" aria-hidden="true"><img class="" src="/media/ac2d97eb-ba8d-4acd-8d42-5fe3bbbab037.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Инфографика для Ozon" data-alt-ru="Инфографика для Ozon" data-alt-en="Ozon product cards" sizes="(min-width: 900px) 60vw, 100vw" style="view-transition-name:cover-ozon-cards"></a>
-      <div class="case__txt">
-        <p class="case__kind"><span class="swatch" aria-hidden="true"></span><span class="l-ru" lang="ru">Карточки товаров для маркетплейса</span><span class="l-en" lang="en">Marketplace product card infographics</span></p>
-        <h3 class="case__name"><a href="cases/ozon-cards.html"><span class="l-ru" lang="ru">Инфографика для Ozon</span><span class="l-en" lang="en">Ozon product cards</span></a></h3>
-        <p class="case__sum"><span class="l-ru" lang="ru">14 слайдов для четырёх товаров: шейкер, TWS-наушники, электробритва и швабра с распылителем. Главный слайд, слайды с преимуществами, устройством и размерами, три варианта главного для A/B-теста.</span><span class="l-en" lang="en">14 slides for four products: a shaker, TWS earbuds, an electric shaver and a spray mop. Main slide, benefit, anatomy and size slides, plus three main-slide variants for an A/B test.</span></p>
-        <a class="case__more" href="cases/ozon-cards.html"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">Open the case</span></a>
-      </div>
-    </li>
+    <ol class="cards">
+      <li class="card reveal" style="--c:#7C5CFF">
+        <a class="card__a" href="cases/orbit.html">
+          <span class="card__img"><img class="" src="/media/9fa77ce7-6f09-40e5-bea1-5e463d8f3d40.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="ORBIT" data-alt-ru="ORBIT" data-alt-en="ORBIT" sizes="(min-width: 900px) 46vw, 100vw" style="view-transition-name:cover-orbit"></span>
+          <span class="card__meta"><span class="card__n">01</span><span class="card__name"><span class="l-ru" lang="ru">ORBIT</span><span class="l-en" lang="en">ORBIT</span></span><span class="card__kind"><span class="l-ru" lang="ru">iGaming, казино и crash-игра</span><span class="l-en" lang="en">iGaming, casino and crash game</span></span></span>
+        </a>
+      </li>
+      <li class="card reveal" style="--c:#E97BFA">
+        <a class="card__a" href="cases/nyxa.html">
+          <span class="card__img"><img class="" src="/media/f5d4000f-a74f-41c0-8b5e-9abec3c8aa71.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Nyxa" data-alt-ru="Nyxa" data-alt-en="Nyxa" sizes="(min-width: 900px) 46vw, 100vw" style="view-transition-name:cover-nyxa"></span>
+          <span class="card__meta"><span class="card__n">02</span><span class="card__name"><span class="l-ru" lang="ru">Nyxa</span><span class="l-en" lang="en">Nyxa</span></span><span class="card__kind"><span class="l-ru" lang="ru">Криптодашборд, веб и мобильный</span><span class="l-en" lang="en">Crypto dashboard, web and mobile</span></span></span>
+        </a>
+      </li>
+      <li class="card reveal" style="--c:#FF7A5C">
+        <a class="card__a" href="cases/vesta.html">
+          <span class="card__img"><img class="" src="/media/d484b7e5-3dd5-429a-8c57-d29eaee00fdd.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Vesta" data-alt-ru="Vesta" data-alt-en="Vesta" sizes="(min-width: 900px) 46vw, 100vw" style="view-transition-name:cover-vesta"></span>
+          <span class="card__meta"><span class="card__n">03</span><span class="card__name"><span class="l-ru" lang="ru">Vesta</span><span class="l-en" lang="en">Vesta</span></span><span class="card__kind"><span class="l-ru" lang="ru">Финтех, мобильный банк</span><span class="l-en" lang="en">Fintech, mobile banking</span></span></span>
+        </a>
+      </li>
+      <li class="card reveal" style="--c:#C6EF4E">
+        <a class="card__a" href="cases/arena.html">
+          <span class="card__img"><img class="" src="/media/7956b9ec-ae70-4ecf-9c74-b8bb7617805e.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Арена" data-alt-ru="Арена" data-alt-en="Arena" sizes="(min-width: 900px) 46vw, 100vw" style="view-transition-name:cover-arena"></span>
+          <span class="card__meta"><span class="card__n">04</span><span class="card__name"><span class="l-ru" lang="ru">Арена</span><span class="l-en" lang="en">Arena</span></span><span class="card__kind"><span class="l-ru" lang="ru">B2B-кабинет, дашборд и таблицы</span><span class="l-en" lang="en">B2B web app, dashboard and tables</span></span></span>
+        </a>
+      </li>
     </ol>
   </div>
 </section>
 
-<section class="about" id="about" aria-labelledby="about-h">
+<section class="exp" id="experience" aria-labelledby="exp-h">
   <div class="wrap">
-    <div class="sec-head">
-      <h2 id="about-h" class="sec-h"><span class="l-ru" lang="ru">Что я делаю</span><span class="l-en" lang="en">What I do</span></h2>
+    <div class="sec-head reveal">
+      <h2 id="exp-h" class="sec-h"><span class="l-ru" lang="ru">Опыт</span><span class="l-en" lang="en">Experience</span></h2>
+      <p class="sec-sub"><span class="l-ru" lang="ru">Самостоятельные продуктовые проекты: каждый сделан от исследования и сценариев до готовых экранов. Один на проекте, 2026.</span><span class="l-en" lang="en">Independent product work: each project taken from research and flows to finished screens. Solo, 2026.</span></p>
     </div>
-    <ul class="caps"><li class="cap reveal"><h3 class="cap__h"><span class="l-ru" lang="ru">Продуктовый UX/UI</span><span class="l-en" lang="en">Product UX/UI</span></h3><p><span class="l-ru" lang="ru">Сценарии, информационная архитектура, экраны для десктопа и мобильного, интерактивные прототипы.</span><span class="l-en" lang="en">User flows, information architecture, desktop and mobile screens, interactive prototypes.</span></p></li><li class="cap reveal"><h3 class="cap__h"><span class="l-ru" lang="ru">Интерфейсы с данными</span><span class="l-en" lang="en">Data-heavy interfaces</span></h3><p><span class="l-ru" lang="ru">Дашборды, таблицы с фильтрами, сортировкой и массовыми действиями, многошаговые формы и все их состояния.</span><span class="l-en" lang="en">Dashboards, tables with filters, sorting and bulk actions, multi-step forms and every state they can be in.</span></p></li><li class="cap reveal"><h3 class="cap__h"><span class="l-ru" lang="ru">Дизайн-системы</span><span class="l-en" lang="en">Design systems</span></h3><p><span class="l-ru" lang="ru">Переменные Figma с режимами Light и Dark, токены, компоненты с вариантами и свойствами, описание правил.</span><span class="l-en" lang="en">Figma variables with Light and Dark modes, tokens, components with variants and properties, usage notes.</span></p></li><li class="cap reveal"><h3 class="cap__h"><span class="l-ru" lang="ru">Бренд и маркетинг</span><span class="l-en" lang="en">Brand and marketing</span></h3><p><span class="l-ru" lang="ru">Нейминг, логотип, цвет и шрифты. Баннеры, сторис, пуши, email и анимированные креативы для кампаний.</span><span class="l-en" lang="en">Naming, logo, colour and type. Banners, stories, push, email and animated creatives for campaigns.</span></p></li><li class="cap reveal"><h3 class="cap__h"><span class="l-ru" lang="ru">AI-продакшн</span><span class="l-en" lang="en">AI production</span></h3><p><span class="l-ru" lang="ru">3D-персонажи и иллюстрации в Higgsfield, UGC-видеореклама: сценарий, генерация, озвучка, монтаж, субтитры.</span><span class="l-en" lang="en">3D characters and illustrations in Higgsfield, UGC video ads: script, generation, voiceover, edit, captions.</span></p></li><li class="cap reveal"><h3 class="cap__h"><span class="l-ru" lang="ru">Продуктовое мышление</span><span class="l-en" lang="en">Product thinking</span></h3><p><span class="l-ru" lang="ru">JTBD, журнал решений, гипотезы, метрики воронки и план событий аналитики, чтобы проверять дизайн после запуска.</span><span class="l-en" lang="en">JTBD, a decision log, hypotheses, funnel metrics and an analytics event plan to check the design after launch.</span></p></li></ul>
-    <div class="how">
-      <h2 class="sec-h sec-h--sm"><span class="l-ru" lang="ru">Как я работаю</span><span class="l-en" lang="en">How I work</span></h2>
-      <ul class="how__list"><li><span class="l-ru" lang="ru">Начинаю с задачи пользователя и ограничений, а не с картинки: сценарий, роли, данные, краевые случаи.</span><span class="l-en" lang="en">I start from the user's job and the constraints, not from a picture: the flow, the roles, the data, the edge cases.</span></li><li><span class="l-ru" lang="ru">Сначала собираю систему: переменные, стили, компоненты. Экраны потом собираются из экземпляров, а не рисуются заново.</span><span class="l-en" lang="en">I build the system first: variables, styles, components. Screens are then assembled from instances, not redrawn.</span></li><li><span class="l-ru" lang="ru">Пользуюсь AI-инструментами: для сводки по конкурентам, генерации иллюстраций и видео. Каждое решение и каждый кадр проверяю и отбираю сам.</span><span class="l-en" lang="en">I use AI tools for competitor summaries, illustration and video generation. I review and select every decision and every frame myself.</span></li></ul>
-      <p class="how__tools"><span class="l-ru" lang="ru">Инструменты: Figma (переменные, компоненты, прототипы), FigJam, Higgsfield AI, Notion, базовые HTML и CSS.</span><span class="l-en" lang="en">Tools: Figma (variables, components, prototyping), FigJam, Higgsfield AI, Notion, basic HTML and CSS.</span></p>
+    <div class="xp__cap mono" aria-hidden="true"><span><span class="l-ru" lang="ru">Год</span><span class="l-en" lang="en">Year</span></span><span><span class="l-ru" lang="ru">Проект</span><span class="l-en" lang="en">Project</span></span><span><span class="l-ru" lang="ru">Продукт</span><span class="l-en" lang="en">Product</span></span><span><span class="l-ru" lang="ru">Роль</span><span class="l-en" lang="en">Role</span></span><span></span></div>
+    <ol class="xps">
+      <li class="xp reveal" style="--c:#7C5CFF">
+        <details open>
+          <summary class="xp__row">
+            <span class="xp__year mono">2026</span>
+            <span class="xp__name">ORBIT</span>
+            <span class="xp__what"><span class="l-ru" lang="ru">Онлайн-казино с crash-игрой</span><span class="l-en" lang="en">Online casino with a crash game</span></span>
+            <span class="xp__role"><span class="l-ru" lang="ru">Продуктовый дизайнер · соло</span><span class="l-en" lang="en">Product designer · solo</span></span>
+            <span class="xp__n mono">[01]</span>
+          </summary>
+          <div class="xp__body">
+            <div><p class="xp__k"><span class="l-ru" lang="ru">Задача</span><span class="l-en" lang="en">Task</span></p><p><span class="l-ru" lang="ru">Спроектировать iGaming-продукт целиком: бренд, лобби, игру, кошелёк и регистрацию для десктопа и мобильного.</span><span class="l-en" lang="en">Design an iGaming product end to end: brand, lobby, game, wallet and sign-up for desktop and mobile.</span></p></div>
+            <div><p class="xp__k"><span class="l-ru" lang="ru">Что я сделал</span><span class="l-en" lang="en">What I did</span></p><p><span class="l-ru" lang="ru">Нейминг и бренд, дизайн-система на переменных Figma, четыре ключевых сценария, иллюстрации и 3D-маскот в Higgsfield, промо-креативы для пяти кампаний.</span><span class="l-en" lang="en">Naming and brand, a design system on Figma variables, four core flows, illustrations and a 3D mascot made in Higgsfield, promo creatives for five campaigns.</span></p></div>
+            <div><p class="xp__k"><span class="l-ru" lang="ru">Результат</span><span class="l-en" lang="en">Outcome</span></p><p><span class="l-ru" lang="ru">8 экранов (4 десктоп + 4 мобильных), 46 цветовых переменных, 19 компонентов, 50 иконок, 26 иллюстраций.</span><span class="l-en" lang="en">8 screens (4 desktop + 4 mobile), 46 colour variables, 19 components, 50 icons, 26 illustrations.</span></p></div>
+            <a class="xp__link" href="cases/orbit.html"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">View case</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </details>
+      </li>
+      <li class="xp reveal" style="--c:#E97BFA">
+        <details>
+          <summary class="xp__row">
+            <span class="xp__year mono">2026</span>
+            <span class="xp__name">Nyxa</span>
+            <span class="xp__what"><span class="l-ru" lang="ru">Криптодашборд, веб и мобильный</span><span class="l-en" lang="en">Crypto dashboard, web and mobile</span></span>
+            <span class="xp__role"><span class="l-ru" lang="ru">Продуктовый дизайнер · соло</span><span class="l-en" lang="en">Product designer · solo</span></span>
+            <span class="xp__n mono">[02]</span>
+          </summary>
+          <div class="xp__body">
+            <div><p class="xp__k"><span class="l-ru" lang="ru">Задача</span><span class="l-en" lang="en">Task</span></p><p><span class="l-ru" lang="ru">Сделать дашборд крипто-инвестора, который понятен с первого взгляда, хотя данных на экране много.</span><span class="l-en" lang="en">Make a crypto investor dashboard that reads at a glance even with a lot of data on screen.</span></p></div>
+            <div><p class="xp__k"><span class="l-ru" lang="ru">Что я сделал</span><span class="l-en" lang="en">What I did</span></p><p><span class="l-ru" lang="ru">Бренд, дизайн-система на токенах, экраны обзора, рынков, портфеля и торговли, адаптив под 390 px.</span><span class="l-en" lang="en">Brand, a token-based design system, overview, markets, portfolio and trade screens, adapted to 390 px.</span></p></div>
+            <div><p class="xp__k"><span class="l-ru" lang="ru">Результат</span><span class="l-en" lang="en">Outcome</span></p><p><span class="l-ru" lang="ru">8 экранов, 51 цветовая переменная, 17 текстовых стилей, 30+ компонентов, 48 иконок, 12 иллюстраций.</span><span class="l-en" lang="en">8 screens, 51 colour variables, 17 text styles, 30+ components, 48 icons, 12 illustrations.</span></p></div>
+            <a class="xp__link" href="cases/nyxa.html"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">View case</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </details>
+      </li>
+      <li class="xp reveal" style="--c:#FF7A5C">
+        <details>
+          <summary class="xp__row">
+            <span class="xp__year mono">2026</span>
+            <span class="xp__name">Vesta</span>
+            <span class="xp__what"><span class="l-ru" lang="ru">Мобильный банк</span><span class="l-en" lang="en">Mobile bank</span></span>
+            <span class="xp__role"><span class="l-ru" lang="ru">Продуктовый дизайнер · соло</span><span class="l-en" lang="en">Product designer · solo</span></span>
+            <span class="xp__n mono">[03]</span>
+          </summary>
+          <div class="xp__body">
+            <div><p class="xp__k"><span class="l-ru" lang="ru">Задача</span><span class="l-en" lang="en">Task</span></p><p><span class="l-ru" lang="ru">Спроектировать перевод другу так, чтобы он не ломался ни в одном состоянии, и показать, как дизайн влияет на метрики.</span><span class="l-en" lang="en">Design a send-money flow that holds up in every state, and show how the design moves product metrics.</span></p></div>
+            <div><p class="xp__k"><span class="l-ru" lang="ru">Что я сделал</span><span class="l-en" lang="en">What I did</span></p><p><span class="l-ru" lang="ru">Бренд, дизайн-система, сценарий перевода со всеми краевыми состояниями, продуктовый слой с метриками, живой прототип в HTML/CSS/JS.</span><span class="l-en" lang="en">Brand, design system, a send-money flow with every edge state, a product layer with metrics, a live HTML/CSS/JS prototype.</span></p></div>
+            <div><p class="xp__k"><span class="l-ru" lang="ru">Результат</span><span class="l-en" lang="en">Outcome</span></p><p><span class="l-ru" lang="ru">18 экранов, 7 краевых состояний, рабочий прототип, который можно открыть в браузере.</span><span class="l-en" lang="en">18 screens, 7 edge states and a working prototype you can open in the browser.</span></p></div>
+            <a class="xp__link" href="cases/vesta.html"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">View case</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </details>
+      </li>
+      <li class="xp reveal" style="--c:#C6EF4E">
+        <details>
+          <summary class="xp__row">
+            <span class="xp__year mono">2026</span>
+            <span class="xp__name">Arena + Arena Live</span>
+            <span class="xp__what"><span class="l-ru" lang="ru">B2B-кабинет и виджет на живых данных</span><span class="l-en" lang="en">B2B web app and a widget on live data</span></span>
+            <span class="xp__role"><span class="l-ru" lang="ru">Продуктовый дизайнер · соло</span><span class="l-en" lang="en">Product designer · solo</span></span>
+            <span class="xp__n mono">[04]</span>
+          </summary>
+          <div class="xp__body">
+            <div><p class="xp__k"><span class="l-ru" lang="ru">Задача</span><span class="l-en" lang="en">Task</span></p><p><span class="l-ru" lang="ru">Собрать кабинет спортивной школы с реестром, заявками и дашбордом, а затем проверить его дизайн-систему в другом продукте на настоящих данных.</span><span class="l-en" lang="en">Build a sports school web app with a registry, entries and a dashboard, then test its design system in another product on real data.</span></p></div>
+            <div><p class="xp__k"><span class="l-ru" lang="ru">Что я сделал</span><span class="l-en" lang="en">What I did</span></p><p><span class="l-ru" lang="ru">Реестр с фильтрами и массовыми действиями, заявка в пять шагов, дашборд, светлая и тёмная тема. Выгрузил токены из Figma в код и собрал на них беттинг-виджет на данных ESPN.</span><span class="l-en" lang="en">A registry with filters and bulk actions, a five-step entry form, a dashboard, light and dark themes. Exported the tokens from Figma to code and built a betting widget on them using ESPN data.</span></p></div>
+            <div><p class="xp__k"><span class="l-ru" lang="ru">Результат</span><span class="l-en" lang="en">Outcome</span></p><p><span class="l-ru" lang="ru">8 экранов и состояний, 17 компонентов, 36 иконок. Виджет: 43 примитива и 27 семантических токенов, 12 лиг живых данных, работает онлайн.</span><span class="l-en" lang="en">8 screens and states, 17 components, 36 icons. Widget: 43 primitives and 27 semantic tokens, 12 leagues of live data, running online.</span></p></div>
+            <a class="xp__link" href="cases/arena.html"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">View case</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </details>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="band" id="about" aria-labelledby="about-h">
+  <div class="wrap band__in">
+    <div class="band__grid reveal">
+      <h2 id="about-h" class="band__h"><span class="l-ru" lang="ru">Обо мне</span><span class="l-en" lang="en">About</span></h2>
+      <div class="band__cols">
+        <p><span class="l-ru" lang="ru">Мне нравятся продукты, где много данных и легко ошибиться: таблицы, дашборды, деньги, ставки. Моя задача — чтобы человек сразу понимал, что происходит и что делать дальше.</span><span class="l-en" lang="en">I like products with a lot of data and plenty of room for mistakes: tables, dashboards, money, bets. My job is to make it obvious what is going on and what to do next.</span></p>
+        <p><span class="l-ru" lang="ru">Сначала собираю систему — переменные, токены, компоненты, — а экраны потом собираются из неё. Поэтому макеты легко переносятся в код, и я проверяю их на настоящих данных, а не на идеальных примерах.</span><span class="l-en" lang="en">I build the system first — variables, tokens, components — and assemble screens from it. That makes the layouts easy to move into code, and I test them on real data rather than perfect examples.</span></p>
+      </div>
+    </div>
+    <div class="band__grid reveal">
+      <h2 class="band__h"><span class="l-ru" lang="ru">Процесс</span><span class="l-en" lang="en">Process</span></h2>
+      <ol class="proc"><li class="proc__row"><span class="mono">01</span><span class="proc__h"><span class="l-ru" lang="ru">Исследование</span><span class="l-en" lang="en">Research</span></span><span class="proc__d"><span class="l-ru" lang="ru">Задача пользователя, конкуренты, ограничения</span><span class="l-en" lang="en">User jobs, competitors, constraints</span></span><span class="mono proc__n">[01]</span></li><li class="proc__row"><span class="mono">02</span><span class="proc__h"><span class="l-ru" lang="ru">Структура</span><span class="l-en" lang="en">Structure</span></span><span class="proc__d"><span class="l-ru" lang="ru">Сценарии, информационная архитектура, роли</span><span class="l-en" lang="en">Flows, information architecture, roles</span></span><span class="mono proc__n">[02]</span></li><li class="proc__row"><span class="mono">03</span><span class="proc__h"><span class="l-ru" lang="ru">Система</span><span class="l-en" lang="en">System</span></span><span class="proc__d"><span class="l-ru" lang="ru">Переменные, токены, компоненты с вариантами</span><span class="l-en" lang="en">Variables, tokens, components with variants</span></span><span class="mono proc__n">[03]</span></li><li class="proc__row"><span class="mono">04</span><span class="proc__h"><span class="l-ru" lang="ru">Интерфейс</span><span class="l-en" lang="en">Interface</span></span><span class="proc__d"><span class="l-ru" lang="ru">Экраны, все состояния, мобильная версия</span><span class="l-en" lang="en">Screens, every state, mobile</span></span><span class="mono proc__n">[04]</span></li><li class="proc__row"><span class="mono">05</span><span class="proc__h"><span class="l-ru" lang="ru">Проверка</span><span class="l-en" lang="en">Validate</span></span><span class="proc__d"><span class="l-ru" lang="ru">Прототип, настоящие данные, правки</span><span class="l-en" lang="en">Prototype, real data, iteration</span></span><span class="mono proc__n">[05]</span></li></ol>
+    </div>
+    <div class="band__grid reveal">
+      <h2 class="band__h band__h--sm"><span class="l-ru" lang="ru">Инструменты</span><span class="l-en" lang="en">Toolkit</span></h2>
+      <ul class="chips"><li>Figma</li><li>Variables & Tokens</li><li>Auto Layout</li><li>Prototyping</li><li>FigJam</li><li>Design systems</li><li>User flows</li><li>UX research</li><li>HTML / CSS / JS</li><li>Higgsfield AI</li><li>GPT Image</li><li>Kling</li><li>Notion</li></ul>
     </div>
   </div>
 </section>
 <section class="contact" id="contact" aria-labelledby="contact-h">
-  <div class="wrap">
-    <h2 id="contact-h" class="contact__h"><span class="l-ru" lang="ru">Давайте поговорим о вашем продукте</span><span class="l-en" lang="en">Let's talk about your product</span></h2>
-    <p class="contact__lead"><span class="l-ru" lang="ru">Быстрее всего ответ приходит в Telegram. Готов сделать тестовое задание.</span><span class="l-en" lang="en">Telegram is the fastest way to reach me. Happy to do a test task.</span></p>
+  <div class="wrap contact__in">
+    <p class="eyebrow"><span class="l-ru" lang="ru">Контакты</span><span class="l-en" lang="en">Contact</span></p>
+    <h2 id="contact-h" class="contact__h"><span class="l-ru" lang="ru">Давайте сделаем ваш продукт понятным.</span><span class="l-en" lang="en">Let's make your product easy to use.</span></h2>
+    <p class="contact__lead"><span class="l-ru" lang="ru">Быстрее всего отвечаю в Telegram. Открыт к удалённой работе и тестовому заданию.</span><span class="l-en" lang="en">Telegram is the fastest way to reach me. Open to remote roles and happy to do a test task.</span></p>
     <div class="contact__ways">
-      <a class="btn btn--solid" href="https://t.me/jema_tati"><span class="l-ru" lang="ru">Написать в Telegram</span><span class="l-en" lang="en">Message on Telegram</span></a>
+      <a class="btn btn--solid" href="https://t.me/jema_tati"><span class="l-ru" lang="ru">Написать в Telegram</span><span class="l-en" lang="en">Message on Telegram</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a class="btn" href="mailto:vkadzhik@mail.ru">vkadzhik@mail.ru</a>
     </div>
   </div>
 </section>
 </main><footer class="foot">
   <div class="wrap foot__in">
-    <p><span class="l-ru" lang="ru">Каджик Варданян, 2026. В файлах Figma открыты отдельные фрагменты, полные версии покажу по запросу.</span><span class="l-en" lang="en">Kadzhik Vardanyan, 2026. The Figma files show selected parts; full versions are available on request.</span></p>
+    <p>© 2026 <span class="l-ru" lang="ru">Каджик Варданян</span><span class="l-en" lang="en">Kadzhik Vardanyan</span></p>
     <p class="foot__links"><a href="https://t.me/jema_tati">Telegram</a><a href="mailto:vkadzhik@mail.ru">vkadzhik@mail.ru</a><a href="https://github.com/vkadzhik">GitHub</a></p>
   </div>
 </footer>
-<div class="pill" aria-hidden="true"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">Open the case</span></div>
+<div class="pill" aria-hidden="true"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">View case</span></div>
 <dialog class="zoom" aria-label="Image">
   <button type="button" class="zoom__close" data-close><span class="l-ru" lang="ru">Закрыть</span><span class="l-en" lang="en">Close</span></button>
   <img alt="">
 </dialog>
-<script src="assets/site.js" defer></script>
+<script src="assets/site.js?v=2" defer></script>
 </body>
 </html>

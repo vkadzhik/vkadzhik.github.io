@@ -2,12 +2,15 @@
 """Static site generator for the portfolio. Run: python3 _build/build.py"""
 import html, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
-from content import CDN, IMG, CONTACT, HOME, CAPABILITIES, HOW, CASES
+from content import (CDN, IMG, CONTACT, HOME, CASES, SHOW, HERO, EXPERIENCE, EXPERIENCE_INTRO,
+                     PROCESS, TOOLKIT)
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SITE = "https://vkadzhik.ru"
 NAME = ("Каджик Варданян", "Kadzhik Vardanyan")
 e = html.escape
+BY = {c["slug"]: c for c in CASES}
+LISTED = [BY[s] for s in SHOW]
 
 
 def T(pair, tag="span", cls="", attrs=""):
@@ -33,21 +36,26 @@ def img(name, alt, cls="", eager=False, sizes="100vw", zoom=True, vt=None):
 
 
 ARROW_OUT = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+ARROW_R = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+CURSOR = '<svg class="cursor__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2l7.5 19 2.6-7.9L21 10.5z" fill="currentColor"/></svg>'
+I_TG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.2 2.9 11.4c-1 .4-1 1.6 0 1.9l4.6 1.5 1.8 5.6c.2.7 1.1.9 1.6.3l2.6-2.7 4.8 3.5c.6.4 1.4.1 1.6-.6l3-15c.2-1-.7-1.9-1.4-1.7Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m7.6 14.8 9.6-6.9" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>'
+I_MAIL = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>'
+I_GH = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 
 
 def head(title, desc, path, image=None, depth=0):
     pre = "../" * depth
     og = image or (CDN + "debfb55d-a26d-4d68-a0da-c565573b01d1.png")
     return f"""<!doctype html>
-<html lang="ru" data-lang="ru">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(){{var l;try{{var q=new URLSearchParams(location.search).get('lang');if(q==='ru'||q==='en'){{l=q;localStorage.setItem('lang',q)}}else{{l=localStorage.getItem('lang')}}}}catch(x){{}}if(!l){{l=((navigator.language||'ru').toLowerCase().indexOf('ru')===0)?'ru':'en'}}document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l;}})();</script>
-<title>{e(title[0])}</title>
-<meta name="description" content="{e(desc[0])}">
+<script>(function(){{var l='en';try{{var q=new URLSearchParams(location.search).get('lang');if(q==='ru'||q==='en'){{l=q;localStorage.setItem('lang',q)}}else{{l=localStorage.getItem('lang')||'en'}}}}catch(x){{}}document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l;}})();</script>
+<title>{e(title[1])}</title>
+<meta name="description" content="{e(desc[1])}">
 <meta name="author" content="Kadzhik Vardanyan">
-<meta name="theme-color" content="#0E1117">
+<meta name="theme-color" content="#F6F7F4">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{e(title[1])}">
 <meta property="og:description" content="{e(desc[1])}">
@@ -58,8 +66,8 @@ def head(title, desc, path, image=None, depth=0):
 <link rel="icon" href="{pre}favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{pre}assets/site.css">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{pre}assets/site.css?v=2">
 <meta name="x-title-ru" content="{e(title[0])}"><meta name="x-title-en" content="{e(title[1])}">
 </head>
 <body>
@@ -76,14 +84,15 @@ def header(depth=0, current=""):
         return f'<a href="{href}"{cur}>{T(pair)}</a>'
     return f"""<header class="top">
   <div class="wrap top__in">
-    <a class="brand" href="{home}">{T(NAME)}</a>
+    <a class="brand" href="{home}"><span class="brand__mark" aria-hidden="true">KV</span><span class="brand__name">{T(NAME)}</span></a>
     <nav class="top__nav" aria-label="Main">
       {nav(home + '#work', ('Работы', 'Work'), 'work')}
-      {nav(home + '#about', ('Подход', 'Approach'), 'about')}
+      {nav(home + '#experience', ('Опыт', 'Experience'), 'exp')}
+      {nav(home + '#about', ('Обо мне', 'About'), 'about')}
       {nav(home + '#contact', ('Контакты', 'Contact'), 'contact')}
     </nav>
     <div class="lang" role="group" aria-label="Language">
-      <button type="button" data-set-lang="ru">RU</button><button type="button" data-set-lang="en">EN</button>
+      <button type="button" data-set-lang="en">EN</button><button type="button" data-set-lang="ru">RU</button>
     </div>
   </div>
 </header>
@@ -94,16 +103,16 @@ def footer(depth=0):
     pre = "../" * depth
     return f"""<footer class="foot">
   <div class="wrap foot__in">
-    <p>{T(("Каджик Варданян, 2026. В файлах Figma открыты отдельные фрагменты, полные версии покажу по запросу.", "Kadzhik Vardanyan, 2026. The Figma files show selected parts; full versions are available on request."))}</p>
+    <p>© 2026 {T(NAME)}</p>
     <p class="foot__links"><a href="{CONTACT['telegram']}">Telegram</a><a href="mailto:{CONTACT['email']}">{CONTACT['email']}</a><a href="{CONTACT['github']}">GitHub</a></p>
   </div>
 </footer>
-<div class="pill" aria-hidden="true">{T(("Открыть кейс", "Open the case"))}</div>
+<div class="pill" aria-hidden="true">{T(("Открыть кейс", "View case"))}</div>
 <dialog class="zoom" aria-label="Image">
   <button type="button" class="zoom__close" data-close>{T(("Закрыть", "Close"))}</button>
   <img alt="">
 </dialog>
-<script src="{pre}assets/site.js" defer></script>
+<script src="{pre}assets/site.js?v=2" defer></script>
 </body>
 </html>
 """
@@ -111,11 +120,12 @@ def footer(depth=0):
 
 def contact_block():
     return f"""<section class="contact" id="contact" aria-labelledby="contact-h">
-  <div class="wrap">
-    <h2 id="contact-h" class="contact__h">{T(("Давайте поговорим о вашем продукте", "Let's talk about your product"))}</h2>
-    <p class="contact__lead">{T(("Быстрее всего ответ приходит в Telegram. Готов сделать тестовое задание.", "Telegram is the fastest way to reach me. Happy to do a test task."))}</p>
+  <div class="wrap contact__in">
+    <p class="eyebrow">{T(("Контакты", "Contact"))}</p>
+    <h2 id="contact-h" class="contact__h">{T(("Давайте сделаем ваш продукт понятным.", "Let's make your product easy to use."))}</h2>
+    <p class="contact__lead">{T(("Быстрее всего отвечаю в Telegram. Открыт к удалённой работе и тестовому заданию.", "Telegram is the fastest way to reach me. Open to remote roles and happy to do a test task."))}</p>
     <div class="contact__ways">
-      <a class="btn btn--solid" href="{CONTACT['telegram']}">{T(("Написать в Telegram", "Message on Telegram"))}</a>
+      <a class="btn btn--solid" href="{CONTACT['telegram']}">{T(("Написать в Telegram", "Message on Telegram"))}{ARROW_R}</a>
       <a class="btn" href="mailto:{CONTACT['email']}">{CONTACT['email']}</a>
     </div>
   </div>
@@ -127,67 +137,113 @@ def contact_block():
 def build_home():
     out = [head(HOME["title"], HOME["description"], "/"), header(0)]
     out.append('<main id="main">')
-    strip = ["orbit-lobby", "arena-dashboard", "nyxa-overview", "vesta-flow", "promo-story-welcome"]
-    strip_alt = {
-        "orbit-lobby": ("Лобби казино ORBIT", "ORBIT casino lobby"),
-        "arena-dashboard": ("Дашборд Арены", "Arena dashboard"),
-        "nyxa-overview": ("Обзор в Nyxa", "Nyxa overview"),
-        "vesta-flow": ("Перевод в Vesta", "Vesta send money"),
-        "promo-story-welcome": ("Сторис ORBIT Promo", "ORBIT Promo story"),
-    }
-    tiles = "".join(f'<div class="wall__tile wall__tile--{n}">{img(n, strip_alt[n], eager=(i < 2), sizes="40vw", zoom=False)}</div>'
-                    for i, n in enumerate(strip))
+    # hero
     out.append(f"""
 <section class="hero">
-  <div class="wrap">
-    <h1 class="hero__h">{T(HOME['hero'])}</h1>
-    <p class="hero__lead">{T(HOME['lead'])}</p>
-    <div class="hero__cta">
-      <a class="btn btn--solid" href="#work">{T(("Смотреть работы", "See the work"))}</a>
-      <a class="btn" href="{CONTACT['telegram']}">{T(("Написать в Telegram", "Message on Telegram"))}</a>
+  <div class="wrap hero__in">
+    <div class="hero__photo reveal">
+      <span class="hero__disc" aria-hidden="true"></span>
+      <img src="assets/me.jpg" width="600" height="750" alt="Kadzhik Vardanyan" fetchpriority="high">
+    </div>
+    <div class="hero__txt">
+      <p class="hero__hello">{T(HERO['hello'])}</p>
+      <h1 class="hero__name"><span class="hero__first">{T(("Каджик", "Kadzhik"))}</span> <span class="hero__last">{T(("Варданян", "Vardanyan"))}<span class="sel" aria-hidden="true"><i></i><i></i><i></i><i></i><b>{T(HERO['city'])}</b></span></span></h1>
+      <p class="hero__role">{T(HERO['role'])}</p>
+      <p class="hero__about">{T(HERO['about'])}</p>
+      <p class="hero__exp">{T(HERO['expertise'])}</p>
+      <div class="cursor" aria-hidden="true">{CURSOR}<span class="cursor__tag"><span class="dot"></span>{T(HERO['cursor'])}</span></div>
     </div>
   </div>
-  <div class="wall" aria-hidden="true"><div class="wall__track">{tiles}</div></div>
+  <div class="wrap">
+    <ul class="hero__contacts">
+      <li><a href="{CONTACT['telegram']}">{I_TG}<span>{CONTACT['telegram_label']}</span></a></li>
+      <li><a href="mailto:{CONTACT['email']}">{I_MAIL}<span>{CONTACT['email']}</span></a></li>
+      <li><a href="{CONTACT['github']}">{I_GH}<span>github.com/vkadzhik</span></a></li>
+      <li class="hero__where">{T(("Калининград · удалённо", "Kaliningrad · Remote"))}</li>
+    </ul>
+  </div>
 </section>
 """)
-    rows = []
-    for i, c in enumerate(CASES):
+    # work
+    cards = []
+    for i, c in enumerate(LISTED):
         href = f"cases/{c['slug']}.html"
-        rows.append(f"""
-    <li class="case reveal" style="--c:{c['color']}">
-      <a class="case__img{' case__img--contain' if c.get('fit')=='contain' else ''}" href="{href}" tabindex="-1" aria-hidden="true">{img(c['cover'], c['name'], sizes='(min-width: 900px) 60vw, 100vw', zoom=False, vt='cover-'+c['slug'])}</a>
-      <div class="case__txt">
-        <p class="case__kind"><span class="swatch" aria-hidden="true"></span>{T(c['kind'])}</p>
-        <h3 class="case__name"><a href="{href}">{T(c['name'])}</a></h3>
-        <p class="case__sum">{T(c['summary'])}</p>
-        <a class="case__more" href="{href}">{T(("Открыть кейс", "Open the case"))}</a>
-      </div>
-    </li>""")
+        cards.append(f"""
+      <li class="card reveal" style="--c:{c['color']}">
+        <a class="card__a" href="{href}">
+          <span class="card__img">{img(c['cover'], c['name'], sizes='(min-width: 900px) 46vw, 100vw', zoom=False, vt='cover-'+c['slug'])}</span>
+          <span class="card__meta"><span class="card__n">{i+1:02d}</span><span class="card__name">{T(c['name'])}</span><span class="card__kind">{T(c['kind'])}</span></span>
+        </a>
+      </li>""")
     out.append(f"""
 <section class="work" id="work" aria-labelledby="work-h">
+  <span class="ghost" aria-hidden="true">Work</span>
   <div class="wrap">
-    <div class="sec-head">
-      <h2 id="work-h" class="sec-h">{T(("Работы", "Work"))}</h2>
-      <p class="sec-sub">{T(("Девять кейсов: от B2B-кабинета с таблицами до виджета на живых данных, рекламных кампаний и карточек для маркетплейса. В каждом — задача, решения и экраны.", "Nine cases, from a B2B app with complex tables to a widget on live data, ad campaigns and marketplace cards. Each shows the problem, the decisions and the screens."))}</p>
+    <div class="sec-head reveal">
+      <h2 id="work-h" class="sec-h">{T(("Избранные работы", "Selected work"))}</h2>
+      <p class="sec-sub">{T(("Четыре продукта: казино, криптодашборд, мобильный банк и B2B-кабинет с виджетом на живых данных. В каждом кейсе — задача, решения и экраны.", "Four products: a casino, a crypto dashboard, a mobile bank and a B2B web app with a widget on live data. Each case shows the problem, the decisions and the screens."))}</p>
     </div>
-    <ol class="cases">{''.join(rows)}
+    <ol class="cards">{''.join(cards)}
     </ol>
   </div>
 </section>
 """)
-    caps = "".join(f'<li class="cap reveal"><h3 class="cap__h">{T(h)}</h3><p>{T(p)}</p></li>' for h, p in CAPABILITIES)
-    how = "".join(f'<li>{T(p)}</li>' for p in HOW)
+    # experience
+    rows = []
+    for i, x in enumerate(EXPERIENCE):
+        c = BY[x["slug"]]
+        rows.append(f"""
+      <li class="xp reveal" style="--c:{c['color']}">
+        <details{' open' if i == 0 else ''}>
+          <summary class="xp__row">
+            <span class="xp__year mono">{x['year']}</span>
+            <span class="xp__name">{x['name']}</span>
+            <span class="xp__what">{T(x['what'])}</span>
+            <span class="xp__role">{T(x['role'])}</span>
+            <span class="xp__n mono">[{i+1:02d}]</span>
+          </summary>
+          <div class="xp__body">
+            <div><p class="xp__k">{T(("Задача", "Task"))}</p><p>{T(x['task'])}</p></div>
+            <div><p class="xp__k">{T(("Что я сделал", "What I did"))}</p><p>{T(x['did'])}</p></div>
+            <div><p class="xp__k">{T(("Результат", "Outcome"))}</p><p>{T(x['result'])}</p></div>
+            <a class="xp__link" href="cases/{c['slug']}.html">{T(("Открыть кейс", "View case"))}{ARROW_R}</a>
+          </div>
+        </details>
+      </li>""")
     out.append(f"""
-<section class="about" id="about" aria-labelledby="about-h">
+<section class="exp" id="experience" aria-labelledby="exp-h">
   <div class="wrap">
-    <div class="sec-head">
-      <h2 id="about-h" class="sec-h">{T(("Что я делаю", "What I do"))}</h2>
+    <div class="sec-head reveal">
+      <h2 id="exp-h" class="sec-h">{T(("Опыт", "Experience"))}</h2>
+      <p class="sec-sub">{T(EXPERIENCE_INTRO)}</p>
     </div>
-    <ul class="caps">{caps}</ul>
-    <div class="how">
-      <h2 class="sec-h sec-h--sm">{T(("Как я работаю", "How I work"))}</h2>
-      <ul class="how__list">{how}</ul>
-      <p class="how__tools">{T(("Инструменты: Figma (переменные, компоненты, прототипы), FigJam, Higgsfield AI, Notion, базовые HTML и CSS.", "Tools: Figma (variables, components, prototyping), FigJam, Higgsfield AI, Notion, basic HTML and CSS."))}</p>
+    <div class="xp__cap mono" aria-hidden="true"><span>{T(("Год", "Year"))}</span><span>{T(("Проект", "Project"))}</span><span>{T(("Продукт", "Product"))}</span><span>{T(("Роль", "Role"))}</span><span></span></div>
+    <ol class="xps">{''.join(rows)}
+    </ol>
+  </div>
+</section>
+""")
+    # about + process (lime band)
+    proc = "".join(f'<li class="proc__row"><span class="mono">{i+1:02d}</span><span class="proc__h">{T(h)}</span><span class="proc__d">{T(d)}</span><span class="mono proc__n">[{i+1:02d}]</span></li>'
+                   for i, (h, d) in enumerate(PROCESS))
+    tools = "".join(f"<li>{t}</li>" for t in TOOLKIT)
+    out.append(f"""
+<section class="band" id="about" aria-labelledby="about-h">
+  <div class="wrap band__in">
+    <div class="band__grid reveal">
+      <h2 id="about-h" class="band__h">{T(("Обо мне", "About"))}</h2>
+      <div class="band__cols">
+        <p>{T(("Мне нравятся продукты, где много данных и легко ошибиться: таблицы, дашборды, деньги, ставки. Моя задача — чтобы человек сразу понимал, что происходит и что делать дальше.", "I like products with a lot of data and plenty of room for mistakes: tables, dashboards, money, bets. My job is to make it obvious what is going on and what to do next."))}</p>
+        <p>{T(("Сначала собираю систему — переменные, токены, компоненты, — а экраны потом собираются из неё. Поэтому макеты легко переносятся в код, и я проверяю их на настоящих данных, а не на идеальных примерах.", "I build the system first — variables, tokens, components — and assemble screens from it. That makes the layouts easy to move into code, and I test them on real data rather than perfect examples."))}</p>
+      </div>
+    </div>
+    <div class="band__grid reveal">
+      <h2 class="band__h">{T(("Процесс", "Process"))}</h2>
+      <ol class="proc">{proc}</ol>
+    </div>
+    <div class="band__grid reveal">
+      <h2 class="band__h band__h--sm">{T(("Инструменты", "Toolkit"))}</h2>
+      <ul class="chips">{tools}</ul>
     </div>
   </div>
 </section>
@@ -230,28 +286,35 @@ def block(b):
     raise ValueError(k)
 
 
-def build_case(i, c):
-    nxt = CASES[(i + 1) % len(CASES)]
+def build_case(c):
+    if c["slug"] in SHOW:
+        k = SHOW.index(c["slug"])
+        nxt = BY[SHOW[(k + 1) % len(SHOW)]]
+        num = f"{k+1:02d}"
+    else:
+        nxt = BY[SHOW[0]]
+        num = ""
     title = (f"{c['name'][0]} — кейс, Каджик Варданян", f"{c['name'][1]} — case study, Kadzhik Vardanyan")
     out = [head(title, c["summary"], f"/cases/{c['slug']}.html", image=src(c["cover"]), depth=1), header(1, "work")]
-    facts = "".join(f'<div><dt>{T(t)}</dt><dd>{T(d)}</dd></div>' for t, d in c["facts"])
+    facts = list(c["facts"]) + [(("Срок", "Timeline"), ("2026", "2026"))]
+    facts_html = "".join(f'<div class="fact"><dt>{T(t)}</dt><dd>{T(d)}</dd></div>' for t, d in facts)
     links = "".join(f'<a class="btn" href="{u}">{T(l)}{ARROW_OUT}</a>' for l, u in c["links"])
     secs = []
     for j, (h, blocks) in enumerate(c["sections"]):
         sid = f"s{j+1}"
-        secs.append(f'<section class="cs reveal" aria-labelledby="{sid}"><h2 class="cs__h" id="{sid}">{T(h)}</h2><div class="cs__body">'
+        secs.append(f'<section class="cs reveal" aria-labelledby="{sid}"><h2 class="cs__h" id="{sid}"><span class="mono cs__n">{j+1:02d}</span>{T(h)}</h2><div class="cs__body">'
                     + "".join(block(b) for b in blocks) + "</div></section>")
     out.append(f"""<main id="main" class="case-page" style="--c:{c['color']}">
 <article>
   <div class="wrap">
     <a class="back" href="../index.html#work">{T(("Все работы", "All work"))}</a>
     <header class="ch">
-      <p class="case__kind"><span class="swatch" aria-hidden="true"></span>{T(c['kind'])}</p>
+      <p class="eyebrow">{('<span class="mono">' + num + '</span> · ') if num else ''}{T(c['kind'])}</p>
       <h1 class="ch__h">{T(c['name'])}</h1>
       <p class="ch__lead">{T(c['summary'])}</p>
-      <dl class="facts">{facts}</dl>
+      <p class="ov__label">{T(("О проекте", "Project overview"))}</p>
+      <dl class="facts">{facts_html}</dl>
       {f'<div class="ch__links">{links}</div>' if links else ''}
-      {'<p class="ch__note">' + T(("В Figma открыты отдельные фрагменты проекта. Полную версию покажу по запросу.", "The Figma file shows selected parts of the project. The full version is available on request.")) + '</p>' if any('figma.com' in u for _, u in c['links']) else ''}
     </header>
   </div>
   <div class="wrap wrap--wide"><figure class="cover">{img(c['cover'], c['name'], eager=True, vt='cover-'+c['slug'])}</figure></div>
@@ -301,11 +364,10 @@ def build_404():
 
 if __name__ == "__main__":
     build_home()
-    for i, c in enumerate(CASES):
-        build_case(i, c)
+    for c in CASES:
+        build_case(c)
     build_404()
-    # sitemap
-    urls = [SITE + "/"] + [f"{SITE}/cases/{c['slug']}.html" for c in CASES]
+    urls = [SITE + "/"] + [f"{SITE}/cases/{s}.html" for s in SHOW]
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
           + "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls) + "</urlset>\n")
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")

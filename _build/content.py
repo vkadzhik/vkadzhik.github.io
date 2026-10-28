@@ -768,3 +768,88 @@ CASES.append({
   ]),
  ],
 })
+
+# ================================================================ v2 (light redesign)
+SHOW = ["orbit", "nyxa", "vesta", "arena"]   # listed on the home page, in this order
+
+HERO = {
+  "hello": ("Привет, я", "Hello, I'm"),
+  "role": ("UX/UI и продуктовый дизайнер", "UX/UI & Product Designer"),
+  "about": (
+    "Проектирую интерфейсы для iGaming, финтеха и сервисов с большим количеством данных. Веду проект целиком: сценарии, дизайн-система, экраны для десктопа и мобильного, рабочий прототип. Каждый день использую AI-инструменты и проверяю макеты на настоящих данных.",
+    "I design interfaces for iGaming, fintech and products with a lot of data. I run a project end to end: user flows, a design system, desktop and mobile screens and a working prototype. I use AI tools every day and test layouts against real data."),
+  "expertise": ("Figma · дизайн-системы · сложные интерфейсы · прототипы в коде", "Figma · Design systems · Data-heavy UI · Coded prototypes"),
+  "cursor": ("Открыт к удалённой работе", "Open to remote work"),
+  "city": ("Калининград", "Kaliningrad"),
+}
+
+EXPERIENCE_INTRO = (
+  "Самостоятельные продуктовые проекты: каждый сделан от исследования и сценариев до готовых экранов. Один на проекте, 2026.",
+  "Independent product work: each project taken from research and flows to finished screens. Solo, 2026.")
+
+EXPERIENCE = [
+ {"slug": "orbit", "year": "2026", "name": "ORBIT",
+  "what": ("Онлайн-казино с crash-игрой", "Online casino with a crash game"),
+  "role": ("Продуктовый дизайнер · соло", "Product designer · solo"),
+  "task": ("Спроектировать iGaming-продукт целиком: бренд, лобби, игру, кошелёк и регистрацию для десктопа и мобильного.",
+           "Design an iGaming product end to end: brand, lobby, game, wallet and sign-up for desktop and mobile."),
+  "did": ("Нейминг и бренд, дизайн-система на переменных Figma, четыре ключевых сценария, иллюстрации и 3D-маскот в Higgsfield, промо-креативы для пяти кампаний.",
+          "Naming and brand, a design system on Figma variables, four core flows, illustrations and a 3D mascot made in Higgsfield, promo creatives for five campaigns."),
+  "result": ("8 экранов (4 десктоп + 4 мобильных), 46 цветовых переменных, 19 компонентов, 50 иконок, 26 иллюстраций.",
+             "8 screens (4 desktop + 4 mobile), 46 colour variables, 19 components, 50 icons, 26 illustrations.")},
+ {"slug": "nyxa", "year": "2026", "name": "Nyxa",
+  "what": ("Криптодашборд, веб и мобильный", "Crypto dashboard, web and mobile"),
+  "role": ("Продуктовый дизайнер · соло", "Product designer · solo"),
+  "task": ("Сделать дашборд крипто-инвестора, который понятен с первого взгляда, хотя данных на экране много.",
+           "Make a crypto investor dashboard that reads at a glance even with a lot of data on screen."),
+  "did": ("Бренд, дизайн-система на токенах, экраны обзора, рынков, портфеля и торговли, адаптив под 390 px.",
+          "Brand, a token-based design system, overview, markets, portfolio and trade screens, adapted to 390 px."),
+  "result": ("8 экранов, 51 цветовая переменная, 17 текстовых стилей, 30+ компонентов, 48 иконок, 12 иллюстраций.",
+             "8 screens, 51 colour variables, 17 text styles, 30+ components, 48 icons, 12 illustrations.")},
+ {"slug": "vesta", "year": "2026", "name": "Vesta",
+  "what": ("Мобильный банк", "Mobile bank"),
+  "role": ("Продуктовый дизайнер · соло", "Product designer · solo"),
+  "task": ("Спроектировать перевод другу так, чтобы он не ломался ни в одном состоянии, и показать, как дизайн влияет на метрики.",
+           "Design a send-money flow that holds up in every state, and show how the design moves product metrics."),
+  "did": ("Бренд, дизайн-система, сценарий перевода со всеми краевыми состояниями, продуктовый слой с метриками, живой прототип в HTML/CSS/JS.",
+          "Brand, design system, a send-money flow with every edge state, a product layer with metrics, a live HTML/CSS/JS prototype."),
+  "result": ("18 экранов, 7 краевых состояний, рабочий прототип, который можно открыть в браузере.",
+             "18 screens, 7 edge states and a working prototype you can open in the browser.")},
+ {"slug": "arena", "year": "2026", "name": "Arena + Arena Live",
+  "what": ("B2B-кабинет и виджет на живых данных", "B2B web app and a widget on live data"),
+  "role": ("Продуктовый дизайнер · соло", "Product designer · solo"),
+  "task": ("Собрать кабинет спортивной школы с реестром, заявками и дашбордом, а затем проверить его дизайн-систему в другом продукте на настоящих данных.",
+           "Build a sports school web app with a registry, entries and a dashboard, then test its design system in another product on real data."),
+  "did": ("Реестр с фильтрами и массовыми действиями, заявка в пять шагов, дашборд, светлая и тёмная тема. Выгрузил токены из Figma в код и собрал на них беттинг-виджет на данных ESPN.",
+          "A registry with filters and bulk actions, a five-step entry form, a dashboard, light and dark themes. Exported the tokens from Figma to code and built a betting widget on them using ESPN data."),
+  "result": ("8 экранов и состояний, 17 компонентов, 36 иконок. Виджет: 43 примитива и 27 семантических токенов, 12 лиг живых данных, работает онлайн.",
+             "8 screens and states, 17 components, 36 icons. Widget: 43 primitives and 27 semantic tokens, 12 leagues of live data, running online.")},
+]
+
+PROCESS = [
+  (("Исследование", "Research"), ("Задача пользователя, конкуренты, ограничения", "User jobs, competitors, constraints")),
+  (("Структура", "Structure"), ("Сценарии, информационная архитектура, роли", "Flows, information architecture, roles")),
+  (("Система", "System"), ("Переменные, токены, компоненты с вариантами", "Variables, tokens, components with variants")),
+  (("Интерфейс", "Interface"), ("Экраны, все состояния, мобильная версия", "Screens, every state, mobile")),
+  (("Проверка", "Validate"), ("Прототип, настоящие данные, правки", "Prototype, real data, iteration")),
+]
+
+TOOLKIT = ["Figma", "Variables & Tokens", "Auto Layout", "Prototyping", "FigJam", "Design systems", "User flows", "UX research",
+           "HTML / CSS / JS", "Higgsfield AI", "GPT Image", "Kling", "Notion"]
+
+# Arena: tell the Arena Live story inside the Arena case
+for _c in CASES:
+    if _c["slug"] == "arena":
+        _c["links"] = _c["links"] + [
+            (("Открыть Арену Live", "Open Arena Live"), "/arena-live/"),
+            (("Дизайн-система в коде", "Design system in code"), "/arena-live/system.html"),
+        ]
+        _c["sections"].append((("Арена Live: система на живых данных", "Arena Live: the system on live data"), [
+          ("p", ("Чтобы проверить дизайн-систему Арены в деле, я выгрузил её переменные из Figma в код и собрал на них беттинг-виджет на реальных матчах: live-счёт, коэффициенты, фильтры и купон. 43 примитива, 27 семантических токенов в двух режимах, 18 размеров и 12 текстовых стилей превращаются скриптом в CSS-переменные. Тёмная тема — второй режим той же коллекции, как в Figma.",
+                 "To test Arena's design system for real, I exported its Figma variables to code and built a betting widget on live matches with it: live scores, odds, filters and a bet slip. 43 primitives, 27 semantic tokens in two modes, 18 sizes and 12 text styles become CSS variables through a script. The dark theme is the second mode of the same collection, exactly as in Figma.")),
+          ("img", "live-desk-light", ("Арена Live на десктопе: живые матчи, коэффициенты, купон", "Arena Live on desktop: live matches, odds, bet slip"), "wide"),
+          ("p", ("Настоящие данные показали то, чего не видно в макете: длинные названия команд, пропавшие логотипы, коэффициенты, которые двигаются во время матча, лиги без событий. Под каждый такой случай я сделал состояние и переключатель, которым его можно проверить вживую.",
+                 "Real data showed what a mockup hides: long team names, missing logos, odds moving mid-match, leagues with no events. I designed a state for each case and a switch to check it live.")),
+          ("img", "live-states", ("Состояния: загрузка, пусто, ошибка, частичные данные", "States: loading, empty, error, partial data"), "wide"),
+          ("grid", [("live-desk-dark", ("Тёмная тема — второй режим токенов", "Dark theme is the second token mode")), ("live-mobile", ("Мобильная версия с купоном внизу", "Mobile with a bottom-sheet bet slip"))], 2),
+        ]))

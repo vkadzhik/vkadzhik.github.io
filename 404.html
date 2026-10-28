@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="ru" data-lang="ru">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(){var l;try{var q=new URLSearchParams(location.search).get('lang');if(q==='ru'||q==='en'){l=q;localStorage.setItem('lang',q)}else{l=localStorage.getItem('lang')}}catch(x){}if(!l){l=((navigator.language||'ru').toLowerCase().indexOf('ru')===0)?'ru':'en'}document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l;})();</script>
-<title>Страница не найдена</title>
-<meta name="description" content="Портфолио UX/UI-дизайнера: iGaming, финтех и сложные интерфейсы с данными. Кейсы, дизайн-системы, живой прототип.">
+<script>(function(){var l='en';try{var q=new URLSearchParams(location.search).get('lang');if(q==='ru'||q==='en'){l=q;localStorage.setItem('lang',q)}else{l=localStorage.getItem('lang')||'en'}}catch(x){}document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l;})();</script>
+<title>Page not found</title>
+<meta name="description" content="UX/UI designer portfolio: iGaming, fintech and data-heavy interfaces. Case studies, design systems, a live prototype.">
 <meta name="author" content="Kadzhik Vardanyan">
-<meta name="theme-color" content="#0E1117">
+<meta name="theme-color" content="#F6F7F4">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Page not found">
 <meta property="og:description" content="UX/UI designer portfolio: iGaming, fintech and data-heavy interfaces. Case studies, design systems, a live prototype.">
@@ -18,8 +18,8 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=2">
 <meta name="x-title-ru" content="Страница не найдена"><meta name="x-title-en" content="Page not found">
 </head>
 <body>
@@ -27,14 +27,15 @@
 <a class="skip" href="#main"><span class="l-ru" lang="ru">Перейти к содержанию</span><span class="l-en" lang="en">Skip to content</span></a>
 <header class="top">
   <div class="wrap top__in">
-    <a class="brand" href="/index.html"><span class="l-ru" lang="ru">Каджик Варданян</span><span class="l-en" lang="en">Kadzhik Vardanyan</span></a>
+    <a class="brand" href="/index.html"><span class="brand__mark" aria-hidden="true">KV</span><span class="brand__name"><span class="l-ru" lang="ru">Каджик Варданян</span><span class="l-en" lang="en">Kadzhik Vardanyan</span></span></a>
     <nav class="top__nav" aria-label="Main">
       <a href="/index.html#work"><span class="l-ru" lang="ru">Работы</span><span class="l-en" lang="en">Work</span></a>
-      <a href="/index.html#about"><span class="l-ru" lang="ru">Подход</span><span class="l-en" lang="en">Approach</span></a>
+      <a href="/index.html#experience"><span class="l-ru" lang="ru">Опыт</span><span class="l-en" lang="en">Experience</span></a>
+      <a href="/index.html#about"><span class="l-ru" lang="ru">Обо мне</span><span class="l-en" lang="en">About</span></a>
       <a href="/index.html#contact"><span class="l-ru" lang="ru">Контакты</span><span class="l-en" lang="en">Contact</span></a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
-      <button type="button" data-set-lang="ru">RU</button><button type="button" data-set-lang="en">EN</button>
+      <button type="button" data-set-lang="en">EN</button><button type="button" data-set-lang="ru">RU</button>
     </div>
   </div>
 </header>
@@ -44,15 +45,15 @@
 <a class="btn btn--solid" href="/"><span class="l-ru" lang="ru">На главную</span><span class="l-en" lang="en">Go to the homepage</span></a>
 </div></main><footer class="foot">
   <div class="wrap foot__in">
-    <p><span class="l-ru" lang="ru">Каджик Варданян, 2026. В файлах Figma открыты отдельные фрагменты, полные версии покажу по запросу.</span><span class="l-en" lang="en">Kadzhik Vardanyan, 2026. The Figma files show selected parts; full versions are available on request.</span></p>
+    <p>© 2026 <span class="l-ru" lang="ru">Каджик Варданян</span><span class="l-en" lang="en">Kadzhik Vardanyan</span></p>
     <p class="foot__links"><a href="https://t.me/jema_tati">Telegram</a><a href="mailto:vkadzhik@mail.ru">vkadzhik@mail.ru</a><a href="https://github.com/vkadzhik">GitHub</a></p>
   </div>
 </footer>
-<div class="pill" aria-hidden="true"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">Open the case</span></div>
+<div class="pill" aria-hidden="true"><span class="l-ru" lang="ru">Открыть кейс</span><span class="l-en" lang="en">View case</span></div>
 <dialog class="zoom" aria-label="Image">
   <button type="button" class="zoom__close" data-close><span class="l-ru" lang="ru">Закрыть</span><span class="l-en" lang="en">Close</span></button>
   <img alt="">
 </dialog>
-<script src="/assets/site.js" defer></script>
+<script src="/assets/site.js?v=2" defer></script>
 </body>
 </html>
