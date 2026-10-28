@@ -103,7 +103,7 @@ def footer(depth=0):
     return f"""<footer class="foot">
   <div class="wrap">
     <div class="foot__top">
-      <p class="foot__links"><a href="{CONTACT['telegram']}">Telegram</a><a href="mailto:{CONTACT['email']}">{CONTACT['email']}</a><a href="{CONTACT['github']}">GitHub</a></p>
+      <p class="foot__links"><a href="{CONTACT['telegram']}">Telegram</a><a href="mailto:{CONTACT['email']}">{CONTACT['email']}</a></p>
       <a class="totop" href="#main">{T(("Наверх", "Back to top"))} ↑</a>
     </div>
     <p class="foot__word" aria-hidden="true">Kadzhik Vardanyan</p>
@@ -163,7 +163,6 @@ def build_home():
     <ul class="hero__contacts">
       <li><a href="{CONTACT['telegram']}">{I_TG}<span>{CONTACT['telegram_label']}</span></a></li>
       <li><a href="mailto:{CONTACT['email']}">{I_MAIL}<span>{CONTACT['email']}</span></a></li>
-      <li><a href="{CONTACT['github']}">{I_GH}<span>github.com/vkadzhik</span></a></li>
     </ul>
   </div>
 </section>

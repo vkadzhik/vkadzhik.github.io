@@ -182,8 +182,6 @@ CASES.append({
    (("Инструменты", "Tools"), ("Figma, FigJam, Notion", "Figma, FigJam, Notion")),
  ],
  "links": [
-   (("Файл в Figma", "Figma file"), "https://www.figma.com/design/6OdN43G1wBPdm95XpW3UxT"),
-   (("Сценарий в FigJam", "User flow in FigJam"), "https://www.figma.com/board/1yM3ycdYRn6NsZZ7w8caG2"),
  ],
  "sections": [
   (("Задача", "The problem"), [
@@ -360,7 +358,6 @@ CASES.append({
    (("Инструменты", "Tools"), ("Figma, Higgsfield AI", "Figma, Higgsfield AI")),
  ],
  "links": [
-   (("Файл в Figma", "Figma file"), "https://www.figma.com/design/N81bZMsBZWMgfPwZKhFeF0"),
  ],
  "sections": [
   (("Задача", "The problem"), [
@@ -434,7 +431,6 @@ CASES.append({
  ],
  "links": [
    (("Живой прототип", "Live prototype"), "https://vkadzhik.github.io/vesta/"),
-   (("Файл в Figma", "Figma file"), "https://www.figma.com/design/zdhVmplMFcScVGBHswwuxr"),
  ],
  "sections": [
   (("Задача", "The problem"), [
@@ -497,7 +493,6 @@ CASES.append({
    (("Инструменты", "Tools"), ("Figma, Higgsfield AI", "Figma, Higgsfield AI")),
  ],
  "links": [
-   (("Файл в Figma", "Figma file"), "https://www.figma.com/design/lRLF9WxXWf8SsNKkXQTR0T"),
  ],
  "sections": [
   (("Задача", "The problem"), [
@@ -554,7 +549,6 @@ CASES.append({
    (("Инструменты", "Tools"), ("Figma, Higgsfield AI", "Figma, Higgsfield AI")),
  ],
  "links": [
-   (("Файл в Figma", "Figma file"), "https://www.figma.com/design/N81bZMsBZWMgfPwZKhFeF0"),
    (("Анимированные баннеры", "Animated banners"), "https://app.notion.com/p/3f1e0718ddfc81deb9cccbfd7bfb56cc"),
  ],
  "sections": [
