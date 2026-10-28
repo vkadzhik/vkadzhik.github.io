@@ -217,7 +217,6 @@ def build_home():
   <div class="wrap">
     <div class="sec-head reveal">
       <div><p class="eyebrow"><span class="mono">(02)</span> {T(("Опыт", "Experience"))}</p><h2 id="exp-h" class="sec-h">{T(("Опыт", "Experience"))}</h2></div>
-      <p class="sec-sub">{T(EXPERIENCE_INTRO)}</p>
     </div>
     <div class="xp__cap mono" aria-hidden="true"><span>{T(("Год", "Year"))}</span><span>{T(("Проект", "Project"))}</span><span>{T(("Продукт", "Product"))}</span><span>{T(("Роль", "Role"))}</span><span></span></div>
     <ol class="xps">{''.join(rows)}
