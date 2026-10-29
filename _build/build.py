@@ -3,7 +3,7 @@
 import html, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from content import (CDN, IMG, CONTACT, HOME, CASES, SHOW, HERO, EXPERIENCE, EXPERIENCE_INTRO,
-                     TOOLKIT, STATS, ABOUT_STATEMENT, SERVICES, PRINCIPLES, PROCESS2, DECISIONS)
+                     TOOLKIT, STATS, ABOUT_STATEMENT, SERVICES, PRINCIPLES, PROCESS2)
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SITE = "https://vkadzhik.ru"
@@ -68,7 +68,7 @@ def head(title, desc, path, image=None, depth=0):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{pre}assets/site.css?v=4">
+<link rel="stylesheet" href="{pre}assets/site.css?v=5">
 <meta name="x-title-ru" content="{e(title[0])}"><meta name="x-title-en" content="{e(title[1])}">
 </head>
 <body>
@@ -205,10 +205,10 @@ def build_home():
             <span class="xp__plus" aria-hidden="true"></span>
           </summary>
           <div class="xp__body">
-            <div><p class="xp__k">{T(("Задача", "Task"))}</p><p>{T(x['task'])}</p></div>
-            <div><p class="xp__k">{T(("Что я сделал", "What I did"))}</p><p>{T(x['did'])}</p></div>
-            <div><p class="xp__k">{T(("Результат", "Outcome"))}</p><p>{T(x['result'])}</p></div>
-            <div class="xp__dec"><p class="xp__k">{T(("Ключевые решения", "Key decisions"))}</p><ol>{''.join(f"<li>{T(d)}</li>" for d in DECISIONS[x['slug']])}</ol></div>
+            <div class="xp__about"><p class="xp__k">{T(("О проекте", "About the project"))}</p><p class="xp__tag">{T(x['tag'])}</p><p>{T(x['about'])}</p></div>
+            <div><p class="xp__k">{T(("Инструменты", "Tools"))}</p><p>{T(x['tools'])}</p></div>
+            <div class="xp__dec"><p class="xp__k">{T(("Зона ответственности", "Responsibilities"))}</p><ol>{''.join(f"<li>{T(d)}</li>" for d in x['duties'])}</ol></div>
+            <div class="xp__dec"><p class="xp__k">{T(("Результаты", "Results"))}</p><ol>{''.join(f"<li>{T(r)}</li>" for r in x['results'])}</ol></div>
             <a class="xp__link" href="cases/{c['slug']}.html">{T(("Открыть кейс", "View case"))}{ARROW_R}</a>
           </div>
         </details>
