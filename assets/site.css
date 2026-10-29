@@ -53,6 +53,8 @@ html[data-lang="ru"] .l-en,html[data-lang="en"] .l-ru{display:none!important}
 .btn:hover{border-color:var(--ink);transform:translateY(-1px)}
 .btn--solid{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .btn--solid:hover{background:#000}
+.btn--accent{background:var(--lime);border-color:var(--lime);color:var(--ink)}
+.btn--accent:hover{border-color:var(--ink)}
 .ico{width:16px;height:16px;flex:none}
 
 /* hero */

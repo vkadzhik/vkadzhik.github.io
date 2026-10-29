@@ -69,7 +69,7 @@ def head(title, desc, path, image=None, depth=0):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{pre}assets/site.css?v=5">
+<link rel="stylesheet" href="{pre}assets/site.css?v=6">
 <meta name="x-title-ru" content="{e(title[0])}"><meta name="x-title-en" content="{e(title[1])}">
 </head>
 <body>
@@ -133,8 +133,8 @@ def contact_block():
     <div class="contact__ways">
       <a class="btn btn--solid" href="{CONTACT['telegram']}">{T(("Написать в Telegram", "Message on Telegram"))}{ARROW_R}</a>
       <a class="btn" href="mailto:{CONTACT['email']}">{CONTACT['email']}</a>
-      <a class="btn l-ru" lang="ru" href="/cv/Kadzhik_Vardanyan_CV_RU.pdf" download>Скачать CV{ARROW_DOWN}</a>
-      <a class="btn l-en" lang="en" href="/cv/Kadzhik_Vardanyan_CV_EN.pdf" download>Download CV{ARROW_DOWN}</a>
+      <a class="btn btn--accent l-ru" lang="ru" href="/cv/Kadzhik_Vardanyan_CV_RU.pdf" download>Скачать CV{ARROW_DOWN}</a>
+      <a class="btn btn--accent l-en" lang="en" href="/cv/Kadzhik_Vardanyan_CV_EN.pdf" download>Download CV{ARROW_DOWN}</a>
     </div>
   </div>
 </section>
