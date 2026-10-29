@@ -68,7 +68,7 @@ def head(title, desc, path, image=None, depth=0):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{pre}assets/site.css?v=3">
+<link rel="stylesheet" href="{pre}assets/site.css?v=4">
 <meta name="x-title-ru" content="{e(title[0])}"><meta name="x-title-en" content="{e(title[1])}">
 </head>
 <body>
@@ -264,6 +264,8 @@ def block(b):
     k = b[0]
     if k == "p":
         return T(b[1], "p")
+    if k == "h3":
+        return T(b[1], "h3", "cs__sub")
     if k == "quote":
         return f'<blockquote class="quote">{T(b[1], "p")}</blockquote>'
     if k in ("ul", "ol"):

@@ -164,6 +164,7 @@ html[data-lang="ru"] .l-en,html[data-lang="en"] .l-ru{display:none!important}
 .cs__n{color:var(--mute);font-size:13px}
 .cs__body{display:grid;gap:24px;min-width:0}
 .cs__body>p{max-width:68ch}
+.cs__sub{margin:12px 0 -10px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
 .list{margin:0;padding-left:0;list-style:none;max-width:68ch;display:grid;gap:12px}
 .list li{padding-left:24px;position:relative}
 ul.list li::before{content:"";position:absolute;left:2px;top:.66em;width:8px;height:8px;border-radius:50%;background:var(--c)}
