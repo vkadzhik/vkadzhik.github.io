@@ -47,7 +47,7 @@ I_GH = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-
 
 def head(title, desc, path, image=None, depth=0):
     pre = "../" * depth
-    og = image or (CDN + "debfb55d-a26d-4d68-a0da-c565573b01d1.png")
+    og = image or (SITE + "/og-image.png")
     return f"""<!doctype html>
 <html lang="en" data-lang="en">
 <head>
