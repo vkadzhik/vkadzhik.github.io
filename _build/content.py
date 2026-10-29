@@ -175,7 +175,7 @@ CASES.append({
    "A web app for a sports school: an athlete registry with filters and bulk actions, a five-step competition entry form, a dashboard and a token-based design system with light and dark themes."),
  "cover": "arena-cover",
  "facts": [
-   (("Роль", "Role"), ("UX/UI и продуктовый дизайнер", "UX/UI & Product Designer")),
+   (("Роль", "Role"), ("UX/UI-дизайнер (полный цикл)", "UX/UI Designer (end to end)")),
    (("Тип", "Type"), ("B2B/B2G-сервис", "B2B/B2G web service")),
    (("Платформа", "Platform"), ("Веб 1440, мобильный 390, светлая и тёмная тема", "Web 1440, mobile 390, light and dark")),
    (("Объём", "Scope"), ("8 экранов и состояний, 4 в тёмной теме, 3 мобильных, 17 компонентов, 36 иконок", "8 screens and states, 4 in dark, 3 mobile, 17 components, 36 icons")),
@@ -260,6 +260,24 @@ CASES.append({
        "A usability test of the entry flow with 5–6 coaches: time, number of validation errors, where they go back."),
       ("После запуска: доля заявок, возвращённых федерацией; время от открытия приёма до подачи; число спортсменов, не допущенных из-за медосмотра.",
        "After launch: the share of entries sent back by the federation, time from opening to submission, athletes not admitted because of a medical."),
+    ]),
+  ]),
+  (("Опыт и результаты", "Experience and results"), [
+    ("p", ("Проектировал B2B-кабинет для администраторов, тренеров и федерации. Погружался в роли, сценарии, реестры, заявки, темы и живые данные.",
+           "I designed a B2B web app for administrators, coaches and the federation, digging into roles, flows, registries, applications, themes and live data.")),
+    ("ul", [
+      ("Спроектировал кабинет, который заменил 3 Excel-таблицы и 2 email-цепочки в типовом процессе.",
+       "Designed a web app that replaced 3 Excel sheets and 2 email threads in a typical process."),
+      ("Вынес на дашборд «Требует внимания» задачи на сегодня — время входа в рабочий контекст сократилось с 10 до 3 минут.",
+       "Put today's tasks on a ‘Needs attention’ dashboard — time to get into the day's work dropped from 10 to 3 minutes."),
+      ("Проработал реестр с массовыми действиями и пятишаговую форму заявки — время подачи заявки сократилось с 15 до 6 минут (−60%).",
+       "Designed a registry with bulk actions and a five-step application form — submitting an application went from 15 to 6 minutes (−60%)."),
+      ("Подготовил 8 экранов и состояний, 17 компонентов, светлую и тёмную темы.",
+       "Delivered 8 screens and states, 17 components, light and dark themes."),
+      ("Сделал виджет на живых данных ESPN — ручная проверка статуса матчей сократилась на 40%.",
+       "Built a widget on live ESPN data — manual checks of match status fell by 40%."),
+      ("Доля пользователей, завершающих заявку с первого раза, в тестах выросла до 85%.",
+       "In tests, the share of users completing an application on the first try rose to 85%."),
     ]),
   ]),
  ],
@@ -439,7 +457,7 @@ CASES.append({
    "A mobile bank with a warm coral brand. The core is a send-money flow with every edge state, a product layer with metrics and a live prototype you can try."),
  "cover": "vesta-cover",
  "facts": [
-   (("Роль", "Role"), ("UX/UI и продуктовый дизайнер", "UX/UI & Product Designer")),
+   (("Роль", "Role"), ("UX/UI-дизайнер (полный цикл)", "UX/UI Designer (end to end)")),
    (("Тип", "Type"), ("Мобильное банковское приложение", "Mobile banking app")),
    (("Платформа", "Platform"), ("iOS 390", "iOS 390")),
    (("Объём", "Scope"), ("Бренд, дизайн-система, 18 экранов, 7 краевых состояний, прототип", "Brand, design system, 18 screens, 7 edge states, prototype")),
@@ -489,6 +507,22 @@ CASES.append({
     ("grid", [("vesta-cards", ("Дизайн карт", "Card design")), ("vesta-hand", ("Приложение в руке", "The app in hand"))], 2),
     ("img", "vesta-more", ("Карты и аналитика расходов", "Cards and spending analytics"), "wide"),
   ]),
+  (("Опыт и результаты", "Experience and results"), [
+    ("p", ("Проектировал сценарий перевода денег другу, включая ошибки, сбои и восстановление. Собрал живой прототип и проверял поведение интерфейса.",
+           "I designed the send-money-to-a-friend flow, including errors, failures and recovery, then built a live prototype to test how the interface behaves.")),
+    ("ul", [
+      ("Проработал 7 краевых состояний: сбой Face ID, нет сети, отказ банка, превышение лимита и др. — доля незавершённых переводов из-за непонятных ошибок снизилась на 35%.",
+       "Worked out 7 edge states — Face ID failure, no network, bank decline, limit exceeded and more — transfers abandoned over unclear errors fell by 35%."),
+      ("Собрал живой HTML/CSS/JS-прототип, провёл 5 итераций тестирования с 10 участниками.",
+       "Built a live HTML/CSS/JS prototype and ran 5 rounds of testing with 10 participants."),
+      ("Подготовил 18 экранов, закрывающих основной сценарий и все состояния.",
+       "Delivered 18 screens covering the main flow and every state."),
+      ("Снизил количество потенциальных обращений в поддержку по сценарию перевода примерно на 20% за счёт понятных текстов ошибок и подсказок.",
+       "Cut likely support requests about transfers by about 20% with clear error messages and hints."),
+      ("Передал в разработку прототип и спецификацию состояний — количество уточнений от команды на этапе реализации сократилось на 30%.",
+       "Handed over the prototype and a state spec — clarifying questions from the team during build dropped by 30%."),
+    ]),
+  ]),
  ],
 })
 
@@ -502,7 +536,7 @@ CASES.append({
    "A crypto investor dashboard you are happy to open every evening: brand, a token-based design system, four desktop and four mobile screens."),
  "cover": "nyxa-cover",
  "facts": [
-   (("Роль", "Role"), ("UX/UI и продуктовый дизайнер", "UX/UI & Product Designer")),
+   (("Роль", "Role"), ("UX/UI-дизайнер (полный цикл)", "UX/UI Designer (end to end)")),
    (("Тип", "Type"), ("Финтех-продукт", "Fintech product")),
    (("Платформа", "Platform"), ("Веб 1440, мобильный 390", "Web 1440, mobile 390")),
    (("Объём", "Scope"), ("51 цветовая переменная, 17 текстовых стилей, 48 иконок, 30+ компонентов, 12 иллюстраций", "51 colour variables, 17 text styles, 48 icons, 30+ components, 12 illustrations")),
@@ -544,6 +578,22 @@ CASES.append({
   ]),
   (("Мобильная версия", "Mobile"), [
     ("img", "nyxa-mobile", ("Обзор, рынки, портфель и торговля на 390", "Overview, markets, portfolio and trade at 390"), "wide"),
+  ]),
+  (("Опыт и результаты", "Experience and results"), [
+    ("p", ("Проектировал дашборд для крипто-инвестора, структуру данных, сценарии работы с портфелем, дизайн-систему и визуальную подачу изменений.",
+           "I designed a dashboard for a crypto investor: the data structure, portfolio flows, the design system and how changes are shown.")),
+    ("ul", [
+      ("Переработал палитру: отказался от чистого чёрного в пользу нейтральных тонов с фиолетовым оттенком — по оценке 8 тестовых пользователей, усталость при длительной работе снизилась субъективно на 25%.",
+       "Reworked the palette, swapping pure black for violet-tinted neutrals — 8 test users rated fatigue during long sessions about 25% lower."),
+      ("Ввёл правило одной градиентной кнопки на экран — время поиска главного действия сократилось на 20%.",
+       "Introduced a rule of one gradient button per screen — time to find the primary action dropped by 20%."),
+      ("Использовал двойное кодирование изменений (стрелка + цвет) — доля ошибок при считывании динамики портфеля снизилась на 30%.",
+       "Used double encoding for changes (arrow + colour) — errors when reading portfolio movement fell by 30%."),
+      ("Собрал 8 экранов, 51 цветовую переменную и 30+ компонентов в единую дизайн-систему.",
+       "Brought 8 screens, 51 colour variables and 30+ components together into one design system."),
+      ("Сократил количество ручных правок при передаче в разработку примерно на 25% за счёт компонентов и токенов.",
+       "Cut manual fixes at developer handoff by about 25% thanks to components and tokens."),
+    ]),
   ]),
  ],
 })
@@ -854,7 +904,8 @@ for _c in CASES:
             (("Открыть Арену Live", "Open Arena Live"), "/arena-live/"),
             (("Дизайн-система в коде", "Design system in code"), "/arena-live/system.html"),
         ]
-        _c["sections"].append((("Арена Live: система на живых данных", "Arena Live: the system on live data"), [
+        # before the closing "Experience and results" section
+        _c["sections"].insert(-1, (("Арена Live: система на живых данных", "Arena Live: the system on live data"), [
           ("p", ("Чтобы проверить дизайн-систему Арены в деле, я выгрузил её переменные из Figma в код и собрал на них беттинг-виджет на реальных матчах: live-счёт, коэффициенты, фильтры и купон. 43 примитива, 27 семантических токенов в двух режимах, 18 размеров и 12 текстовых стилей превращаются скриптом в CSS-переменные. Тёмная тема — второй режим той же коллекции, как в Figma.",
                  "To test Arena's design system for real, I exported its Figma variables to code and built a betting widget on live matches with it: live scores, odds, filters and a bet slip. 43 primitives, 27 semantic tokens in two modes, 18 sizes and 12 text styles become CSS variables through a script. The dark theme is the second mode of the same collection, exactly as in Figma.")),
           ("img", "live-desk-light", ("Арена Live на десктопе: живые матчи, коэффициенты, купон", "Arena Live on desktop: live matches, odds, bet slip"), "wide"),
