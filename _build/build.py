@@ -38,6 +38,7 @@ def img(name, alt, cls="", eager=False, sizes="100vw", zoom=True, vt=None):
 
 ARROW_OUT = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 ARROW_R = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+ARROW_DOWN = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v9M4 8l4 4 4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 CURSOR = '<svg class="cursor__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2l7.5 19 2.6-7.9L21 10.5z" fill="currentColor"/></svg>'
 I_TG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.2 2.9 11.4c-1 .4-1 1.6 0 1.9l4.6 1.5 1.8 5.6c.2.7 1.1.9 1.6.3l2.6-2.7 4.8 3.5c.6.4 1.4.1 1.6-.6l3-15c.2-1-.7-1.9-1.4-1.7Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m7.6 14.8 9.6-6.9" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>'
 I_MAIL = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>'
@@ -132,6 +133,8 @@ def contact_block():
     <div class="contact__ways">
       <a class="btn btn--solid" href="{CONTACT['telegram']}">{T(("Написать в Telegram", "Message on Telegram"))}{ARROW_R}</a>
       <a class="btn" href="mailto:{CONTACT['email']}">{CONTACT['email']}</a>
+      <a class="btn l-ru" lang="ru" href="/cv/Kadzhik_Vardanyan_CV_RU.pdf" download>Скачать CV{ARROW_DOWN}</a>
+      <a class="btn l-en" lang="en" href="/cv/Kadzhik_Vardanyan_CV_EN.pdf" download>Download CV{ARROW_DOWN}</a>
     </div>
   </div>
 </section>
