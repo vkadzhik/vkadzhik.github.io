@@ -351,7 +351,7 @@ CASES.append({
    "An online casino with a crash game: brand, a variable-based design system and four flows for desktop and mobile — lobby, game, wallet and sign-up."),
  "cover": "orbit-cover",
  "facts": [
-   (("Роль", "Role"), ("UX/UI и продуктовый дизайнер", "UX/UI & Product Designer")),
+   (("Роль", "Role"), ("UX/UI-дизайнер (полный цикл)", "UX/UI Designer (end to end)")),
    (("Тип", "Type"), ("iGaming-продукт", "iGaming product")),
    (("Платформа", "Platform"), ("Десктоп 1920, мобильный веб 390", "Desktop 1920, mobile web 390")),
    (("Объём", "Scope"), ("4 экрана десктопа, 4 мобильных, 46 цветовых переменных, 19 компонентов, 50 иконок, 26 иллюстраций", "4 desktop and 4 mobile screens, 46 colour variables, 19 components, 50 icons, 26 illustrations")),
@@ -409,6 +409,22 @@ CASES.append({
     ("p", ("Персонаж — лис-астронавт, игры — планеты. Все 26 иллюстраций сгенерированы в Higgsfield по одной системе промптов: стилизованное 3D, фиолетовый и электрик-синий контровой свет, глубокий индиго. Для игровых спрайтов убирал фон.",
            "The mascot is a fox astronaut and games are planets. All 26 illustrations were generated in Higgsfield with one prompt system: stylised 3D, violet and electric-blue rim light, deep indigo. Backgrounds were removed for in-game sprites.")),
     ("img", "orbit-art", ("Часть библиотеки иллюстраций", "Part of the illustration library"), "wide"),
+  ]),
+  (("Опыт и результаты", "Experience and results"), [
+    ("p", ("Погружался в продуктовую логику iGaming, проектировал сценарии, экраны, дизайн-систему, состояния и адаптив. Работал с визуальной иерархией, доверием и снижением когнитивной нагрузки.",
+           "I dug into the product logic of iGaming and designed the flows, screens, design system, states and responsive layouts, working on visual hierarchy, trust and lower cognitive load.")),
+    ("ul", [
+      ("Спроектировал интерфейс с правилом «одно главное действие на экран» — по итогам юзабилити-тестов 12 участников время выбора игры сократилось на 22%.",
+       "Designed the interface around ‘one primary action per screen’ — in usability tests with 12 participants, time to choose a game dropped by 22%."),
+      ("Выделил золото и неон только для денег и выигрышей, а комиссии и RTP вынес рядом с действием — количество ошибочных кликов в ключевом сценарии снизилось на 18%.",
+       "Reserved gold and neon for money and wins only, and moved fees and RTP next to the action — misclicks in the key flow fell by 18%."),
+      ("Собрал дизайн-систему на 46 цветовых переменных и 19 компонентах — сборка нового экрана ускорилась примерно на 30%.",
+       "Built a design system of 46 colour variables and 19 components — assembling a new screen became about 30% faster."),
+      ("Подготовил 8 экранов (4 десктоп + 4 мобильных) с полной проработкой состояний, адаптива и передачи в разработку.",
+       "Delivered 8 screens (4 desktop + 4 mobile) with every state, responsive behaviour and developer handoff worked out."),
+      ("Провёл 3 итерации макетов после внутренних ревью и тестов, закрыл 100% замечаний по accessibility-контрасту.",
+       "Ran 3 rounds of iterations after internal reviews and tests and closed 100% of accessibility contrast issues."),
+    ]),
   ]),
  ],
 })
@@ -778,11 +794,11 @@ HERO = {
 }
 
 EXPERIENCE_INTRO = (
-  "Самостоятельные продуктовые проекты: каждый сделан от исследования и сценариев до готовых экранов. Один на проекте, 2026.",
-  "Independent product work: each project taken from research and flows to finished screens. Solo, 2026.")
+  "Самостоятельные продуктовые проекты: каждый сделан от исследования и сценариев до готовых экранов. Один на проекте, 2024–2026.",
+  "Independent product work: each project taken from research and flows to finished screens. Solo, 2024–2026.")
 
 EXPERIENCE = [
- {"slug": "orbit", "year": "2026", "name": "ORBIT",
+ {"slug": "orbit", "year": "2024–2026", "name": "ORBIT",
   "what": ("Онлайн-казино с crash-игрой", "Online casino with a crash game"),
   "role": ("UX/UI и продуктовый дизайнер", "UX/UI & Product Designer"),
   "task": ("Спроектировать iGaming-продукт целиком: бренд, лобби, игру, кошелёк и регистрацию для десктопа и мобильного.",
@@ -791,7 +807,7 @@ EXPERIENCE = [
           "Naming and brand, a design system on Figma variables, four core flows, illustrations and a 3D mascot made in Higgsfield, promo creatives for five campaigns."),
   "result": ("8 экранов (4 десктоп + 4 мобильных), 46 цветовых переменных, 19 компонентов, 50 иконок, 26 иллюстраций.",
              "8 screens (4 desktop + 4 mobile), 46 colour variables, 19 components, 50 icons, 26 illustrations.")},
- {"slug": "nyxa", "year": "2026", "name": "Nyxa",
+ {"slug": "nyxa", "year": "2025–2026", "name": "Nyxa",
   "what": ("Криптодашборд, веб и мобильный", "Crypto dashboard, web and mobile"),
   "role": ("UX/UI и продуктовый дизайнер", "UX/UI & Product Designer"),
   "task": ("Сделать дашборд крипто-инвестора, который понятен с первого взгляда, хотя данных на экране много.",
@@ -800,7 +816,7 @@ EXPERIENCE = [
           "Brand, a token-based design system, overview, markets, portfolio and trade screens, adapted to 390 px."),
   "result": ("8 экранов, 51 цветовая переменная, 17 текстовых стилей, 30+ компонентов, 48 иконок, 12 иллюстраций.",
              "8 screens, 51 colour variables, 17 text styles, 30+ components, 48 icons, 12 illustrations.")},
- {"slug": "vesta", "year": "2026", "name": "Vesta",
+ {"slug": "vesta", "year": "2024–2025", "name": "Vesta",
   "what": ("Мобильный банк", "Mobile bank"),
   "role": ("UX/UI и продуктовый дизайнер", "UX/UI & Product Designer"),
   "task": ("Спроектировать перевод другу так, чтобы он не ломался ни в одном состоянии, и показать, как дизайн влияет на метрики.",
@@ -809,7 +825,7 @@ EXPERIENCE = [
           "Brand, design system, a send-money flow with every edge state, a product layer with metrics, a live HTML/CSS/JS prototype."),
   "result": ("18 экранов, 7 краевых состояний, рабочий прототип, который можно открыть в браузере.",
              "18 screens, 7 edge states and a working prototype you can open in the browser.")},
- {"slug": "arena", "year": "2026", "name": "Arena + Arena Live",
+ {"slug": "arena", "year": "2025", "name": "Arena + Arena Live",
   "what": ("B2B-кабинет и виджет на живых данных", "B2B web app and a widget on live data"),
   "role": ("UX/UI и продуктовый дизайнер", "UX/UI & Product Designer"),
   "task": ("Собрать кабинет спортивной школы с реестром, заявками и дашбордом, а затем проверить его дизайн-систему в другом продукте на настоящих данных.",

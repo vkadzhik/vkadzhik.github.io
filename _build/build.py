@@ -11,6 +11,7 @@ NAME = ("Каджик Варданян", "Kadzhik Vardanyan")
 e = html.escape
 BY = {c["slug"]: c for c in CASES}
 LISTED = [BY[s] for s in SHOW]
+YEARS = {x["slug"]: x["year"] for x in EXPERIENCE}
 
 
 def T(pair, tag="span", cls="", attrs=""):
@@ -300,7 +301,8 @@ def build_case(c):
         num = ""
     title = (f"{c['name'][0]} — кейс, Каджик Варданян", f"{c['name'][1]} — case study, Kadzhik Vardanyan")
     out = [head(title, c["summary"], f"/cases/{c['slug']}.html", image=src(c["cover"]), depth=1), header(1, "work")]
-    facts = list(c["facts"]) + [(("Срок", "Timeline"), ("2026", "2026"))]
+    year = YEARS.get(c["slug"], "2026")
+    facts = list(c["facts"]) + [(("Срок", "Timeline"), (year, year))]
     facts_html = "".join(f'<div class="fact"><dt>{T(t)}</dt><dd>{T(d)}</dd></div>' for t, d in facts)
     links = "".join(f'<a class="btn" href="{u}">{T(l)}{ARROW_OUT}</a>' for l, u in c["links"])
     secs = []
